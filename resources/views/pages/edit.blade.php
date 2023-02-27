@@ -27,7 +27,7 @@
                             <livewire:upload-avatar />
                         </div>
 
-                        
+                        @livewireScripts()
 
                     </div>
                 </div>
