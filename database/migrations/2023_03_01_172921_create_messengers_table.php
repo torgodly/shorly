@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('messengers', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('name');
+            $table->string('value')->nullable()->default(null);
+            $table->foreignId('user_id');
             $table->timestamps();
         });
     }

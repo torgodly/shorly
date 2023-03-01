@@ -5,6 +5,8 @@ namespace App\Http\Livewire;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Livewire\Component;
+use function Pest\Laravel\get;
+use function PHPUnit\Framework\isEmpty;
 
 class Page extends Component
 {
@@ -12,6 +14,7 @@ class Page extends Component
     public $title;
     public $description;
 
+    public $buttons;
 
     public function render()
     {
@@ -19,7 +22,9 @@ class Page extends Component
 
         $this->title = Auth::user()->page?->title;
         $this->description = Auth::user()->page?->description;
-        return view('livewire.page');
+
+        $this->buttons = Auth::user()->messengers()->whereNotNull('value')->get();
+        return view('livewire.page', ['buttons' => $this->buttons]);
     }
 
     public function delete_image(){

@@ -26,10 +26,10 @@ class Headings extends Component
 
     public function save(){
         $this->validate();
-
+//TODO: make this update or create
         Auth::user()->page?->update([
-            'title' => $this->title,
-            'description' => $this->description
+            'title' => empty($this->title) ? null : $this->title,
+            'description' => empty($this->description) ? null : $this->description
         ]);
     }
 
