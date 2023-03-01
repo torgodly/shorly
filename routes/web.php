@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\PageCntroller;
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,8 +30,8 @@ Route::middleware('auth')->group(function () {
 
 
 
-    Route::get('page', [PageCntroller::class, 'edit'])->name('page');
-    Route::post('page', [PageCntroller::class, 'update'])->name('page');
+    Route::get('page', [PageController::class, 'edit'])->name('page');
+    Route::post('page', [PageController::class, 'update'])->name('page');
 
 });
 

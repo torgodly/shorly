@@ -7,33 +7,33 @@ import Dashboard from '@uppy/dashboard'
 import ImageEditor from '@uppy/image-editor'
 import Webcam from '@uppy/webcam'
 import Uppy from '@uppy/core'
-
-
-// And their styles (for UI plugins)
-// With webpack and `style-loader`, you can import them like this:
+// import css
 import '@uppy/core/dist/style.css'
 import '@uppy/dashboard/dist/style.css'
 import '@uppy/image-editor/dist/style.css'
 import '@uppy/webcam/dist/style.css'
+
+// alpine init
 window.Alpine = Alpine;
 
 Alpine.start();
 
+//uppy init
 const uppy = new Uppy({
-        id: 'uppy',
-        autoProceed: false,
-        allowMultipleUploadBatches: false,
-        debug: false,
-        restrictions: {
-            maxFileSize: 1500000,
-            minFileSize: null,
-            maxTotalFileSize: null,
-            maxNumberOfFiles: 1,
-            minNumberOfFiles: 1,
-            allowedFileTypes: ['image/*', '.jpg', '.jpeg', '.png', '.gif'],
-            requiredMetaFields: [],
-        },
-        meta: {},
+    id: 'uppy',
+    autoProceed: false,
+    allowMultipleUploadBatches: false,
+    debug: false,
+    restrictions: {
+        maxFileSize: 1500000,
+        minFileSize: null,
+        maxTotalFileSize: null,
+        maxNumberOfFiles: 1,
+        minNumberOfFiles: 1,
+        allowedFileTypes: ['image/*', '.jpg', '.jpeg', '.png', '.gif'],
+        requiredMetaFields: [],
+    },
+    meta: {},
     // onBeforeFileAdded: (currentFile, files) => currentFile,
     // onBeforeUpload: (files) => {},
     // locale: {},
@@ -41,8 +41,6 @@ const uppy = new Uppy({
     // logger: justErrorsLogger,
     // infoTimeout: 5000,
 })
-
-
 uppy.use(Dashboard, {
     id: 'Dashboard',
     target: 'body',
@@ -96,6 +94,8 @@ uppy.use(ImageEditor, {
         background: true,
         autoCropArea: 1,
         responsive: true,
+        width: 100,
+        height: 100,
         croppedCanvasOptions: {},
     },
     actions: {
@@ -135,10 +135,6 @@ uppy.use(Webcam, {
 })
 uppy.use(XHRUpload, {endpoint: './page'})
 
-uppy.on('upload-success', () => {
-    // uppy.cancelAll()
-    // uppy.close()
-})
-uppy.on('complete', (result) => {
-    console.log('Upload complete! We’ve uploaded these files:', result.successful)
-})
+
+
+

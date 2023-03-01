@@ -20,6 +20,7 @@
         "@uppy/form": "^3.0.1",
         "@uppy/image-editor": "^2.1.0",
         "@uppy/webcam": "^3.2.1",
-        "@uppy/xhr-upload": "^3.1.0"
+        "@uppy/xhr-upload": "^3.1.0",
+        "tailwind-scrollbar-hide": "^1.1.7"
     }
 }
