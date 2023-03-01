@@ -31,6 +31,8 @@ Route::middleware('auth')->group(function () {
 
 
     Route::get('page', [PageCntroller::class, 'edit'])->name('page');
+    Route::post('page', [PageCntroller::class, 'update'])->name('page');
+
 });
 
 require __DIR__.'/auth.php';
