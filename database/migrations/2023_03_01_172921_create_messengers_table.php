@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('value')->nullable()->default(null);
+            $table->string('message')->nullable();
             $table->foreignId('user_id');
             $table->timestamps();
         });

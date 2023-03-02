@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Page;
+use App\Models\Heading;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -35,7 +35,7 @@ class PageController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Page $page)
+    public function show(Heading $page)
     {
         //
     }
@@ -43,7 +43,7 @@ class PageController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Page $page)
+    public function edit(Heading $page)
     {
         return view('pages.edit');
 
@@ -52,7 +52,7 @@ class PageController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Page $page)
+    public function update(Request $request, Heading $page)
     {
         if (request()->has('file')) {
             $fileName = Auth::user()->id . '.png';
@@ -64,7 +64,7 @@ class PageController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Page $page)
+    public function destroy(Heading $page)
     {
         //
     }

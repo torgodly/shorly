@@ -1,7 +1,7 @@
 <div>
 
     <div class="flex justify-between items-center ">
-        <button type="button"
+        <button type="button" wire:click="clear"
             class="inline-flex items-center rounded-full border border-transparent bg-red-600 p-2 text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                 stroke="currentColor" class="w-5 h-5">
@@ -24,7 +24,7 @@
     <div class="mt-10 space-y-5">
         <div>
             <input wire:model="title" type="text" name="text"
-                class="block w-full h-12 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-sm placeholder-[#666666] md:text-xl"
+                class="block w-full h-12 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-sm placeholder:text-gray-400 md:text-xl"
                 placeholder="Title">
             @error('title')
                 <span class="text-red-600">{{ $message }}</span>
@@ -33,7 +33,7 @@
 
         <div>
             <textarea wire:model="description"
-                class="block w-full h-16 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-sm placeholder-[#666666] md:text-xl"
+                class="block w-full h-16 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-sm placeholder:text-gray-400 md:text-xl"
                 placeholder="Description"></textarea>
             @error('description')
                 <span class="text-red-600">{{ $message }}</span>

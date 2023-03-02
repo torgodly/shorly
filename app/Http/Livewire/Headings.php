@@ -11,8 +11,8 @@ class Headings extends Component
     public $description;
 
     protected $rules = [
-        'title' => 'required|min:6',
-        'description' => 'required|',
+        'title' => 'nullable|max:225',
+        'description' => 'nullable|max:225',
     ];
     public function mount(){
         $this->title = Auth::user()->page?->title;
@@ -26,11 +26,25 @@ class Headings extends Component
 
     public function save(){
         $this->validate();
-//TODO: make this update or create
-        Auth::user()->page?->update([
+        Auth::user()->page()->updateOrCreate(
+            ['user_id' => 1],
+            [
             'title' => empty($this->title) ? null : $this->title,
             'description' => empty($this->description) ? null : $this->description
         ]);
+    }
+
+    public function clear(){
+
+        $this->title = null;
+        $this->description = null;
+
+        Auth::user()->page()->updateOrCreate(
+            ['user_id' => 1],
+            [
+                'title' => null,
+                'description' => null
+            ]);
     }
 
 }

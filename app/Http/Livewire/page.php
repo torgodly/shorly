@@ -8,7 +8,7 @@ use Livewire\Component;
 use function Pest\Laravel\get;
 use function PHPUnit\Framework\isEmpty;
 
-class Page extends Component
+class page extends Component
 {
     public $imgurl;
     public $title;
@@ -19,11 +19,10 @@ class Page extends Component
     public function render()
     {
         $this->imgurl = Auth::user()->id.'.png?'.rand(1,10000);
-
         $this->title = Auth::user()->page?->title;
         $this->description = Auth::user()->page?->description;
 
-        $this->buttons = Auth::user()->messengers()->whereNotNull('value')->get();
+        $this->buttons = Auth::user()->messengers()->orderBy('id','asc')->whereNotNull('value')->get();
         return view('livewire.page', ['buttons' => $this->buttons]);
     }
 

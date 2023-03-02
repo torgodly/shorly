@@ -1,6 +1,11 @@
 import './bootstrap';
 
 import Alpine from 'alpinejs';
+import swipePlugin from "alpinejs-swipe";
+
+import 'livewire-sortable'
+
+
 // Import the plugins
 import XHRUpload from '@uppy/xhr-upload'
 import Dashboard from '@uppy/dashboard'
@@ -15,10 +20,11 @@ import '@uppy/webcam/dist/style.css'
 
 // alpine init
 window.Alpine = Alpine;
+Alpine.plugin(swipePlugin);
 
 Alpine.start();
 
-//uppy init
+// uppy init
 const uppy = new Uppy({
     id: 'uppy',
     autoProceed: false,

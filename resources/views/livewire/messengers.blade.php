@@ -1,6 +1,6 @@
 <div>
     <div class="flex justify-between items-center ">
-        <button type="button"
+        <button type="button" wire:click="clear"
                 class="inline-flex items-center rounded-full border border-transparent bg-red-600 p-2 text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                  stroke="currentColor" class="w-5 h-5">
@@ -29,7 +29,7 @@
                 <i class="fa-brands fa-facebook-messenger text-2xl"></i>
             </span>
             <input type="text" wire:model="messenger"
-                   class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 text-sm md:text-base placeholder-[#666666] font-medium "
+                   class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 text-sm md:text-base placeholder:text-gray-400 font-medium "
                    placeholder="Messenger/Facebook username">
             @error('messenger')
             <span class="text-red-600">{{ $message }}</span>
@@ -40,9 +40,10 @@
             <span
                 class="inline-flex items-center rounded-l-md border border-r-0 border-gray-300 bg-gray-50 px-3 text-gray-500 sm:text-sm">
                 <i class="fa-brands fa-telegram text-2xl"></i>
+
             </span>
             <input type="text" wire:model="telegram"
-                   class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 text-sm md:text-base placeholder-[#666666] font-medium"
+                   class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 text-sm md:text-base placeholder:text-gray-400 font-medium"
                    placeholder="telegram username">
             @error('telegram')
             <span class="text-red-600">{{ $message }}</span>
@@ -57,12 +58,12 @@
                     <i class="fa-brands fa-whatsapp text-2xl"></i>
                 </span>
                 <input type="number" wire:model="whatsapp"
-                       class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-tr-md border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 text-sm md:text-base placeholder-[#666666] font-medium"
+                       class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-tr-md border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 text-sm md:text-base placeholder:text-gray-400 font-medium"
                        placeholder="WhatsApp phone number with country code ( +218...)">
             </div>
             <textarea placeholder="Predefined text: e.g Give me further information about..."
                       wire:model="whatsapp_message"
-                      class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-b-md border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 text-sm md:text-base placeholder-[#666666] font-medium"></textarea>
+                      class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-b-md border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 text-sm md:text-base placeholder:text-gray-400 font-medium"></textarea>
             @error('whatsapp')
             <span class="text-red-600">{{ $message }}</span>
             @enderror
@@ -78,7 +79,7 @@
                 <i class="fa-brands fa-skype text-2xl"></i>
             </span>
             <input type="text" wire:model="skype"
-                   class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 text-sm md:text-base placeholder-[#666666] font-medium"
+                   class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 text-sm md:text-base placeholder:text-gray-400 font-medium"
                    placeholder="skype username">
             @error('skype')
             <span class="text-red-600">{{ $message }}</span>
@@ -92,13 +93,13 @@
                     <i class="fa-regular fa-envelope text-2xl"></i>
                 </span>
                 <input type="email" wire:model="email"
-                       class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-tr-md border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 text-sm md:text-base placeholder-[#666666] font-medium"
+                       class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-tr-md border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 text-sm md:text-base placeholder:text-gray-400 font-medium"
                        placeholder="Email Address">
 
             </div>
 
             <textarea placeholder="subject:" wire:model="email_subject"
-                      class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-b-md border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 text-sm md:text-base placeholder-[#666666] font-medium"></textarea>
+                      class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-b-md border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 text-sm md:text-base placeholder:text-gray-400 font-medium"></textarea>
             @error('email')
             <span class="text-red-600">{{ $message }}</span>
             @enderror
@@ -111,9 +112,10 @@
             <span
                 class="inline-flex items-center rounded-l-md border border-r-0 border-gray-300 bg-gray-50 px-3 text-gray-500 sm:text-sm">
                 <i class="fa-solid fa-phone text-2xl"></i>
+
             </span>
             <input type="number" wire:model="phone_number"
-                   class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 text-sm md:text-base placeholder-[#666666] font-medium"
+                   class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 text-sm md:text-base placeholder:text-gray-400 font-medium"
                    placeholder="phone number with country code ( +218...)">
             @error('phone_number')
             <span class="text-red-600">{{ $message }}</span>
@@ -126,7 +128,7 @@
                 <i class="fa-brands fa-viber text-2xl"></i>
             </span>
             <input type="number" wire:model="viber"
-                   class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 text-sm md:text-base placeholder-[#666666] font-medium"
+                   class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 text-sm md:text-base placeholder:text-gray-400 font-medium"
                    placeholder="viber number">
             @error('viber')
             <span class="text-red-600">{{ $message }}</span>

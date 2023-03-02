@@ -53,7 +53,7 @@ class User extends Authenticatable
 
     public function page(): HasOne
     {
-        return $this->hasOne(Page::class);
+        return $this->hasOne(Heading::class);
     }
 
     public function MessengerValue($type){

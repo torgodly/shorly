@@ -8,6 +8,8 @@ use Livewire\Component;
 
 class Messengers extends Component
 {
+
+
     public $messenger;
     public $telegram;
     public $skype;
@@ -41,12 +43,8 @@ class Messengers extends Component
         $this->skype = Auth::user()->MessengerValue('skype');
         $this->phone_number = Auth::user()->MessengerValue('phonenumber');
         $this->viber = Auth::user()->MessengerValue('viber');
-
-
         $this->whatsapp = Auth::user()->MessengerValue('whatsapp');
         $this->whatsapp_message = Auth::user()->MessengerValue('whatsapp_message');
-
-
         $this->email = Auth::user()->MessengerValue('email');
         $this->email_subject = Auth::user()->MessengerValue('email_subject');
     }
@@ -59,63 +57,105 @@ class Messengers extends Component
 
     public function save()
     {
-        $this->validate();
+        if ($this->validate()){
+            $this->showMessengers = false;
+        }
 
-        Messenger::updateOrCreate([
+
+        Auth::user()->messengers()->updateOrCreate([
             'name' => 'messenger',
-            'user_id' => Auth::user()->id
         ], [
             'value' => empty($this->messenger) ? null : $this->messenger
         ]);
-        Messenger::updateOrCreate([
+        Auth::user()->messengers()->updateOrCreate([
             'name' => 'telegram',
-            'user_id' => Auth::user()->id
         ], [
             'value' => empty($this->telegram) ? null : $this->telegram
         ]);
-        Messenger::updateOrCreate([
+        Auth::user()->messengers()->updateOrCreate([
             'name' => 'whatsapp',
-            'user_id' => Auth::user()->id
         ], [
-            'value' => empty($this->whatsapp) ? null : $this->whatsapp
+            'value' => empty($this->whatsapp) ? null : $this->whatsapp,
+            'message' => empty($this->whatsapp_message) ? null : $this->whatsapp_message
         ]);
-        Messenger::updateOrCreate([
-            'name' => 'whatsapp_message',
-            'user_id' => Auth::user()->id
-        ], [
-            'value' => empty($this->whatsapp_message) ? null : $this->whatsapp_message
-        ]);
-        Messenger::updateOrCreate([
+        Auth::user()->messengers()->updateOrCreate([
             'name' => 'email',
-            'user_id' => Auth::user()->id
         ], [
-            'value' => empty($this->email) ? null : $this->email
+            'value' => empty($this->email) ? null : $this->email,
+            'message' => empty($this->email_subject) ? null : $this->email_subject
         ]);
-        Messenger::updateOrCreate([
-            'name' => 'email_subject',
-            'user_id' => Auth::user()->id
-        ], [
-            'value' => empty($this->email_subject) ? null : $this->email_subject
-        ]);
-        Messenger::updateOrCreate([
+        Auth::user()->messengers()->updateOrCreate([
             'name' => 'viber',
-            'user_id' => Auth::user()->id
         ], [
             'value' => empty($this->viber) ? null : $this->viber
         ]);
-        Messenger::updateOrCreate([
+        Auth::user()->messengers()->updateOrCreate([
             'name' => 'skype',
-            'user_id' => Auth::user()->id
         ], [
             'value' => empty($this->skype) ? null : $this->skype
         ]);
-        Messenger::updateOrCreate([
-            'name' => 'phone_number',
-            'user_id' => Auth::user()->id
+        Auth::user()->messengers()->updateOrCreate([
+            'name' => 'phone',
         ], [
             'value' => empty($this->phone_number) ? null : $this->phone_number
         ]);
 
 
+    }
+
+    public function clear(){
+
+
+
+
+        $this->messenger = null;
+        $this->telegram = null;
+        $this->skype = null;
+        $this->phone_number = null;
+        $this->viber = null;
+        $this->whatsapp = null;
+        $this->whatsapp_message = null;
+        $this->email = null;
+        $this->email_subject = null;
+
+
+
+        Auth::user()->messengers()->updateOrCreate([
+            'name' => 'messenger',
+        ], [
+            'value' => null
+        ]);
+        Auth::user()->messengers()->updateOrCreate([
+            'name' => 'telegram',
+        ], [
+            'value' => null
+        ]);
+        Auth::user()->messengers()->updateOrCreate([
+            'name' => 'whatsapp',
+        ], [
+            'value' => null,
+            'message' => null
+        ]);
+        Auth::user()->messengers()->updateOrCreate([
+            'name' => 'email',
+        ], [
+            'value' => null,
+            'message' => null
+        ]);
+        Auth::user()->messengers()->updateOrCreate([
+            'name' => 'viber',
+        ], [
+            'value' => null
+        ]);
+        Auth::user()->messengers()->updateOrCreate([
+            'name' => 'skype',
+        ], [
+            'value' => null
+        ]);
+        Auth::user()->messengers()->updateOrCreate([
+            'name' => 'phone',
+        ], [
+            'value' => null
+        ]);
     }
 }
