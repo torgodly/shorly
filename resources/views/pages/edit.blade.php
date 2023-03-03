@@ -5,5 +5,5 @@
         </h2>
     </x-slot>  --}}
 
-    @livewire('page')
+    @livewire('page.edit')
 </x-app-layout>

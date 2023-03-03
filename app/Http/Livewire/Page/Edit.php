@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Page;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Livewire\Component;
 
-class page extends Component
+class Edit extends Component
 {
 
     public $showHeadings = false;
@@ -79,9 +79,9 @@ class page extends Component
 
         $this->messengers = Auth::user()->messengers()->orderBy('id', 'desc')->whereNotNull('value')->get();
         $this->sociallinks = Auth::user()->sociallinks()->orderBy('id', 'desc')->whereNotNull('value')->get();
-        return view('livewire.page', ['messengers' => $this->messengers, 'sociallinks' => $this->sociallinks]);
-    }
 
+        return view('livewire.page.edit', ['messengers' => $this->messengers, 'sociallinks' => $this->sociallinks]);
+    }
 
     public function saveHeadings()
     {
@@ -355,4 +355,5 @@ class page extends Component
         File::delete(public_path('images/UserAvatar/' . Auth::user()->id . '.png'));
         return redirect(request()->header('Referer'));
     }
+
 }
