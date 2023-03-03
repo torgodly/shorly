@@ -57,9 +57,7 @@ class Messengers extends Component
 
     public function save()
     {
-        if ($this->validate()){
-            $this->showMessengers = false;
-        }
+        $this->validate();
 
 
         Auth::user()->messengers()->updateOrCreate([

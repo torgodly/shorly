@@ -14,7 +14,8 @@ class page extends Component
     public $title;
     public $description;
 
-    public $buttons;
+    public $messengers;
+    public $sociallinks;
 
     public function render()
     {
@@ -22,8 +23,9 @@ class page extends Component
         $this->title = Auth::user()->page?->title;
         $this->description = Auth::user()->page?->description;
 
-        $this->buttons = Auth::user()->messengers()->orderBy('id','asc')->whereNotNull('value')->get();
-        return view('livewire.page', ['buttons' => $this->buttons]);
+        $this->messengers = Auth::user()->messengers()->orderBy('id','desc')->whereNotNull('value')->get();
+        $this->sociallinks = Auth::user()->sociallinks()->orderBy('id', 'desc')->whereNotNull('value')->get();
+        return view('livewire.page', ['messengers' => $this->messengers, 'sociallinks' => $this->sociallinks]);
     }
 
     public function delete_image(){
@@ -31,4 +33,6 @@ class page extends Component
         return redirect(request()->header('Referer'));
 
     }
+
+
 }

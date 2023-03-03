@@ -51,6 +51,11 @@ class User extends Authenticatable
         return $this->hasMany(Messenger::class);
     }
 
+    public function sociallinks(): HasMany
+    {
+        return $this->hasMany(SocialLink::class);
+    }
+
     public function page(): HasOne
     {
         return $this->hasOne(Heading::class);
@@ -59,5 +64,10 @@ class User extends Authenticatable
     public function MessengerValue($type){
 
        return $this->messengers()->where('name', $type)->first()?->value;
+    }
+
+    public function SocialLink($type){
+
+       return $this->sociallinks()->where('name', $type)->first()?->value;
     }
 }

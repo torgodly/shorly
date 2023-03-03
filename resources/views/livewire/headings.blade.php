@@ -33,7 +33,7 @@
 
         <div>
             <textarea wire:model="description"
-                class="block w-full h-16 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-sm placeholder:text-gray-400 md:text-xl"
+                class=" p-2 block w-full h-16 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-sm placeholder:text-gray-400 md:text-xl"
                 placeholder="Description"></textarea>
             @error('description')
                 <span class="text-red-600">{{ $message }}</span>

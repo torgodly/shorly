@@ -1,13 +1,14 @@
 <div>
-    <div class="py-12 flex justify-center ">
+    <div class="py-12 flex justify-center " wire:poll.2s>
         <div class="py-6 text-gray-900 flex flex-col justify-center items-center w-[400px] bg-white">
-            <div class="flex flex-col justify-center items-center " x-data="{Headings:false, Messengers:false, SocialLinks: false }">
+            <div class="flex flex-col justify-center items-center "
+                 x-data="{Headings:false, Messengers:false, SocialLinks: false }">
 
                 <div class="space-y-4">
                     <div class="px-6 flex justify-center items-center ">
 
                         @if(file_exists('images/UserAvatar/'.Auth::user()->id.'.png'))
-                            <div wire:poll.keep-alive class="relative">
+                            <div  class="relative">
                                 <img src="{{'images/UserAvatar/'.$imgurl}}"
                                      class="rounded-full w-[100px] h-[100px] flex justify-center items-center ">
                                 <button wire:click="delete_image"
@@ -37,16 +38,16 @@
                     </div>
 
 
-                    <div class="px-6 text-3xl  font-bold font-sans cursor-pointer text-center"
-                         wire:poll.keep-alive
+                    <div class="px-6 text-3xl   cursor-pointer text-center"
+{{--                         wire:poll.1s--}}
                          @click="Headings=!Headings">
                         @if(empty($title) and empty($description))
-                            <h1 class="border-b-2 border-dashed border-[#666666] text-[#666666]">{{__('Title Here')}}</h1>
+                            <h1 class="border-b-2 border-dashed border-[#666666] text-[#666666] font-bold font-sans">{{__('Title Here')}}</h1>
 
                         @else
-                            <div class="space-y-4">
-                                <h1>{{$title}}</h1>
-                                <h1 class="font-medium text-base ">{{$description}}</h1>
+                            <div class="space-y-4 ">
+                                <h1 class="font-bold font-headings ">{{$title}}</h1>
+                                <span class="font-footer font-medium text-base ">{{$description}}</span>
                             </div>
 
                         @endif
@@ -56,33 +57,35 @@
 
                 <div class="space-y-5 mt-8">
                     <div class="w-[400px] h-fit flex justify-center px-2">
-                        @if(empty($buttons->toArray()))
+                        @if(empty($messengers->toArray()))
                             <button @click="Messengers = true"
                                     class="border-2 border-dashed border-[#666666] text-[#666666] rounded-lg text-xl font-bold px-16    py-2">
                                 {{__('+ Add Messengers')}}
                             </button>
                         @else
-                            <div class=" w-full flex justify-center flex-wrap-reverse  gap-x-5 gap-y-2 ">
-                                @foreach($buttons as $button)
-                                    @if($button->name == 'messenger')
+                            <div class=" w-full flex justify-center flex-wrap-reverse  gap-x-[18px] gap-y-2 ">
+                                @foreach($messengers as $messenger)
+                                    @if($messenger->name == 'messenger')
 
                                         <button @click="Messengers = true"
-                                                class=" grow bg-black min-w-[29.5%] h-[54px] rounded-xl"><i
-                                                class="fa-brands fa-facebook-messenger text-3xl text-white"></i></button>
-                                    @elseif($button->name == 'phone')
+                                                class=" grow bg-black min-w-[29.5%] h-[54px] rounded-xl "><i
+                                                class="fa-brands fa-facebook-messenger text-3xl text-white"></i>
+                                        </button>
+                                    @elseif($messenger->name == 'phone')
                                         <button @click="Messengers = true"
-                                                class=" grow bg-black min-w-[29.5%] h-[54px] rounded-xl"><i
+                                                class=" grow bg-black min-w-[29.5%] h-[54px] rounded-xl "><i
                                                 class="fa-solid fa-phone text-2xl text-white"></i></button>
-                                    @elseif($button->name == 'email')
+                                    @elseif($messenger->name == 'email')
                                         <button @click="Messengers = true"
-                                                class=" grow bg-black min-w-[29.5%] h-[54px] rounded-xl"><i
+                                                class=" grow bg-black min-w-[29.5%] h-[54px] rounded-xl "><i
                                                 class="fa-regular fa-envelope text-2xl text-white"></i>
                                         </button>
 
                                     @else
                                         <button @click="Messengers = true"
-                                                class=" grow bg-black min-w-[29.5%] h-[54px] rounded-xl"><i
-                                                class="fa-brands fa-{{$button->name}} text-3xl text-white"></i></button>
+                                                class=" grow bg-black min-w-[29.5%] h-[54px] rounded-xl "><i
+                                                class="fa-brands fa-{{$messenger->name}} text-3xl text-white"></i>
+                                        </button>
 
                                     @endif
 
@@ -92,13 +95,17 @@
 
                     </div>
                     <div class="w-[400px] h-fit flex justify-center px-2">
-                        @if(empty($buttons->toArray()))
+                        @if(empty($sociallinks->toArray()))
                             <button @click="SocialLinks = true"
                                     class="border-2 border-dashed border-[#666666] text-[#666666] rounded-lg text-xl font-bold px-16    py-2">
                                 {{__('+ Add Social Links')}}
                             </button>
                         @else
-                            <div class=" w-full flex justify-center flex-wrap-reverse  gap-x-5 gap-y-2 ">
+                            <div class=" w-full flex justify-center flex-wrap gap-x-5  gap-y-2 ">
+                                @foreach($sociallinks as $sociallink)
+
+                                    <div class=" min-w-[26%] h-[54px]  rounded-xl flex justify-center items-center "><i @click="SocialLinks = true" class="fa-brands fa-{{$sociallink->name}} text-3xl cursor-pointer"></i></div>
+                                @endforeach
                             </div>
                         @endif
 
@@ -106,18 +113,18 @@
                 </div>
 
 
-
                 <div class="mt-10 w-full h-fit flex justify-center px-2">
-                  <footer class="flex gap-x-1 justify-center items-center">
-                      <p class="text-sm font-sans font-thin ">made by</p> <b class="font-bold ">torgodly</b>
-                  </footer>
+                    <footer class="flex gap-x-1 justify-center items-center">
+{{--                        <p class="text-sm  font-medium "><!--made by--></p> <b class="font-bold ">torgodly</b>--}}
+                        <span class="font-footer ">made by <strong>torgodly</strong></span>
+                    </footer>
 
                 </div>
 
 
-
-                <div x-show='Headings' x-swipe:down="Headings = false" @click.outside="Headings = false" style="display: none"
-                     class=" bg-white p-8 w-[100%] md:w-[45.6%] absolute bottom-0 rounded-t-3xl "
+                <div x-show='Headings' x-swipe:down="Headings = false" @click.outside="Headings = false"
+                     style="display: none"
+                     class=" bg-white p-8 w-[100%] md:w-[45.6%] fixed bottom-0 rounded-t-3xl "
                      x-transition:enter="transition origin-top ease-out duration-300"
                      x-transition:enter-start="transform translate-y-full opacity-0"
                      x-transition:enter-end="transform translate-y-0 opacity-100"
@@ -130,8 +137,9 @@
 
                 </div>
 
-                <div x-show='Messengers' x-swipe:down="Messengers = false" @click.outside="Messengers = false" style="display: none"
-                     class=" bg-white p-8 w-[100%] md:w-[45.6%] absolute bottom-0 rounded-t-3xl "
+                <div x-show='Messengers' x-swipe:down="Messengers = false" @click.outside="Messengers = false"
+                     style="display: none"
+                     class=" bg-white p-8 w-[100%] md:w-[45.6%] fixed bottom-0 rounded-t-3xl "
                      x-transition:enter="transition origin-top ease-out duration-300"
                      x-transition:enter-start="transform translate-y-full opacity-0"
                      x-transition:enter-end="transform translate-y-0 opacity-100"
@@ -143,8 +151,9 @@
                     @livewire('messengers')
                 </div>
 
-                <div x-show='SocialLinks' x-swipe:down="SocialLinks = false" @click.outside="SocialLinks = false" style="display: none"
-                     class=" bg-white p-8 w-[100%] md:w-[45.6%] absolute bottom-0 rounded-t-3xl "
+                <div x-show='SocialLinks' x-swipe:down="SocialLinks = false" @click.outside="SocialLinks = false"
+                     style="display: none"
+                     class=" bg-white p-8 w-[100%] md:w-[45.6%] fixed bottom-0 rounded-t-3xl "
                      x-transition:enter="transition origin-top ease-out duration-300"
                      x-transition:enter-start="transform translate-y-full opacity-0"
                      x-transition:enter-end="transform translate-y-0 opacity-100"
