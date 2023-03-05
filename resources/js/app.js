@@ -136,7 +136,64 @@ uppy.on("complete", () => {
 });
 
 let UserLink = document.getElementById("UserLink").href;
+let Username = document.getElementById("username").innerText;
 
+const qrCodeShow = new QRCodeStyling({
+    width: 200,
+    height: 200,
+    data: UserLink,
+    margin: 0,
+    qrOptions: {
+        typeNumber: "0",
+        mode: "Byte",
+        errorCorrectionLevel: "Q",
+    },
+    imageOptions: { hideBackgroundDots: true, imageSize: 0.4, margin: 0 },
+    dotsOptions: { type: "extra-rounded", color: "#000000" },
+    // backgroundOptions: { color: "#ffffff" },
+    dotsOptionsHelper: {
+        colorType: { single: true, gradient: false },
+        gradient: {
+            linear: true,
+            radial: false,
+            color1: "#6a1a4c",
+            color2: "#6a1a4c",
+            rotation: "0",
+        },
+    },
+    cornersSquareOptions: { type: "extra-rounded", color: "#000000" },
+    cornersSquareOptionsHelper: {
+        colorType: { single: true, gradient: false },
+        gradient: {
+            linear: true,
+            radial: false,
+            color1: "#000000",
+            color2: "#000000",
+            rotation: "0",
+        },
+    },
+    cornersDotOptions: { type: "", color: "#000000" },
+    cornersDotOptionsHelper: {
+        colorType: { single: true, gradient: false },
+        gradient: {
+            linear: true,
+            radial: false,
+            color1: "#000000",
+            color2: "#000000",
+            rotation: "0",
+        },
+    },
+    backgroundOptionsHelper: {
+        colorType: { single: true, gradient: false },
+        gradient: {
+            linear: true,
+            radial: false,
+            color1: "#ffffff",
+            color2: "#ffffff",
+            rotation: "0",
+        },
+    },
+});
 const qrCode = new QRCodeStyling({
     width: 1024,
     height: 1024,
@@ -194,18 +251,15 @@ const qrCode = new QRCodeStyling({
     },
 });
 
-qrCode.append(document.getElementById("canvas"));
+qrCodeShow.append(document.getElementById("canvas"));
 
 document.getElementById("SVG").addEventListener("click", SVG);
 document.getElementById("PNG").addEventListener("click", PNG);
 
 function SVG() {
-    qrCode.download({ name: "shorly-qr", extension: "svg" });
+    qrCode.download({ name: "shorly-" + Username, extension: "svg" });
 }
 
 function PNG() {
-    qrCode.download({ name: "shorly-qr", extension: "png" });
+    qrCode.download({ name: "shorly-" + Username, extension: "png" });
 }
-
-document.querySelector("canvas").width = 200;
-document.querySelector("canvas").height = 200;
