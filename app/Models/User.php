@@ -65,9 +65,16 @@ class User extends Authenticatable
 
        return $this->messengers()->where('name', $type)->first()?->value;
     }
+    public function MessengerMessage($type){
+       return $this->messengers()->where('name', $type)->first()?->message;
+    }
 
     public function SocialLink($type){
 
        return $this->sociallinks()->where('name', $type)->first()?->value;
+    }
+
+    public function link(){
+        return env('APP_URL').'/'.$this->username;
     }
 }

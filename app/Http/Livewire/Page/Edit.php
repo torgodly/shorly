@@ -12,6 +12,7 @@ class Edit extends Component
     public $showHeadings = false;
     public $showMessengers = false;
     public $showSocialLinks = false;
+
     public $imgurl;
 
     //    headers
@@ -46,6 +47,9 @@ class Edit extends Component
 
     public function mount()
     {
+
+
+
         //        Headings
         $this->title = Auth::user()->page?->title;
         $this->description = Auth::user()->page?->description;
@@ -74,6 +78,8 @@ class Edit extends Component
 
     public function render()
     {
+
+
         $this->imgurl = Auth::user()->id . '.png?' . rand(1, 10000);
 
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Heading;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -35,9 +36,10 @@ class PageController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Heading $page)
+    public function show(User $user)
     {
-        //
+
+        return view('pages.show',['user'=>$user]);
     }
 
     /**
@@ -59,6 +61,7 @@ class PageController extends Controller
             request()->file->move(public_path('images/UserAvatar'), $fileName);
             Auth::user()->update(['updated_at' => now()]);
         }
+
     }
 
     /**
