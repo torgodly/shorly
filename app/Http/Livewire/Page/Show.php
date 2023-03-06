@@ -22,7 +22,7 @@ class Show extends Component
 
 
         $this->messengers = $this->model->messengers()->orderBy('id', 'desc')->whereNotNull('value')->get();
-        $this->sociallinks = $this->model->sociallinks()->orderBy('id', 'desc')->whereNotNull('value')->get();
+        $this->sociallinks = $this->model->sociallinks()->orderBy('name', 'asc')->whereNotNull('value')->get();
 
         return view('livewire.page.show');
 

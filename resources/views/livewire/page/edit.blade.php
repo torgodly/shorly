@@ -138,7 +138,7 @@
 
                             </button>
                             <h1 class="font-bold">{{ __('TITLE & DESCRIPTION') }}</h1>
-                            <button type="button" wire:click="saveHeadings"
+                            <button type="button" wire:click="saveHeadings" @click="Share=!Share"
                                     class="inline-flex items-center rounded-full border border-transparent bg-green-600 p-2 text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                      stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
@@ -151,7 +151,7 @@
                         <div class="mt-10 space-y-5">
                             <div>
                                 <input wire:model="title" type="text" name="text"
-                                       class="block w-full h-12 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-sm placeholder:text-gray-400 md:text-xl"
+                                       class="block w-full h-12 rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 text-sm placeholder:text-gray-400 md:text-xl"
                                        placeholder="Title">
                                 @error('title')
                                 <span class="text-red-600">{{ $message }}</span>
@@ -160,7 +160,7 @@
 
                             <div>
                                 <textarea wire:model="description"
-                                          class=" p-2 block w-full h-16 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-sm placeholder:text-gray-400 md:text-xl"
+                                          class=" p-2 block w-full h-16 rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 text-sm placeholder:text-gray-400 md:text-xl"
                                           placeholder="Description"></textarea>
                                 @error('description')
                                 <span class="text-red-600">{{ $message }}</span>
@@ -198,7 +198,7 @@
 
                             </button>
                             <h1 class="font-bold">{{ __('MESSENGERS') }}</h1>
-                            <button type="button" wire:click="saveMessengers"
+                            <button type="button" wire:click="saveMessengers" @click="Share=!Share"
                                     class="inline-flex items-center rounded-full border border-transparent bg-green-600 p-2 text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                      stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
@@ -218,7 +218,7 @@
                                         <i class="fa-brands fa-facebook-messenger text-2xl"></i>
                                     </span>
                                     <input type="text" wire:model="messenger"
-                                           class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 text-sm md:text-base placeholder:text-gray-400 font-medium "
+                                           class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-orange-500 focus:ring-orange-500 text-sm md:text-base placeholder:text-gray-400 font-medium "
                                            placeholder="Messenger/Facebook username">
                                 </div>
 
@@ -235,7 +235,7 @@
 
                                     </span>
                                     <input type="text" wire:model="telegram"
-                                           class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 text-sm md:text-base placeholder:text-gray-400 font-medium"
+                                           class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-orange-500 focus:ring-orange-500 text-sm md:text-base placeholder:text-gray-400 font-medium"
                                            placeholder="telegram username">
                                 </div>
 
@@ -251,12 +251,12 @@
                                         <i class="fa-brands fa-whatsapp text-2xl"></i>
                                     </span>
                                     <input type="number" wire:model="whatsapp"
-                                           class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-tr-md border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 text-sm md:text-base placeholder:text-gray-400 font-medium"
+                                           class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-tr-md border-gray-300 px-3 py-2 focus:border-orange-500 focus:ring-orange-500 text-sm md:text-base placeholder:text-gray-400 font-medium"
                                            placeholder="WhatsApp phone number with country code ( +218...)">
                                 </div>
                                 <textarea placeholder="Predefined text: e.g Give me further information about..."
                                           wire:model="whatsapp_message"
-                                          class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-b-md border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 text-sm md:text-base placeholder:text-gray-400 font-medium"></textarea>
+                                          class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-b-md border-gray-300 px-3 py-2 focus:border-orange-500 focus:ring-orange-500 text-sm md:text-base placeholder:text-gray-400 font-medium"></textarea>
 
                                 @error('whatsapp')
                                 <span class="text-red-600">{{ $message }}</span>
@@ -274,7 +274,7 @@
                                         <i class="fa-brands fa-skype text-2xl"></i>
                                     </span>
                                     <input type="text" wire:model="skype"
-                                           class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 text-sm md:text-base placeholder:text-gray-400 font-medium"
+                                           class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-orange-500 focus:ring-orange-500 text-sm md:text-base placeholder:text-gray-400 font-medium"
                                            placeholder="skype username">
                                 </div>
 
@@ -290,13 +290,13 @@
                                         <i class="fa-regular fa-envelope text-2xl"></i>
                                     </span>
                                     <input type="email" wire:model="email"
-                                           class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-tr-md border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 text-sm md:text-base placeholder:text-gray-400 font-medium"
+                                           class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-tr-md border-gray-300 px-3 py-2 focus:border-orange-500 focus:ring-orange-500 text-sm md:text-base placeholder:text-gray-400 font-medium"
                                            placeholder="Email Address">
 
                                 </div>
 
                                 <textarea placeholder="subject:" wire:model="email_subject"
-                                          class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-b-md border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 text-sm md:text-base placeholder:text-gray-400 font-medium"></textarea>
+                                          class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-b-md border-gray-300 px-3 py-2 focus:border-orange-500 focus:ring-orange-500 text-sm md:text-base placeholder:text-gray-400 font-medium"></textarea>
                                 @error('email')
                                 <span class="text-red-600">{{ $message }}</span>
                                 @enderror
@@ -313,7 +313,7 @@
 
                                     </span>
                                     <input type="number" wire:model="phone_number"
-                                           class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 text-sm md:text-base placeholder:text-gray-400 font-medium"
+                                           class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-orange-500 focus:ring-orange-500 text-sm md:text-base placeholder:text-gray-400 font-medium"
                                            placeholder="phone number with country code ( +218...)">
                                 </div>
 
@@ -329,7 +329,7 @@
                                         <i class="fa-brands fa-viber text-2xl"></i>
                                     </span>
                                     <input type="number" wire:model="viber"
-                                           class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 text-sm md:text-base placeholder:text-gray-400 font-medium"
+                                           class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-orange-500 focus:ring-orange-500 text-sm md:text-base placeholder:text-gray-400 font-medium"
                                            placeholder="viber number">
                                 </div>
 
@@ -364,7 +364,7 @@
 
                             </button>
                             <h1 class="font-bold">{{ __('Social Links') }}</h1>
-                            <button type="button" wire:click="saveSocialLinks"
+                            <button type="button" wire:click="saveSocialLinks" @click="Share=!Share"
                                     class="inline-flex items-center rounded-full border border-transparent bg-green-600 p-2 text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                      stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
@@ -384,7 +384,7 @@
                                         <i class="fa-brands fa-facebook text-2xl"></i>
                                     </span>
                                     <input type="text" wire:model="facebook" name="username"
-                                           class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 text-sm md:text-base placeholder:text-gray-400 font-medium "
+                                           class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-orange-500 focus:ring-orange-500 text-sm md:text-base placeholder:text-gray-400 font-medium "
                                            placeholder="Facebook username or page id">
                                 </div>
 
@@ -400,7 +400,7 @@
                                         <i class="fa-brands fa-instagram text-2xl"></i>
                                     </span>
                                     <input type="text" wire:model="instagram"
-                                           class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 text-sm md:text-base placeholder:text-gray-400 font-medium "
+                                           class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-orange-500 focus:ring-orange-500 text-sm md:text-base placeholder:text-gray-400 font-medium "
                                            placeholder="instagram username">
                                 </div>
 
@@ -416,10 +416,58 @@
                                         <i class="fa-brands fa-twitter text-2xl"></i>
                                     </span>
                                     <input type="text" wire:model="twitter"
-                                           class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 text-sm md:text-base placeholder:text-gray-400 font-medium "
+                                           class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-orange-500 focus:ring-orange-500 text-sm md:text-base placeholder:text-gray-400 font-medium "
                                            placeholder="twitter username">
                                 </div>
                                 @error('twitter')
+                                <span class="text-red-600">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            {{--    linkedin    --}}
+                            <div class="mt-1 rounded-md shadow-sm">
+                                <div class="flex">
+                                    <span
+                                        class="inline-flex items-center rounded-l-md border border-r-0 border-gray-300 bg-gray-50 px-3 text-gray-500 sm:text-sm">
+                                        <i class="fa-brands fa-linkedin text-2xl"></i>
+                                    </span>
+                                    <input type="text" wire:model="linkedin"
+                                           class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-orange-500 focus:ring-orange-500 text-sm md:text-base placeholder:text-gray-400 font-medium "
+                                           placeholder="linkedin profile username or id">
+                                </div>
+
+                                @error('linkedin')
+                                <span class="text-red-600">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            {{--    snapchat    --}}
+                            <div class="mt-1 rounded-md shadow-sm">
+                                <div class="flex">
+                                    <span
+                                        class="inline-flex items-center rounded-l-md border border-r-0 border-gray-300 bg-gray-50 px-3 text-gray-500 sm:text-sm">
+                                        <i class="fa-brands fa-snapchat text-2xl"></i>
+                                    </span>
+                                    <input type="text" wire:model="snapchat"
+                                           class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-orange-500 focus:ring-orange-500 text-sm md:text-base placeholder:text-gray-400 font-medium "
+                                           placeholder="snapchat username">
+                                </div>
+
+                                @error('snapchat')
+                                <span class="text-red-600">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            {{--    github    --}}
+                            <div class="mt-1 rounded-md shadow-sm">
+                                <div class="flex">
+                                    <span
+                                        class="inline-flex items-center rounded-l-md border border-r-0 border-gray-300 bg-gray-50 px-3 text-gray-500 sm:text-sm">
+                                        <i class="fa-brands fa-github text-2xl"></i>
+                                    </span>
+                                    <input type="text" wire:model="github"
+                                           class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-orange-500 focus:ring-orange-500 text-sm md:text-base placeholder:text-gray-400 font-medium "
+                                           placeholder="github username">
+                                </div>
+
+                                @error('github')
                                 <span class="text-red-600">{{ $message }}</span>
                                 @enderror
                             </div>
@@ -431,8 +479,8 @@
                                         <i class="fa-brands fa-youtube text-2xl"></i>
                                     </span>
                                     <input type="text" wire:model="youtube"
-                                           class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 text-sm md:text-base placeholder:text-gray-400 font-medium "
-                                           placeholder="youtube channel url">
+                                           class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-orange-500 focus:ring-orange-500 text-sm md:text-base placeholder:text-gray-400 font-medium "
+                                           placeholder="youtube channel username">
                                 </div>
 
                                 @error('youtube')
@@ -447,7 +495,7 @@
                                         <i class="fa-brands fa-tiktok text-2xl"></i>
                                     </span>
                                     <input type="text" wire:model="tiktok"
-                                           class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 text-sm md:text-base placeholder:text-gray-400 font-medium "
+                                           class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-orange-500 focus:ring-orange-500 text-sm md:text-base placeholder:text-gray-400 font-medium "
                                            placeholder="tiktok username">
                                 </div>
 
@@ -463,27 +511,11 @@
                                         <i class="fa-brands fa-pinterest text-2xl"></i>
                                     </span>
                                     <input type="text" wire:model="pinterest"
-                                           class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 text-sm md:text-base placeholder:text-gray-400 font-medium "
+                                           class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-orange-500 focus:ring-orange-500 text-sm md:text-base placeholder:text-gray-400 font-medium "
                                            placeholder="pinterest username">
                                 </div>
 
                                 @error('pinterest')
-                                <span class="text-red-600">{{ $message }}</span>
-                                @enderror
-                            </div>
-                            {{--    linkedin    --}}
-                            <div class="mt-1 rounded-md shadow-sm">
-                                <div class="flex">
-                                    <span
-                                        class="inline-flex items-center rounded-l-md border border-r-0 border-gray-300 bg-gray-50 px-3 text-gray-500 sm:text-sm">
-                                        <i class="fa-brands fa-linkedin text-2xl"></i>
-                                    </span>
-                                    <input type="text" wire:model="linkedin"
-                                           class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 text-sm md:text-base placeholder:text-gray-400 font-medium "
-                                           placeholder="linkedin profile url">
-                                </div>
-
-                                @error('linkedin')
                                 <span class="text-red-600">{{ $message }}</span>
                                 @enderror
                             </div>
@@ -495,7 +527,7 @@
                                         <i class="fa-brands fa-patreon text-2xl"></i>
                                     </span>
                                     <input type="text" wire:model="patreon"
-                                           class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 text-sm md:text-base placeholder:text-gray-400 font-medium "
+                                           class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-orange-500 focus:ring-orange-500 text-sm md:text-base placeholder:text-gray-400 font-medium "
                                            placeholder="patreon username">
                                 </div>
 
@@ -503,22 +535,7 @@
                                 <span class="text-red-600">{{ $message }}</span>
                                 @enderror
                             </div>
-                            {{--    snapchat    --}}
-                            <div class="mt-1 rounded-md shadow-sm">
-                                <div class="flex">
-                                    <span
-                                        class="inline-flex items-center rounded-l-md border border-r-0 border-gray-300 bg-gray-50 px-3 text-gray-500 sm:text-sm">
-                                        <i class="fa-brands fa-snapchat text-2xl"></i>
-                                    </span>
-                                    <input type="text" wire:model="snapchat"
-                                           class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 text-sm md:text-base placeholder:text-gray-400 font-medium "
-                                           placeholder="snapchat username">
-                                </div>
 
-                                @error('snapchat')
-                                <span class="text-red-600">{{ $message }}</span>
-                                @enderror
-                            </div>
 
                         </div>
                     </div>
@@ -527,7 +544,7 @@
 
                 <div x-show='qr'
                      @click.outside="qr = false"
-                     style="display: none" class=" bg-white p-8 w-[100%] md:w-[45.6%] fixed content-center rounded-3xl "
+                     style="display: none" class=" bg-white p-8 w-[100%] md:w-[45.6%] fixed top-[15%]   rounded-3xl "
                      x-transition:enter="transition origin-top ease-out duration-300"
                      x-transition:enter-start="transform translate-y-full opacity-0"
                      x-transition:enter-end="transform translate-y-0 opacity-100"
@@ -541,7 +558,7 @@
                         <div id="canvas" ></div>
                         <div class="flex gap-5">
                             <button type="button" id="PNG"
-                                    class="inline-flex items-center gap-x-1.5 rounded-md bg-indigo-600 py-1.5 px-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                                    class="inline-flex items-center gap-x-1.5 rounded-md bg-orange-600 py-1.5 px-10 text-sm font-semibold text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600">
                                 PNG
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                      stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -551,7 +568,7 @@
 
                             </button>
                             <button type="button" id="SVG"
-                                    class="inline-flex items-center gap-x-1.5 rounded-md bg-indigo-600 py-1.5 px-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                                    class="inline-flex items-center gap-x-1.5 rounded-md bg-orange-600 py-1.5 px-10 text-sm font-semibold text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600">
                                 SVG
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                      stroke-width="1.5" stroke="currentColor" class="w-6 h-6">

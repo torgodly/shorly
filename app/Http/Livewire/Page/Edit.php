@@ -41,6 +41,8 @@ class Edit extends Component
     public $patreon;
     public $snapchat;
 
+    public $github;
+
     public $messengers;
     public $sociallinks;
 
@@ -74,6 +76,7 @@ class Edit extends Component
         $this->linkedin = Auth::user()->SocialLink('linkedin');
         $this->patreon = Auth::user()->SocialLink('patreon');
         $this->snapchat = Auth::user()->SocialLink('snapchat');
+        $this->github = Auth::user()->SocialLink('github');
     }
 
     public function render()
@@ -84,7 +87,7 @@ class Edit extends Component
 
 
         $this->messengers = Auth::user()->messengers()->orderBy('id', 'desc')->whereNotNull('value')->get();
-        $this->sociallinks = Auth::user()->sociallinks()->orderBy('id', 'desc')->whereNotNull('value')->get();
+        $this->sociallinks = Auth::user()->sociallinks()->orderBy('name', 'asc')->whereNotNull('value')->get();
 
         return view('livewire.page.edit', ['messengers' => $this->messengers, 'sociallinks' => $this->sociallinks]);
     }
@@ -243,6 +246,7 @@ class Edit extends Component
             'linkedin' => 'string|max:255|nullable',
             'patreon' => 'string|max:255|nullable',
             'snapchat' => 'string|max:255|nullable',
+            'github' => 'string|max:255|nullable',
         ])) {
             $this->showSocialLinks = false;
             Auth::user()->sociallinks()->updateOrCreate([
@@ -290,6 +294,11 @@ class Edit extends Component
             ], [
                 'value' => empty($this->snapchat) ? null : $this->snapchat
             ]);
+            Auth::user()->sociallinks()->updateOrCreate([
+                'name' => 'github',
+            ], [
+                'value' => empty($this->github) ? null : $this->github
+            ]);
         }
     }
 
@@ -304,6 +313,7 @@ class Edit extends Component
         $this->linkedin = null;
         $this->patreon = null;
         $this->snapchat = null;
+        $this->github = null;
 
 
         Auth::user()->sociallinks()->updateOrCreate([
@@ -349,6 +359,11 @@ class Edit extends Component
         ]);
         Auth::user()->sociallinks()->updateOrCreate([
             'name' => 'snapchat',
+        ], [
+            'value' => null
+        ]);
+        Auth::user()->sociallinks()->updateOrCreate([
+            'name' => 'github',
         ], [
             'value' => null
         ]);

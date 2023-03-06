@@ -115,7 +115,7 @@
                                                 </a>
                                                 @break
                                             @case('instagram')
-                                                <a href="https://instagram.com/{{$model->SocialLink('instagram')}}"
+                                                <a  href="http://instagram.com/_u/{{$model->SocialLink('instagram')}}/"
                                                    target="_blank"
                                                    class=" min-w-[26%] h-[54px]  rounded-xl flex justify-center items-center ">
                                                     <i class="fa-brands fa-instagram text-3xl cursor-pointer"></i>
@@ -154,6 +154,13 @@
                                                    target="_blank"
                                                    class=" min-w-[26%] h-[54px]  rounded-xl flex justify-center items-center ">
                                                     <i class="fa-brands fa-youtube text-3xl cursor-pointer"></i>
+                                                </a>
+                                                @break
+                                            @case('github')
+                                                <a href="https://www.github.com/{{$model->SocialLink('github')}}"
+                                                   target="_blank"
+                                                   class=" min-w-[26%] h-[54px]  rounded-xl flex justify-center items-center ">
+                                                    <i class="fa-brands fa-github text-3xl cursor-pointer"></i>
                                                 </a>
                                                 @break
                                         @endswitch
