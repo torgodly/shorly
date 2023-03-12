@@ -20,10 +20,11 @@ class Edit extends Component
     public $description;
 
     //    messengers
+
     public $messenger;
     public $telegram;
     public $skype;
-    public $phone_number;
+    public $phone;
     public $viber;
     public $whatsapp;
     public $whatsapp_message;
@@ -51,43 +52,90 @@ class Edit extends Component
     {
 
 
-
         //        Headings
+
         $this->title = Auth::user()->page?->title;
         $this->description = Auth::user()->page?->description;
         //         messenger
-        $this->messenger = Auth::user()->MessengerValue('messenger');
-        $this->telegram = Auth::user()->MessengerValue('telegram');
-        $this->skype = Auth::user()->MessengerValue('skype');
-        $this->phone_number = Auth::user()->MessengerValue('phonenumber');
-        $this->viber = Auth::user()->MessengerValue('viber');
-        $this->whatsapp = Auth::user()->MessengerValue('whatsapp');
-        $this->whatsapp_message = Auth::user()->MessengerValue('whatsapp_message');
-        $this->email = Auth::user()->MessengerValue('email');
-        $this->email_subject = Auth::user()->MessengerValue('email_subject');
-        // social links
+        $this->messengers = Auth::user()->messengers()->orderBy('id', 'desc')->whereNotNull('value')->get();
 
-        $this->facebook = Auth::user()->SocialLink('facebook');
-        $this->instagram = Auth::user()->SocialLink('instagram');
-        $this->twitter = Auth::user()->SocialLink('twitter');
-        $this->youtube = Auth::user()->SocialLink('youtube');
-        $this->tiktok = Auth::user()->SocialLink('tiktok');
-        $this->pinterest = Auth::user()->SocialLink('pinterest');
-        $this->linkedin = Auth::user()->SocialLink('linkedin');
-        $this->patreon = Auth::user()->SocialLink('patreon');
-        $this->snapchat = Auth::user()->SocialLink('snapchat');
-        $this->github = Auth::user()->SocialLink('github');
+        foreach ($this->messengers as $mess) {
+            switch ($mess->name) {
+                case 'messenger':
+                    $this->messenger = $mess->value;
+                    break;
+                case 'telegram':
+                    $this->telegram = $mess->value;
+                    break;
+                case 'skype':
+                    $this->skype = $mess->value;
+                    break;
+                case 'phone':
+                    $this->phone = $mess->value;
+                    break;
+                case 'viber':
+                    $this->viber = $mess->value;
+                    break;
+                case 'whatsapp':
+                    $this->whatsapp = $mess->value;
+                    $this->whatsapp_message = $mess->message;
+                    break;
+                case 'email':
+                    $this->email = $mess->value;
+                    $this->email_subject = $mess->message;
+                    break;
+
+            }
+        }
+
+        // social links
+        $this->sociallinks = Auth::user()->sociallinks()->orderBy('name', 'asc')->whereNotNull('value')->get();
+
+        foreach ($this->sociallinks as $links) {
+            switch ($links->name) {
+                case 'facebook':
+                    $this->facebook = $links->value;
+                    break;
+                case 'instagram':
+                    $this->instagram = $links->value;
+                    break;
+                case 'twitter':
+                    $this->twitter = $links->value;
+                    break;
+                case 'youtube':
+                    $this->youtube = $links->value;
+                    break;
+                case 'tiktok':
+                    $this->tiktok = $links->value;
+                    break;
+                case 'pinterest':
+                    $this->pinterest = $links->value;
+                    break;
+                case 'linkedin':
+                    $this->linkedin = $links->value;
+                    break;
+                case 'patreon':
+                    $this->patreon = $links->value;
+                    break;
+                case 'snapchat':
+                    $this->snapchat = $links->value;
+                    break;
+                case 'github':
+                    $this->github = $links->value;
+                    break;
+            }
+        }
+
     }
 
     public function render()
     {
+        $this->messengers = Auth::user()->messengers()->orderBy('id', 'desc')->whereNotNull('value')->get();
+        $this->sociallinks = Auth::user()->sociallinks()->orderBy('name', 'asc')->whereNotNull('value')->get();
 
 
         $this->imgurl = Auth::user()->id . '.png?' . rand(1, 10000);
 
-
-        $this->messengers = Auth::user()->messengers()->orderBy('id', 'desc')->whereNotNull('value')->get();
-        $this->sociallinks = Auth::user()->sociallinks()->orderBy('name', 'asc')->whereNotNull('value')->get();
 
         return view('livewire.page.edit', ['messengers' => $this->messengers, 'sociallinks' => $this->sociallinks]);
     }
@@ -136,7 +184,7 @@ class Edit extends Component
             'whatsapp_message' => 'string|max:255|nullable',
             'skype' => 'string|max:255|nullable',
             'viber' => 'string|max:255|nullable',
-            'phone_number' => 'string|max:255|nullable',
+            'phone' => 'string|max:255|nullable',
         ])) {
             $this->showMessengers = false;
             Auth::user()->messengers()->updateOrCreate([
@@ -174,7 +222,7 @@ class Edit extends Component
             Auth::user()->messengers()->updateOrCreate([
                 'name' => 'phone',
             ], [
-                'value' => empty($this->phone_number) ? null : $this->phone_number
+                'value' => empty($this->phone) ? null : $this->phone
             ]);
         }
     }
@@ -184,7 +232,7 @@ class Edit extends Component
         $this->messenger = null;
         $this->telegram = null;
         $this->skype = null;
-        $this->phone_number = null;
+        $this->phone = null;
         $this->viber = null;
         $this->whatsapp = null;
         $this->whatsapp_message = null;
@@ -368,7 +416,6 @@ class Edit extends Component
             'value' => null
         ]);
     }
-
 
 
     public function delete_image()

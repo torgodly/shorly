@@ -6,6 +6,7 @@ use App\Models\Heading;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class PageController extends Controller
 {
@@ -38,7 +39,8 @@ class PageController extends Controller
      */
     public function show(User $user)
     {
-
+        visitor()->visit($user, 10);
+//        dd($user->visitLogs()->perDay()->toArray());
         return view('pages.show',['user'=>$user]);
     }
 

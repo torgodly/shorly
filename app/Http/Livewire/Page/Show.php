@@ -20,7 +20,6 @@ class Show extends Component
 
         $this->imgurl = $this->model->id . '.png?' . rand(1, 10000);
 
-
         $this->messengers = $this->model->messengers()->orderBy('id', 'desc')->whereNotNull('value')->get();
         $this->sociallinks = $this->model->sociallinks()->orderBy('name', 'asc')->whereNotNull('value')->get();
 

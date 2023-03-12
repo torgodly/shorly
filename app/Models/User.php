@@ -9,10 +9,11 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Shetabit\Visitor\Traits\Visitable;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, Visitable;
 
     /**
      * The attributes that are mass assignable.
@@ -77,4 +78,5 @@ class User extends Authenticatable
     public function link(){
         return env('APP_URL').'/'.$this->username;
     }
+
 }

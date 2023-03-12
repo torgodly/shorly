@@ -312,12 +312,12 @@
                                         <i class="fa-solid fa-phone text-2xl"></i>
 
                                     </span>
-                                    <input type="number" wire:model="phone_number"
+                                    <input type="number" wire:model="phone"
                                            class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-orange-500 focus:ring-orange-500 text-sm md:text-base placeholder:text-gray-400 font-medium"
                                            placeholder="phone number with country code ( +218...)">
                                 </div>
 
-                                @error('phone_number')
+                                @error('phone')
                                 <span class="text-red-600">{{ $message }}</span>
                                 @enderror
                             </div>

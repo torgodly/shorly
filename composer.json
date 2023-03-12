@@ -10,7 +10,9 @@
         "laravel/framework": "^10.0",
         "laravel/sanctum": "^3.2",
         "laravel/tinker": "^2.8",
-        "livewire/livewire": "^2.12"
+        "livewire/livewire": "^2.12",
+        "shetabit/visitor": "^4.0",
+        "stevebauman/location": "^6.6"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.8",
