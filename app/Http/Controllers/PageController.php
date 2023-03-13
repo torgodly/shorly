@@ -39,7 +39,7 @@ class PageController extends Controller
      */
     public function show(User $user)
     {
-        visitor()->visit($user, 10);
+        visitor()->visit($user, 0);
 //        dd($user->visitLogs()->perDay()->toArray());
         return view('pages.show',['user'=>$user]);
     }
