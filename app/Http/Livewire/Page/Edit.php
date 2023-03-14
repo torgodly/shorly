@@ -130,8 +130,6 @@ class Edit extends Component
 
     public function render()
     {
-        $this->messengers = Auth::user()->messengers()->orderBy('id', 'desc')->whereNotNull('value')->get();
-        $this->sociallinks = Auth::user()->sociallinks()->orderBy('name', 'asc')->whereNotNull('value')->get();
 
 
         $this->imgurl = Auth::user()->id . '.png?' . rand(1, 10000);
@@ -148,7 +146,7 @@ class Edit extends Component
         ])) {
             $this->showHeadings = false;
             Auth::user()->page()->updateOrCreate(
-                ['user_id' => 1],
+                ['user_id' => Auth::id()],
                 [
                     'title' => empty($this->title) ? null : $this->title,
                     'description' => empty($this->description) ? null : $this->description
