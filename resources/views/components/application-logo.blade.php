@@ -5,6 +5,7 @@
                 font-family: CascadiaMonoItalic-SemiBoldItalic, 'Cascadia Mono';
                 font-size: 40px;
                 font-variation-settings: 'wght' 600;
+                color: #000000
             }
 
             .cls-2 {

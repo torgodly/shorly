@@ -255,13 +255,13 @@
                                            placeholder="WhatsApp phone number with country code ( +218...)">
                                 </div>
                                 <textarea placeholder="Predefined text: e.g Give me further information about..."
-                                          wire:model="whatsapp_message"
+                                          wire:model="whatsappMessage"
                                           class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-b-md border-gray-300 px-3 py-2 focus:border-orange-500 focus:ring-orange-500 text-sm md:text-base placeholder:text-gray-400 font-medium"></textarea>
 
                                 @error('whatsapp')
                                 <span class="text-red-600">{{ $message }}</span>
                                 @enderror
-                                @error('whatsapp_message')
+                                @error('whatsappMessage')
                                 <span class="text-red-600">{{ $message }}</span>
                                 @enderror
 
@@ -295,12 +295,12 @@
 
                                 </div>
 
-                                <textarea placeholder="subject:" wire:model="email_subject"
+                                <textarea placeholder="subject:" wire:model="emailSubject"
                                           class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-b-md border-gray-300 px-3 py-2 focus:border-orange-500 focus:ring-orange-500 text-sm md:text-base placeholder:text-gray-400 font-medium"></textarea>
                                 @error('email')
                                 <span class="text-red-600">{{ $message }}</span>
                                 @enderror
-                                @error('email_subject')
+                                @error('emailSubject')
                                 <span class="text-red-600">{{ $message }}</span>
                                 @enderror
                             </div>

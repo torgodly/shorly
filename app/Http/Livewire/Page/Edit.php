@@ -27,9 +27,9 @@ class Edit extends Component
     public $phone;
     public $viber;
     public $whatsapp;
-    public $whatsapp_message;
+    public $whatsappMessage;
     public $email;
-    public $email_subject;
+    public $emailSubject;
     // social links
     public $facebook;
     public $instagram;
@@ -78,11 +78,11 @@ class Edit extends Component
                     break;
                 case 'whatsapp':
                     $this->whatsapp = $mess->value;
-                    $this->whatsapp_message = $mess->message;
+                    $this->whatsappMessage = $mess->message;
                     break;
                 case 'email':
                     $this->email = $mess->value;
-                    $this->email_subject = $mess->message;
+                    $this->emailSubject = $mess->message;
                     break;
 
             }
@@ -130,6 +130,8 @@ class Edit extends Component
 
     public function render()
     {
+        $this->messengers = Auth::user()->messengers()->orderBy('id', 'desc')->whereNotNull('value')->get();
+        $this->sociallinks = Auth::user()->sociallinks()->orderBy('name', 'asc')->whereNotNull('value')->get();
 
 
         $this->imgurl = Auth::user()->id . '.png?' . rand(1, 10000);
@@ -162,7 +164,7 @@ class Edit extends Component
         $this->description = null;
 
         Auth::user()->page()->updateOrCreate(
-            ['user_id' => 1],
+            ['user_id' => Auth::id()],
             [
                 'title' => null,
                 'description' => null
@@ -173,56 +175,49 @@ class Edit extends Component
     // Messengers
     public function saveMessengers()
     {
-        if ($this->validate([
+        $validated = $this->validate([
             'messenger' => 'string|max:255|nullable',
             'telegram' => 'string|max:255|nullable',
             'email' => 'string|email|nullable',
-            'email_subject' => 'string|max:255|nullable',
+            'emailSubject' => 'string|max:255|nullable',
             'whatsapp' => 'string|max:255|nullable',
-            'whatsapp_message' => 'string|max:255|nullable',
+            'whatsappMessage' => 'string|max:255|nullable',
             'skype' => 'string|max:255|nullable',
             'viber' => 'string|max:255|nullable',
             'phone' => 'string|max:255|nullable',
-        ])) {
-            $this->showMessengers = false;
-            Auth::user()->messengers()->updateOrCreate([
-                'name' => 'messenger',
-            ], [
-                'value' => empty($this->messenger) ? null : $this->messenger
-            ]);
-            Auth::user()->messengers()->updateOrCreate([
-                'name' => 'telegram',
-            ], [
-                'value' => empty($this->telegram) ? null : $this->telegram
-            ]);
-            Auth::user()->messengers()->updateOrCreate([
-                'name' => 'whatsapp',
-            ], [
-                'value' => empty($this->whatsapp) ? null : $this->whatsapp,
-                'message' => empty($this->whatsapp_message) ? null : $this->whatsapp_message
-            ]);
-            Auth::user()->messengers()->updateOrCreate([
-                'name' => 'email',
-            ], [
-                'value' => empty($this->email) ? null : $this->email,
-                'message' => empty($this->email_subject) ? null : $this->email_subject
-            ]);
-            Auth::user()->messengers()->updateOrCreate([
-                'name' => 'viber',
-            ], [
-                'value' => empty($this->viber) ? null : $this->viber
-            ]);
-            Auth::user()->messengers()->updateOrCreate([
-                'name' => 'skype',
-            ], [
-                'value' => empty($this->skype) ? null : $this->skype
-            ]);
-            Auth::user()->messengers()->updateOrCreate([
-                'name' => 'phone',
-            ], [
-                'value' => empty($this->phone) ? null : $this->phone
-            ]);
+        ]);
+
+        if (!$validated) {
+            return;
         }
+
+        $messengers = [
+            'messenger',
+            'telegram',
+            'whatsapp',
+            'email',
+            'viber',
+            'skype',
+            'phone'
+        ];
+
+        foreach ($messengers as $messenger) {
+            $value = $this->$messenger ?? null;
+
+            $message = null;
+            if ($messenger == 'whatsapp' && !empty($this->whatsappMessage)) {
+                $message = $this->whatsappMessage;
+            } elseif ($messenger == 'email' && !empty($this->emailSubject)) {
+                $message = $this->emailSubject;
+            }
+
+            Auth::user()->messengers()->updateOrCreate(
+                ['name' => $messenger],
+                ['value' => $value, 'message' => $message]
+            );
+        }
+
+        $this->showMessengers = false;
     }
 
     public function clearMessengers()
@@ -233,9 +228,9 @@ class Edit extends Component
         $this->phone = null;
         $this->viber = null;
         $this->whatsapp = null;
-        $this->whatsapp_message = null;
+        $this->whatsappMessage = null;
         $this->email = null;
-        $this->email_subject = null;
+        $this->emailSubject = null;
 
 
         Auth::user()->messengers()->updateOrCreate([
