@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -40,5 +41,7 @@ Route::domain('dash.' . env('APP_URL'))->group(function () {
 
 
 Route::get('{user:username}', [PageController::class, 'show'])->name('page.show')->domain(env('APP_URL'));
+Route::get('{user:username}/message', [MessageController::class, 'create'])->name('message.create')->domain(env('APP_URL'));
+Route::post('{user:username}/message', [MessageController::class, 'store'])->name('message.store')->middleware('throttle:10,1')->domain(env('APP_URL'));
 
 require __DIR__ . '/auth.php';

@@ -25,6 +25,7 @@ class User extends Authenticatable
         'username',
         'email',
         'password',
+        'secret_message'
     ];
 
     /**
@@ -52,7 +53,7 @@ class User extends Authenticatable
         return $this->hasMany(Messenger::class);
     }
 
-    public function sociallinks(): HasMany
+    public function socialLinks(): HasMany
     {
         return $this->hasMany(SocialLink::class);
     }
@@ -61,7 +62,10 @@ class User extends Authenticatable
     {
         return $this->hasOne(Heading::class);
     }
-
+    public function messages(): HasMany
+    {
+       return $this->hasMany(Message::class);
+    }
     public function MessengerValue($type){
 
        return $this->messengers()->where('name', $type)->first()?->value;
@@ -72,7 +76,13 @@ class User extends Authenticatable
 
     public function SocialLink($type){
 
-       return $this->sociallinks()->where('name', $type)->first()?->value;
+       return $this->socialLinks()->where('name', $type)->first()?->value;
+    }
+
+    public function StatusToggle()
+    {
+        $this->update(['secret_message' => !$this->secret_message]);
+
     }
 
     public function link(){
