@@ -97,8 +97,9 @@ uppy.use(ImageEditor, {
         background: true,
         autoCropArea: 1,
         responsive: true,
-        width: 100,
-        height: 100,
+        aspectRatio: 1 / 1,
+        // width: 100,
+        // height: 100,
         croppedCanvasOptions: {},
     },
     actions: {
@@ -109,6 +110,7 @@ uppy.use(ImageEditor, {
         zoomIn: true,
         zoomOut: true,
         cropSquare: true,
+
         cropWidescreen: true,
         cropWidescreenVertical: true,
     },
@@ -146,7 +148,10 @@ const qrCodeShow = new QRCodeStyling({
     qrOptions: {
         typeNumber: "0",
         mode: "Byte",
-        errorCorrectionLevel: "Q",
+        errorCorrectionLevel: "M",
+    },
+    backgroundOptions: {
+        color: "transparent",
     },
     imageOptions: { hideBackgroundDots: true, imageSize: 0.4, margin: 0 },
     dotsOptions: { type: "extra-rounded", color: "#000000" },
@@ -204,6 +209,7 @@ const qrCode = new QRCodeStyling({
         mode: "Byte",
         errorCorrectionLevel: "Q",
     },
+
     imageOptions: { hideBackgroundDots: true, imageSize: 0.4, margin: 0 },
     dotsOptions: { type: "extra-rounded", color: "#000000" },
     // backgroundOptions: { color: "#ffffff" },
@@ -261,5 +267,8 @@ function SVG() {
 }
 
 function PNG() {
-    qrCode.download({ name: "shorly-" + Username, extension: "png" });
+    qrCode.download({
+        name: "shorly-" + Username,
+        extension: "png",
+    });
 }
