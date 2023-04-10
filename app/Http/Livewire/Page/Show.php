@@ -12,16 +12,18 @@ class Show extends Component
 
     public $imgurl;
     public $messengers;
-    public $sociallinks;
+    public $socialLinks;
+    public $SecretMessage;
     public function render()
     {
+        $this->SecretMessage = $this->model->secret_message;
         $this->title = $this->model->page?->title;
         $this->description = $this->model->page?->description;
 
         $this->imgurl = $this->model->id . '.png?' . rand(1, 10000);
 
         $this->messengers = $this->model->messengers()->orderBy('id', 'desc')->whereNotNull('value')->get();
-        $this->sociallinks = $this->model->sociallinks()->orderBy('name', 'asc')->whereNotNull('value')->get();
+        $this->socialLinks = $this->model->socialLinks()->orderBy('name', 'asc')->whereNotNull('value')->get();
 
         return view('livewire.page.show');
 

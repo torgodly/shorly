@@ -2,7 +2,7 @@
     <div class="pb-12 flex justify-center ">
         <div class="py-6 text-gray-900 flex flex-col justify-center items-center w-[400px]  rounded-xl">
             <div class="flex flex-col justify-center items-center mb-5 "
-                 x-data="{ Headings: @entangle('showHeadings'), Messengers: @entangle('showMessengers'), SocialLinks: @entangle('showSocialLinks'), qr: false, Share: true }">
+                 x-data="{ Headings: @entangle('showHeadings'), Messengers: @entangle('showMessengers'), SocialLinks: @entangle('showSocialLinks'), qr: false, Share: @entangle('showShare') , Block: false, ShowSecretMessage:false, CreateButton: @entangle('showCreateButton')}">
 
                 <div class="space-y-4">
                     <div class="px-6 flex justify-center items-center ">
@@ -37,7 +37,7 @@
 
 
                     <div class="px-5 cursor-pointer text-center" {{--                         wire:poll.1s --}}
-                    @click="Headings=!Headings, Share=!Share">
+                    @click="Headings=true, Share=false">
                         @if (empty($title) and empty($description))
                             <h1 class="border-b-2 border-dashed border-[#666666] text-[#666666] font-bold font-sans text-3xl">
                                 {{ __('Title Here') }}</h1>
@@ -54,29 +54,29 @@
                 <div class="space-y-5 mt-8">
                     <div class="w-[400px] h-fit flex justify-center px-2">
                         @if (empty($messengers->toArray()))
-                            <button @click="Messengers = true, Share=!Share"
-                                    class="border-2 border-dashed border-[#666666] text-[#666666] rounded-lg text-xl font-bold px-16    py-2">
+                            <button @click="Messengers = true, Share=false"
+                                    class="border-2 border-dashed border-[#666666] text-[#666666] rounded-lg text-xl font-bold px-16 w-[90%]   py-2">
                                 {{ __('+ Add Messengers') }}
                             </button>
                         @else
                             <div class=" w-full flex justify-center flex-wrap-reverse  gap-x-[18px] gap-y-4 ">
                                 @foreach ($messengers as $messenger)
                                     @if ($messenger->name == 'messenger')
-                                        <button @click="Messengers = true, Share=!Share"
+                                        <button @click="Messengers = true, Share=false"
                                                 class=" grow bg-black min-w-[29.5%] h-[54px] rounded-xl "><i
                                                 class="fa-brands fa-facebook-messenger text-3xl text-white"></i>
                                         </button>
                                     @elseif($messenger->name == 'phone')
-                                        <button @click="Messengers = true, Share=!Share"
+                                        <button @click="Messengers = true, Share=false"
                                                 class=" grow bg-black min-w-[29.5%] h-[54px] rounded-xl "><i
                                                 class="fa-solid fa-phone text-2xl text-white"></i></button>
                                     @elseif($messenger->name == 'email')
-                                        <button @click="Messengers = true, Share=!Share"
+                                        <button @click="Messengers = true, Share=false"
                                                 class=" grow bg-black min-w-[29.5%] h-[54px] rounded-xl "><i
                                                 class="fa-regular fa-envelope text-2xl text-white"></i>
                                         </button>
                                     @else
-                                        <button @click="Messengers = true, Share=!Share"
+                                        <button @click="Messengers = true, Share=false"
                                                 class=" grow bg-black min-w-[29.5%] h-[54px] rounded-xl "><i
                                                 class="fa-brands fa-{{ $messenger->name }} text-3xl text-white"></i>
                                         </button>
@@ -86,17 +86,80 @@
                         @endif
 
                     </div>
+                    <div class="w-[400px] h-fit flex flex-col justify-center items-center px-2 space-y-5 ">
+
+
+                        <div class="relative w-[90%] ">
+                            <button @click="Block = !Block"
+                                    class="border-2 border-dashed border-[#666666] text-[#666666] rounded-lg text-xl font-bold px-16  w-full  py-2">
+                                {{ __('+ Add Block') }}
+                            </button>
+
+                            <div x-show="Block" @click.outside="Block=false"
+                                 class="absolute top-full left-0 mt-2 w-fit bg-white border border-gray-200 rounded-lg shadow-lg z-10  ">
+                                <div class="block px-4 py-5 text-gray-800 hover:bg-gray-200 border-b">
+                                    <div x-data="{ enabled: {{ $SecretMessage }} }" dir="ltr"
+                                         @click="enabled = ! enabled"
+                                         wire:click="StatusToggle()" class="flex gap-5 ">
+
+                                        <div :class="{ 'bg-green-500': enabled, 'bg-gray-300': !enabled }"
+                                             class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                                                    <span aria-hidden="true"
+                                                          :class="{ 'translate-x-5': enabled, 'translate-x-0': !enabled }"
+                                                          class=" pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out">
+                                                    </span>
+                                        </div>
+                                        <h1 class="text-lg font-semibold">Secret Messages🤫🔐</h1>
+
+                                    </div>
+                                </div>
+
+                                <button @click="CreateButton = true, Share=false, Block=false"
+                                        class="block px-4 py-5 text-gray-800 hover:bg-gray-200 border-b w-full">
+                                    <div class="flex gap-5">
+                                        <i class="fa-solid fa-cube text-3xl "></i>
+                                        <h1 class="text-lg font-semibold">Add Custom Button</h1>
+                                    </div>
+
+
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="space-y-4 w-full">
+                            @if(Auth::user()->secret_message)
+                                <button @click="Block = true, Share=false"
+                                        class=" grow bg-black min-w-full h-[54px] rounded-xl flex justify-center items-center gap-5">
+
+                                    <i class="fa-solid fa-message  text-3xl text-white"></i>
+                                    <h1 class="text-lg font-bold text-white">Secret Messages🤫🔐</h1>
+
+                                </button>
+                            @endif
+                            @foreach($Buttons as $button)
+                                <button  wire:click="EditCustomButton({{$button->id}})"
+                                        class=" grow bg-black min-w-full h-[54px] rounded-xl flex justify-center items-center gap-5">
+
+                                    <h1 class="text-lg font-bold text-white">{{$button->title}}</h1>
+
+                                </button>
+
+                            @endforeach
+                        </div>
+
+
+                    </div>
                     <div class="w-[400px] h-fit flex justify-center px-2">
-                        @if (empty($sociallinks->toArray()))
-                            <button @click="SocialLinks = true, Share=!Share"
-                                    class="border-2 border-dashed border-[#666666] text-[#666666] rounded-lg text-xl font-bold px-16    py-2">
+                        @if (empty($socialLinks->toArray()))
+                            <button @click="SocialLinks = true, Share=false"
+                                    class="border-2 border-dashed border-[#666666] text-[#666666] rounded-lg text-xl font-bold px-16  w-[90%]  py-2">
                                 {{ __('+ Add Social Links') }}
                             </button>
                         @else
                             <div class=" w-full flex justify-center flex-wrap gap-x-5  gap-y-2 ">
-                                @foreach ($sociallinks as $sociallink)
+                                @foreach ($socialLinks as $sociallink)
                                     <div class=" min-w-[26%] h-[54px]  rounded-xl flex justify-center items-center "><i
-                                            @click="SocialLinks = true, Share=!Share"
+                                            @click="SocialLinks = true, Share=false"
                                             class="fa-brands fa-{{ $sociallink->name }} text-3xl cursor-pointer"></i>
                                     </div>
                                 @endforeach
@@ -110,14 +173,14 @@
                 <div class="mt-10 w-full h-fit flex justify-center px-2">
                     <footer class="flex gap-x-1 justify-center items-center">
                         <span class="font-footer ">made by <a
-                                href="{{env('app_url')}}"><strong>shor.ly</strong></a></span>
+                                href="http://{{env('app_url')}}"><strong>shor.ly</strong></a></span>
                     </footer>
 
                 </div>
 
 
-                <div x-show='Headings' x-swipe:down="Headings = false, Share=!Share"
-                     @click.outside="Headings = false, Share=!Share"
+                <div x-show='Headings' x-swipe:down="Headings = false, Share=true"
+                     @click.outside="Headings = false, Share=true"
                      style="display: none" class=" bg-white p-8 w-[100%] md:w-[45.6%] fixed bottom-0 rounded-t-3xl "
                      x-transition:enter="transition origin-top ease-out duration-300"
                      x-transition:enter-start="transform translate-y-full opacity-0"
@@ -138,7 +201,7 @@
 
                             </button>
                             <h1 class="font-bold">{{ __('TITLE & DESCRIPTION') }}</h1>
-                            <button type="button" wire:click="saveHeadings" @click="Share=!Share"
+                            <button type="button" wire:click="saveHeadings"
                                     class="inline-flex items-center rounded-full border border-transparent bg-green-600 p-2 text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                      stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
@@ -176,8 +239,8 @@
 
                 </div>
 
-                <div x-show='Messengers' x-swipe:down="Messengers = false, Share=!Share"
-                     @click.outside="Messengers = false, Share=!Share"
+                <div x-show='Messengers' x-swipe:down="Messengers = false, Share=true"
+                     @click.outside="Messengers = false, Share=true"
                      style="display: none" class=" bg-white p-8 w-[100%] md:w-[45.6%] fixed bottom-0 rounded-t-3xl "
                      x-transition:enter="transition origin-top ease-out duration-300"
                      x-transition:enter-start="transform translate-y-full opacity-0"
@@ -198,7 +261,7 @@
 
                             </button>
                             <h1 class="font-bold">{{ __('MESSENGERS') }}</h1>
-                            <button type="button" wire:click="saveMessengers" @click="Share=!Share"
+                            <button type="button" wire:click="saveMessengers"
                                     class="inline-flex items-center rounded-full border border-transparent bg-green-600 p-2 text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                      stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
@@ -341,9 +404,70 @@
                     </div>
 
                 </div>
+                <div x-show='CreateButton' x-swipe:down="CreateButton = false, Share=true"
+                     @click.outside="CreateButton = false, Share=true"
+                     style="display: none" class=" bg-white p-8 w-[100%] md:w-[45.6%] fixed bottom-0 rounded-t-3xl "
+                     x-transition:enter="transition origin-top ease-out duration-300"
+                     x-transition:enter-start="transform translate-y-full opacity-0"
+                     x-transition:enter-end="transform translate-y-0 opacity-100"
+                     x-transition:leave="transition origin-top ease-out duration-300"
+                     x-transition:leave-start="transform translate-y-0 opacity-100"
+                     x-transition:leave-end="transform translate-y-full opacity-0">
 
-                <div x-show='SocialLinks' x-swipe:down="SocialLinks = false, Share=!Share"
-                     @click.outside="SocialLinks = false, Share=!Share"
+                    <div>
+                        <div class="flex justify-between items-center ">
+                            <button type="button" wire:click="clearMessengers"
+                                    class="inline-flex items-center rounded-full border border-transparent bg-red-600 p-2 text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                     stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                          d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"/>
+                                </svg>
+
+                            </button>
+                            <h1 class="font-bold">{{ __('Create Custom Button') }}</h1>
+                            <button type="button" wire:click="SaveCustomButton"
+                                    class="inline-flex items-center rounded-full border border-transparent bg-green-600 p-2 text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                     stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
+                                </svg>
+
+                            </button>
+
+                        </div>
+
+                        <div class="mt-10 space-y-5">
+                            <div>
+                                <input wire:model="customurl" type="text" name="text"
+                                       class="block w-full h-12 rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 text-sm placeholder:text-gray-400 md:text-xl"
+                                       placeholder="http://url...">
+                                @error('customurl')
+                                <span class="text-red-600">{{ $message }}</span>
+                                @enderror
+                            </div>
+
+                            <div>
+                                <input wire:model="customtitle" type="text" name="text"
+                                       class="block w-full h-12 rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 text-sm placeholder:text-gray-400 md:text-xl"
+                                       placeholder="title">
+                                @error('customtitle')
+                                <span class="text-red-600">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="flex justify-center items-center">
+                                <button
+                                    class=" grow bg-black w-[50%] h-[54px] rounded-xl text-white text-3xl font-bold">
+                                    {{$customtitle}}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div x-show='SocialLinks' x-swipe:down="SocialLinks = false, Share=true"
+                     @click.outside="SocialLinks = false, Share=true"
                      style="display: none" class=" bg-white p-8 w-[100%] md:w-[45.6%] fixed bottom-0 rounded-t-3xl "
                      x-transition:enter="transition origin-top ease-out duration-300"
                      x-transition:enter-start="transform translate-y-full opacity-0"
@@ -364,7 +488,7 @@
 
                             </button>
                             <h1 class="font-bold">{{ __('Social Links') }}</h1>
-                            <button type="button" wire:click="saveSocialLinks" @click="Share=!Share"
+                            <button type="button" wire:click="saveSocialLinks"
                                     class="inline-flex items-center rounded-full border border-transparent bg-green-600 p-2 text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                      stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
@@ -555,7 +679,7 @@
                     <div class="flex flex-col justify-center items-center space-y-5">
                         <h1 class="text-[#f4812a] text-2xl font-bold ">Shor.ly</h1>
                         <h1 class=" text-lg ">https://{{Auth::user()->link()}}</h1>
-                        <div id="canvas" ></div>
+                        <div id="canvas"></div>
                         <div class="flex gap-5">
                             <button type="button" id="PNG"
                                     class="inline-flex items-center gap-x-1.5 rounded-md bg-orange-600 py-1.5 px-10 text-sm font-semibold text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600">
@@ -598,7 +722,7 @@
                             <button x-clipboard.raw="https://{{Auth::user()->link()}}"
                                     class="text-[#f4812a] text-base hover:underline">{{Auth::user()->link()}}</button>
                         </div>
-                        <button @click="qr=!qr">
+                        <button @click="qr=true">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                  stroke="currentColor" class="w-6 h-6">
                                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -608,6 +732,7 @@
                             </svg>
 
                         </button>
+
                         <a href="https://{{Auth::user()->link()}}" id="UserLink" target="_blank"
                            class="rounded-full bg-[#f4812a] p-2 text-white shadow-sm hover:bg-[#f4812a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#f4812a]">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"

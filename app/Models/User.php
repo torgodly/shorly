@@ -66,6 +66,10 @@ class User extends Authenticatable
     {
        return $this->hasMany(Message::class);
     }
+
+    public function buttons(){
+        return $this->hasMany(Button::class);
+    }
     public function MessengerValue($type){
 
        return $this->messengers()->where('name', $type)->first()?->value;
