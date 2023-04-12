@@ -211,7 +211,7 @@ const qrCode = new QRCodeStyling({
     },
 
     imageOptions: { hideBackgroundDots: true, imageSize: 0.4, margin: 0 },
-    dotsOptions: { type: "extra-rounded", color: "#000000" },
+    dotsOptions: { type: "extra-rounded", color: "#f4812a" },
     // backgroundOptions: { color: "#ffffff" },
     dotsOptionsHelper: {
         colorType: { single: true, gradient: false },
