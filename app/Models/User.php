@@ -90,7 +90,7 @@ class User extends Authenticatable
     }
 
     public function link(){
-        return env('APP_URL').'/'.$this->username;
+        return 'shor.ly'.'/'.$this->username;
     }
 
 }
