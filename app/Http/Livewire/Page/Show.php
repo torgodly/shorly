@@ -14,6 +14,7 @@ class Show extends Component
     public $messengers;
     public $socialLinks;
     public $SecretMessage;
+    public $Buttons;
     public function render()
     {
         $this->SecretMessage = $this->model->secret_message;
@@ -24,6 +25,7 @@ class Show extends Component
 
         $this->messengers = $this->model->messengers()->orderBy('id', 'desc')->whereNotNull('value')->get();
         $this->socialLinks = $this->model->socialLinks()->orderBy('name', 'asc')->whereNotNull('value')->get();
+        $this->Buttons = $this->model->buttons;
 
         return view('livewire.page.show');
 

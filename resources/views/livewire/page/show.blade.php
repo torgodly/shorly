@@ -83,15 +83,26 @@
                                 </div>
                             @endif
                         </div>
-                        <div>
+                        <div class="space-y-5 mt-8">
                             @if($SecretMessage)
                                 <a href="{{route('message.create', $model->username)}}"
-                                        class=" grow bg-black min-w-full h-[54px] rounded-xl flex justify-center items-center gap-5">
+                                   class=" grow bg-black min-w-full h-[54px] rounded-xl flex justify-center items-center gap-5">
 
                                     <i class="fa-solid fa-message  text-3xl text-white"></i>
                                     <h1 class="text-lg font-bold text-white">Secret Messages🤫🔐</h1>
 
                                 </a>
+                            @endif
+                            @if(!empty($Buttons->toArray()))
+                                @foreach($Buttons as $Button)
+                                    <a href="{{$Button->url}}" target="_blank"
+                                       class=" grow bg-black min-w-full h-[54px] rounded-xl flex justify-center items-center gap-5">
+
+                                        <h1 class="text-lg font-bold text-white">{{$Button->title}}</h1>
+
+                                    </a>
+                                @endforeach
+
                             @endif
                         </div>
                         <div class="w-400 h-fit flex justify-center px-2">

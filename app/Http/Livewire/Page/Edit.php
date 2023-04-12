@@ -27,7 +27,7 @@ class Edit extends Component
     public $customtitle, $customurl, $oldtitle, $oldurl;
 
 //    collection
-    public $messengers, $socialLinks, $SecretMessage, $Buttons;
+    public $messengers, $socialLinks, $SecretMessage, $Buttons, $selectButton;
 
 
     protected $rules = [
@@ -290,6 +290,7 @@ class Edit extends Component
 
     public function EditCustomButton($id)
     {
+        $this->selectButton = $id;
         $button = Button::find($id);
 
         $this->fill([
@@ -300,6 +301,13 @@ class Edit extends Component
             'showCreateButton' => true,
             'showShare' => false,
         ]);
+    }
+
+    public function clearCustomButton(){
+        Button::find($this->selectButton)?->delete();
+        $this->mount();
+        $this->showCreateButton = false;
+        $this->showShare = true;
     }
 
     public function StatusToggle()

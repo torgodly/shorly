@@ -86,7 +86,7 @@
                         @endif
 
                     </div>
-                    <div class="w-[400px] h-fit flex flex-col justify-center items-center px-2 space-y-5 ">
+                    <div class="w-[400px] h-fit flex flex-col justify-center items-center px-2  ">
 
 
                         <div class="relative w-[90%] ">
@@ -97,22 +97,23 @@
 
                             <div x-show="Block" @click.outside="Block=false"
                                  class="absolute top-full left-0 mt-2 w-fit bg-white border border-gray-200 rounded-lg shadow-lg z-10  ">
-                                <div class="block px-4 py-5 text-gray-800 hover:bg-gray-200 border-b">
-                                    <div x-data="{ enabled: {{ $SecretMessage }} }" dir="ltr"
-                                         @click="enabled = ! enabled"
-                                         wire:click="StatusToggle()" class="flex gap-5 ">
+{{--                                TODO:secret message--}}
+{{--                                <div class="block px-4 py-5 text-gray-800 hover:bg-gray-200 border-b">--}}
+{{--                                    <div x-data="{ enabled: {{ $SecretMessage }} }" dir="ltr"--}}
+{{--                                         @click="enabled = ! enabled"--}}
+{{--                                         wire:click="StatusToggle()" class="flex gap-5 ">--}}
 
-                                        <div :class="{ 'bg-green-500': enabled, 'bg-gray-300': !enabled }"
-                                             class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
-                                                    <span aria-hidden="true"
-                                                          :class="{ 'translate-x-5': enabled, 'translate-x-0': !enabled }"
-                                                          class=" pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out">
-                                                    </span>
-                                        </div>
-                                        <h1 class="text-lg font-semibold">Secret Messages🤫🔐</h1>
+{{--                                        <div :class="{ 'bg-green-500': enabled, 'bg-gray-300': !enabled }"--}}
+{{--                                             class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">--}}
+{{--                                                    <span aria-hidden="true"--}}
+{{--                                                          :class="{ 'translate-x-5': enabled, 'translate-x-0': !enabled }"--}}
+{{--                                                          class=" pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out">--}}
+{{--                                                    </span>--}}
+{{--                                        </div>--}}
+{{--                                        <h1 class="text-lg font-semibold">Secret Messages🤫🔐</h1>--}}
 
-                                    </div>
-                                </div>
+{{--                                    </div>--}}
+{{--                                </div>--}}
 
                                 <button @click="CreateButton = true, Share=false, Block=false"
                                         class="block px-4 py-5 text-gray-800 hover:bg-gray-200 border-b w-full">
@@ -126,7 +127,7 @@
                             </div>
                         </div>
 
-                        <div class="space-y-4 w-full">
+                        <div class="space-y-4 mt-4 w-full">
                             @if(Auth::user()->secret_message)
                                 <button @click="Block = true, Share=false"
                                         class=" grow bg-black min-w-full h-[54px] rounded-xl flex justify-center items-center gap-5">
@@ -416,7 +417,7 @@
 
                     <div>
                         <div class="flex justify-between items-center ">
-                            <button type="button" wire:click="clearMessengers"
+                            <button type="button" wire:click="clearCustomButton"
                                     class="inline-flex items-center rounded-full border border-transparent bg-red-600 p-2 text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                      stroke-width="1.5" stroke="currentColor" class="w-5 h-5">

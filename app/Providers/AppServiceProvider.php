@@ -47,6 +47,10 @@ class AppServiceProvider extends ServiceProvider
             return $this->whereBetween('date', [$start, $end]);
         });
 
+        Builder::macro('today', function () {
+            return $this->whereDate('created_at', Carbon::today());
+        });
+
 
     }
 }
