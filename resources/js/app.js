@@ -153,9 +153,10 @@ const qrCodeShow = new QRCodeStyling({
     backgroundOptions: {
         color: "transparent",
     },
-    imageOptions: { hideBackgroundDots: true, imageSize: 0.4, margin: 0 },
+    imageOptions: { hideBackgroundDots: true, imageSize: 0.8, margin: 0 },
     dotsOptions: { type: "extra-rounded", color: "#f4812a" },
     // backgroundOptions: { color: "#ffffff" },
+    image: "https://shor.ly/images/logo/logo.png",
     dotsOptionsHelper: {
         colorType: { single: true, gradient: false },
         gradient: {
@@ -210,9 +211,11 @@ const qrCode = new QRCodeStyling({
         errorCorrectionLevel: "Q",
     },
 
-    imageOptions: { hideBackgroundDots: true, imageSize: 0.4, margin: 0 },
+    imageOptions: { hideBackgroundDots: true, imageSize: 0.8, margin: 0 },
     dotsOptions: { type: "extra-rounded", color: "#f4812a" },
     // backgroundOptions: { color: "#ffffff" },
+    image: "https://shor.ly/images/logo/logo.png",
+
     dotsOptionsHelper: {
         colorType: { single: true, gradient: false },
         gradient: {
