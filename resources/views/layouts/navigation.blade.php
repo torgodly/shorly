@@ -84,6 +84,9 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('page.edit')" :active="request()->routeIs('page.edit')">
+                {{ __('page') }}
+            </x-responsive-nav-link>
 
         </div>
 
