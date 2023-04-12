@@ -16,8 +16,8 @@
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@700&display=swap" rel="stylesheet">
 
     <!-- Scripts -->
-<link rel="stylesheet" href="{{ asset('css/app.css') }}">
-<script src="{{ asset('js/app.js') }}"></script></head>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+</head>
 <body class="font-sans antialiased">
 <div class="min-h-screen bg-white">
     <!-- page Content -->
@@ -25,25 +25,36 @@
         <div>
 
             @if(session('Success'))
-                <div x-data="{ show: {{ session('Success') ? 'true' : 'false' }} }" x-show.transition.duration.1000ms="show" @click.away="show = false" x-init="setTimeout(() => { show = false }, 5000)" class="relative">
+                <div x-data="{ show: {{ session('Success') ? 'true' : 'false' }} }"
+                     x-show.transition.duration.1000ms="show" @click.away="show = false"
+                     x-init="setTimeout(() => { show = false }, 5000)" class="relative">
                     <div class="bg-green-100 border-t-4 border-green-500 rounded-b px-4 py-3 shadow-md" role="alert">
                         <div class="flex">
                             <div class="py-1">
-                                <svg class="fill-current h-6 w-6 text-green-500 mr-4" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Check</title><path d="M0 11l2-2 5 5L18 3l2 2L7 18z"/></svg>
+                                <svg class="fill-current h-6 w-6 text-green-500 mr-4" role="button"
+                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Check</title>
+                                    <path d="M0 11l2-2 5 5L18 3l2 2L7 18z"/>
+                                </svg>
                             </div>
                             <div>
                                 <p class="font-bold">{{ session('Success') }}</p>
                             </div>
                         </div>
                         <div class="absolute top-0 bottom-0 right-0 px-4 py-3" @click="show = false">
-                            <svg class="fill-current h-6 w-6 text-green-500" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Close</title><path d="M14.348 5.652c-.512-.512-1.342-.512-1.854 0L10 8.146 7.506 5.652c-.512-.512-1.342-.512-1.854 0s-.512 1.342 0 1.854L8.146 10l-2.494 2.494c-.512.512-.512 1.342 0 1.854.256.256.597.384.927.384s.67-.128.927-.384L10 11.854l2.494 2.494c.512.512.512 1.342 0 1.854-.256.256-.597.384-.927.384s-.67-.128-.927-.384L10 13.854l-2.494 2.494c-.256.256-.597.384-.927.384s-.67-.128-.927-.384c-.512-.512-.512-1.342 0-1.854L8.146 12 5.652 9.506c-.512-.512-1.342-.512-1.854 0s-.512 1.342 0 1.854L6.854 12l-2.494 2.494c-.512.512-.512 1.342 0 1.854.256.256.597.384.927.384s.67-.128.927-.384L8.146 13.854l2.494 2.494c.256.256.597.384.927.384s.67-.128.927-.384c.512-.512.512-1.342 0-1.854L11.854 12l2.494-2.494c.512-.512.512-1.342 0-1.854z"/></svg>
+                            <svg class="fill-current h-6 w-6 text-green-500" role="button"
+                                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Close</title>
+                                <path
+                                    d="M14.348 5.652c-.512-.512-1.342-.512-1.854 0L10 8.146 7.506 5.652c-.512-.512-1.342-.512-1.854 0s-.512 1.342 0 1.854L8.146 10l-2.494 2.494c-.512.512-.512 1.342 0 1.854.256.256.597.384.927.384s.67-.128.927-.384L10 11.854l2.494 2.494c.512.512.512 1.342 0 1.854-.256.256-.597.384-.927.384s-.67-.128-.927-.384L10 13.854l-2.494 2.494c-.256.256-.597.384-.927.384s-.67-.128-.927-.384c-.512-.512-.512-1.342 0-1.854L8.146 12 5.652 9.506c-.512-.512-1.342-.512-1.854 0s-.512 1.342 0 1.854L6.854 12l-2.494 2.494c-.512.512-.512 1.342 0 1.854.256.256.597.384.927.384s.67-.128.927-.384L8.146 13.854l2.494 2.494c.256.256.597.384.927.384s.67-.128.927-.384c.512-.512.512-1.342 0-1.854L11.854 12l2.494-2.494c.512-.512.512-1.342 0-1.854z"/>
+                            </svg>
                         </div>
                     </div>
-                    <div class="pointer-events-none absolute top-0 left-0 right-0 mt-2 flex justify-center" x-show="show">
-                        <div class="rounded-full bg-green-500 uppercase px-4 py-1 text-xs font-bold text-white mr-3">Success</div>
+                    <div class="pointer-events-none absolute top-0 left-0 right-0 mt-2 flex justify-center"
+                         x-show="show">
+                        <div class="rounded-full bg-green-500 uppercase px-4 py-1 text-xs font-bold text-white mr-3">
+                            Success
+                        </div>
                     </div>
                 </div>
-
 
             @endif
 
@@ -73,10 +84,10 @@
 
 
                                 <div class="px-5  cursor-pointer text-center">
-                                        <div class="space-y-4 ">
-                                            <h1 class="font-bold text-3xl font-headings ">{{ $user->page?->title }}</h1>
-                                            <h6 class="font-footer font-medium  text-base ">{{ $user->page?->description }}</h6>
-                                        </div>
+                                    <div class="space-y-4 ">
+                                        <h1 class="font-bold text-3xl font-headings ">{{ $user->page?->title }}</h1>
+                                        <h6 class="font-footer font-medium  text-base ">{{ $user->page?->description }}</h6>
+                                    </div>
 
                                 </div>
                             </div>
