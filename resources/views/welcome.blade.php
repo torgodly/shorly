@@ -11,9 +11,7 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet"/>
 
     <!-- Styles -->
-   <link rel="stylesheet" href="{{ asset('build/assets/app-33f660bc.css') }}">
-        <link rel="stylesheet" href="{{ asset('build/assets/app-5a8feaac.css') }}">
-        <script src="{{ asset('build/assets/app-003ba449.js') }}"></script></head>
+           @vite(['resources/css/app.css', 'resources/js/app.js'])</head>
 <body class="antialiased">
 <div
     class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
