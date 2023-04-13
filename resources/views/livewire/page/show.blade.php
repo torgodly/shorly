@@ -83,7 +83,7 @@
                                 </div>
                             @endif
                         </div>
-                        <div class="space-y-5 mt-8 w-screen md:w-[400px] h-fit flex justify-center px-4">
+                        <div class="space-y-5 mt-8 w-screen md:w-[400px] h-fit flex flex-col justify-center px-4">
                             @if($SecretMessage)
                                 <a href="{{route('message.create', $model->username)}}"
                                    class=" grow bg-black min-w-full h-[54px] rounded-xl flex justify-center items-center gap-5">
