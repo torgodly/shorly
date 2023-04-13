@@ -5,8 +5,7 @@
                  x-data="{ Headings: @entangle('showHeadings'), Messengers: @entangle('showMessengers'), SocialLinks: @entangle('showSocialLinks'), qr: false, Share: @entangle('showShare') , Block: false, ShowSecretMessage:false, CreateButton: @entangle('showCreateButton')}">
 
                 <div class="space-y-4">
-                    <div class="px-6 flex justify-center items-center ">
-
+                    <div class="px-6 flex justify-center items-center">
                         @if (file_exists('images/UserAvatar/' . Auth::user()->id . '.png'))
                             <div class="relative">
                                 <img src="{{ 'images/UserAvatar/' . $imgurl }}"
@@ -97,23 +96,24 @@
 
                             <div x-show="Block" @click.outside="Block=false"
                                  class="absolute top-full left-0 mt-2 w-fit bg-white border border-gray-200 rounded-lg shadow-lg z-10  ">
-{{--                                TODO:secret message--}}
-{{--                                <div class="block px-4 py-5 text-gray-800 hover:bg-gray-200 border-b">--}}
-{{--                                    <div x-data="{ enabled: {{ $SecretMessage }} }" dir="ltr"--}}
-{{--                                         @click="enabled = ! enabled"--}}
-{{--                                         wire:click="StatusToggle()" class="flex gap-5 ">--}}
+                            {{--TODO:secret message--}}
 
-{{--                                        <div :class="{ 'bg-green-500': enabled, 'bg-gray-300': !enabled }"--}}
-{{--                                             class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">--}}
-{{--                                                    <span aria-hidden="true"--}}
-{{--                                                          :class="{ 'translate-x-5': enabled, 'translate-x-0': !enabled }"--}}
-{{--                                                          class=" pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out">--}}
-{{--                                                    </span>--}}
-{{--                                        </div>--}}
-{{--                                        <h1 class="text-lg font-semibold">Secret Messages🤫🔐</h1>--}}
+                                <div class="block px-4 py-5 text-gray-800 hover:bg-gray-200 border-b">
+                                    <div x-data="{ enabled: {{ $SecretMessage }} }" dir="ltr"
+                                         @click="enabled = ! enabled"
+                                         wire:click="StatusToggle()" class="flex gap-5 ">
 
-{{--                                    </div>--}}
-{{--                                </div>--}}
+                                        <div :class="{ 'bg-green-500': enabled, 'bg-gray-300': !enabled }"
+                                             class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                                                    <span aria-hidden="true"
+                                                          :class="{ 'translate-x-5': enabled, 'translate-x-0': !enabled }"
+                                                          class=" pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out">
+                                                    </span>
+                                        </div>
+                                        <h1 class="text-lg font-semibold">Secret Messages🤫🔐</h1>
+
+                                    </div>
+                                </div>
 
                                 <button @click="CreateButton = true, Share=false, Block=false"
                                         class="block px-4 py-5 text-gray-800 hover:bg-gray-200 border-b w-full">
