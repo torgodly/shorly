@@ -283,7 +283,7 @@
                                     </span>
                                     <input type="text" wire:model="messenger"
                                            class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-orange-500 focus:ring-orange-500 text-sm md:text-base placeholder:text-gray-400 font-medium "
-                                           placeholder="Messenger/Facebook username">
+                                           placeholder="{{_('Messenger/Facebook username')}}">
                                 </div>
 
                                 @error('messenger')
@@ -300,7 +300,7 @@
                                     </span>
                                     <input type="text" wire:model="telegram"
                                            class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-orange-500 focus:ring-orange-500 text-sm md:text-base placeholder:text-gray-400 font-medium"
-                                           placeholder="telegram username">
+                                           placeholder="{{__('telegram username')}}">
                                 </div>
 
                                 @error('telegram')
@@ -316,9 +316,9 @@
                                     </span>
                                     <input type="number" wire:model="whatsapp"
                                            class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-tr-md border-gray-300 px-3 py-2 focus:border-orange-500 focus:ring-orange-500 text-sm md:text-base placeholder:text-gray-400 font-medium"
-                                           placeholder="WhatsApp phone number with country code ( +218...)">
+                                           placeholder="{{__('WhatsApp phone number with country code ( +218...)')}}">
                                 </div>
-                                <textarea placeholder="Predefined text: e.g Give me further information about..."
+                                <textarea placeholder="{{__('Predefined text: e.g Give me further information about...')}}"
                                           wire:model="whatsappMessage"
                                           class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-b-md border-gray-300 px-3 py-2 focus:border-orange-500 focus:ring-orange-500 text-sm md:text-base placeholder:text-gray-400 font-medium"></textarea>
 
@@ -339,7 +339,7 @@
                                     </span>
                                     <input type="text" wire:model="skype"
                                            class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-orange-500 focus:ring-orange-500 text-sm md:text-base placeholder:text-gray-400 font-medium"
-                                           placeholder="skype username">
+                                           placeholder="{{__('skype username')}}">
                                 </div>
 
                                 @error('skype')
@@ -355,7 +355,7 @@
                                     </span>
                                     <input type="email" wire:model="email"
                                            class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-tr-md border-gray-300 px-3 py-2 focus:border-orange-500 focus:ring-orange-500 text-sm md:text-base placeholder:text-gray-400 font-medium"
-                                           placeholder="Email Address">
+                                           placeholder="{{__('Email Address')}}">
 
                                 </div>
 
@@ -378,7 +378,7 @@
                                     </span>
                                     <input type="number" wire:model="phone"
                                            class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-orange-500 focus:ring-orange-500 text-sm md:text-base placeholder:text-gray-400 font-medium"
-                                           placeholder="phone number with country code ( +218...)">
+                                           placeholder="{{__('phone number with country code ( +218...)')}}">
                                 </div>
 
                                 @error('phone')
@@ -394,7 +394,7 @@
                                     </span>
                                     <input type="number" wire:model="viber"
                                            class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-orange-500 focus:ring-orange-500 text-sm md:text-base placeholder:text-gray-400 font-medium"
-                                           placeholder="viber number">
+                                           placeholder="{{__('viber number')}}">
                                 </div>
 
                                 @error('viber')
@@ -510,7 +510,7 @@
                                     </span>
                                     <input type="text" wire:model="facebook" name="username"
                                            class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-orange-500 focus:ring-orange-500 text-sm md:text-base placeholder:text-gray-400 font-medium "
-                                           placeholder="Facebook username or page id">
+                                           placeholder="{{__('Facebook username or page id')}}">
                                 </div>
 
                                 @error('facebook')
@@ -526,7 +526,7 @@
                                     </span>
                                     <input type="text" wire:model="instagram"
                                            class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-orange-500 focus:ring-orange-500 text-sm md:text-base placeholder:text-gray-400 font-medium "
-                                           placeholder="instagram username">
+                                           placeholder="{{__('instagram username')}}">
                                 </div>
 
                                 @error('instagram')
@@ -542,7 +542,7 @@
                                     </span>
                                     <input type="text" wire:model="twitter"
                                            class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-orange-500 focus:ring-orange-500 text-sm md:text-base placeholder:text-gray-400 font-medium "
-                                           placeholder="twitter username">
+                                           placeholder="{{__('twitter username')}}">
                                 </div>
                                 @error('twitter')
                                 <span class="text-red-600">{{ $message }}</span>
@@ -557,7 +557,7 @@
                                     </span>
                                     <input type="text" wire:model="linkedin"
                                            class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-orange-500 focus:ring-orange-500 text-sm md:text-base placeholder:text-gray-400 font-medium "
-                                           placeholder="linkedin profile username or id">
+                                           placeholder="{{__('linkedin profile username or id')}}">
                                 </div>
 
                                 @error('linkedin')
@@ -573,7 +573,7 @@
                                     </span>
                                     <input type="text" wire:model="snapchat"
                                            class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-orange-500 focus:ring-orange-500 text-sm md:text-base placeholder:text-gray-400 font-medium "
-                                           placeholder="snapchat username">
+                                           placeholder="{{__('snapchat username')}}">
                                 </div>
 
                                 @error('snapchat')
@@ -589,7 +589,7 @@
                                     </span>
                                     <input type="text" wire:model="github"
                                            class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-orange-500 focus:ring-orange-500 text-sm md:text-base placeholder:text-gray-400 font-medium "
-                                           placeholder="github username">
+                                           placeholder="{{__('github username')}}">
                                 </div>
 
                                 @error('github')
@@ -605,7 +605,7 @@
                                     </span>
                                     <input type="text" wire:model="youtube"
                                            class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-orange-500 focus:ring-orange-500 text-sm md:text-base placeholder:text-gray-400 font-medium "
-                                           placeholder="youtube channel username">
+                                           placeholder="{{__('youtube channel username')}}">
                                 </div>
 
                                 @error('youtube')
@@ -621,7 +621,7 @@
                                     </span>
                                     <input type="text" wire:model="tiktok"
                                            class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-orange-500 focus:ring-orange-500 text-sm md:text-base placeholder:text-gray-400 font-medium "
-                                           placeholder="tiktok username">
+                                           placeholder="{{__('tiktok username')}}">
                                 </div>
 
                                 @error('tiktok')
@@ -637,7 +637,7 @@
                                     </span>
                                     <input type="text" wire:model="pinterest"
                                            class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-orange-500 focus:ring-orange-500 text-sm md:text-base placeholder:text-gray-400 font-medium "
-                                           placeholder="pinterest username">
+                                           placeholder="{{__('pinterest username')}}">
                                 </div>
 
                                 @error('pinterest')
@@ -653,7 +653,7 @@
                                     </span>
                                     <input type="text" wire:model="patreon"
                                            class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-orange-500 focus:ring-orange-500 text-sm md:text-base placeholder:text-gray-400 font-medium "
-                                           placeholder="patreon username">
+                                           placeholder="{{__('patreon username')}}">
                                 </div>
 
                                 @error('patreon')

@@ -43,17 +43,25 @@
         <div class="mt-16">
             <div class="flex flex-col justify-center items-center">
                 <h1 class="font-bold text-4xl text-white">Shor.ly</h1>
-                <p class="text-3xl font-semibold text-white text-center" dir="rtl">
-                    ماعنديش ما نقول مافكرتش شن بنحط في الصفحه هيا
-                    <br>
-                    فا الي عنده تصميم مليح تواصل معاي من <a href="http://shor.ly/torgodly" class="text-[#f4812a]">هنا</a>
-                    <br>
-                    <br>
-                    لو تبي تعرف هاذا شني ولله ما عندي نيه نكتبلك شرح
-                    <br>
-                    فا <a href="{{route('register')}}" class="text-[#f4812a]">سجل</a> وجرب وتو تفهم مهم حاجه مليحه و
-                    "بلاش"
-                </p>
+{{--                @guest()--}}
+                    <p class="text-3xl font-semibold text-white text-center" dir="rtl">
+                        ماعنديش ما نقول مافكرتش شن بنحط في الصفحه هيا
+                        <br>
+                        فا الي عنده تصميم مليح تواصل معاي من <a href="http://shor.ly/torgodly" class="text-[#f4812a]">هنا</a>
+                        <br>
+                        <br>
+                        لو تبي تعرف هاذا شني ولله ما عندي نيه نكتبلك شرح
+                        <br>
+                        فا <a href="{{route('register')}}" class="text-[#f4812a]">سجل</a> وجرب وتو تفهم مهم حاجه مليحه و
+                        "بلاش"
+                    </p>
+{{--                @endguest--}}
+{{--                @auth()--}}
+{{--                    <p class="text-3xl font-semibold text-white text-center" dir="rtl">--}}
+{{--                        هاك مداير تسجيل دخول يا قميل انت 😘<br>--}}
+{{--                        هي برا عدل <a href="{{route('page.edit')}}" class="text-[#f4812a]">صفحتك</a>--}}
+{{--                    </p>--}}
+{{--                @endauth--}}
 
             </div>
         </div>
