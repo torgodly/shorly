@@ -34,7 +34,7 @@
 
     </div>
     <div class="flex items-center justify-center h-full">
-        <div class="bg-white p-8 w-full md:w-[45.6%] fixed bottom-0 rounded-t-3xl z-50"
+        <div class="bg-white p-8 w-full md:w-[45.6%] fixed bottom-0 rounded-t-3xl z-50 "
              x-show='Messengers' x-swipe:down="Messengers = false, Share=true"
              @click.outside="Messengers = false, Share=true"
              style="display: none"
@@ -45,7 +45,7 @@
              x-transition:leave-start="transform translate-y-0 opacity-100"
              x-transition:leave-end="transform translate-y-full opacity-0">
 
-            <div>
+            <div class="">
                 <div class="flex justify-between items-center ">
                     <button type="button" wire:click="clear"
                             class="inline-flex items-center rounded-full border border-transparent bg-red-600 p-2 text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">
@@ -197,8 +197,18 @@
                         @enderror
                     </div>
                 </div>
+
+
             </div>
 
+{{--            @if($loading)--}}
+
+{{--                <div class=" absolute inset-0  flex flex-col items-center justify-center bg-gray-100/50">--}}
+
+{{--                    <x-application-logo class="w-20 h-20 fill-current text-gray-500"/>--}}
+{{--                    <p class="text-gray-500 text-2xl font-bold">Saving...</p>--}}
+{{--                </div>--}}
+{{--            @endif--}}
         </div>
 
     </div>
