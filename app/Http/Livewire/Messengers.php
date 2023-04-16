@@ -32,29 +32,36 @@ class Messengers extends Component
         switch ($platform) {
             case 'messenger':
                 $pattern = '/^(?:https?:\/\/)?(?:www\.)?(?:(?:facebook\.com|fb\.me)\/(?:(?:\w\.)*#!\/)?(?:pages\/)?(?:[^\s\/]+\/)?([^\s\/?]+)(?:(?:\/)?|\?)?|(?:m\.me\/([^\s\/?]+)))/';
+                // If the input is a URL and it's a Facebook URL, extract the username or user ID
+                if (preg_match($pattern, $input, $matches)) {
+                    if (strpos($input, 'facebook.com') !== false || strpos($input, 'fb.me') !== false) {
+                        $username = preg_match('/^(?:https?:\/\/)?(?:www\.)?(?:facebook|messenger)\.com\/(?!profile\.php).*?([^\/?]+)/', $input, $matches) ? ($matches[1] ?? '') : null;
+                        $user_id = preg_match('/id=(\d+)/', $input, $matches) ? ($matches[1] ?? '') : null;
+                        return $username ?? $user_id ?? null;
+                    } elseif (isset($matches[2])) {
+                        // Return the username extracted from the "m.me" URL
+                        return $matches[2];
+                    } else {
+                        return isset($matches[1]) ? $matches[1] : null;
+                    }
+                }
                 break;
             case 'telegram':
-                $pattern = '/(?:https?:\/\/)?(?:www\.)?t\.me\/([a-zA-Z0-9_]+)(?:\/)?/';
+                $pattern = '/^(?:https?:\/\/)?(?:www\.)?t\.me\/([a-zA-Z0-9_]+)(?:\/)?$/';
+                // If the input is a URL and it's a Telegram URL, extract the username
+                if (preg_match($pattern, $input, $matches)) {
+                    $username = preg_replace('/^@/', '', $matches[1]);
+                    return $username;
+                } elseif (strpos($input, '@') === 0) {
+                    $username = substr($input, 1);
+                    return $username;
+                }
                 break;
             case 'skype':
                 $pattern = '/(?:https?:\/\/)?(?:www\.)?(?:(?:join\.)?skype\.com\/(?:invite\/)?|skype:)([a-zA-Z0-9_\-\.]+)/';
                 break;
             default:
                 return $input;
-        }
-
-        // If the input is a URL and it's a Facebook URL, extract the username or user ID
-        if (preg_match($pattern, $input, $matches)) {
-            if (strpos($input, 'facebook.com') !== false || strpos($input, 'fb.me') !== false) {
-                $username = preg_match('/^(?:https?:\/\/)?(?:www\.)?(?:facebook|messenger)\.com\/(?!profile\.php).*?([^\/?]+)/', $input, $matches) ? ($matches[1] ?? '') : null;
-                $user_id = preg_match('/id=(\d+)/', $input, $matches) ? ($matches[1] ?? '') : null;
-                return $username ?? $user_id ?? null;
-            } elseif (isset($matches[2])) {
-                // Return the username extracted from the "m.me" URL
-                return $matches[2];
-            } else {
-                return isset($matches[1]) ? $matches[1] : null;
-            }
         }
 
         // Return the input as it is
