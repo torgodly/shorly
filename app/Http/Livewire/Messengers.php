@@ -49,6 +49,9 @@ class Messengers extends Component
                 $username = preg_match('/^(?:https?:\/\/)?(?:www\.)?(?:facebook|messenger)\.com\/(?!profile\.php).*?([^\/?]+)/', $input, $matches) ? ($matches[1] ?? '') : null;
                 $user_id = preg_match('/id=(\d+)/', $input, $matches) ? ($matches[1] ?? '') : null;
                 return $username ?? $user_id ?? null;
+            } elseif (isset($matches[2])) {
+                // Return the username extracted from the "m.me" URL
+                return $matches[2];
             } else {
                 return isset($matches[1]) ? $matches[1] : null;
             }

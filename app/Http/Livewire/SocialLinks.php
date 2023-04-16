@@ -69,12 +69,15 @@ class SocialLinks extends Component
                 return $input;
         }
 
-        // If the input is a URL and it's a supported platform URL, extract the username or user ID
+        // If the input is a URL and it's a Facebook URL, extract the username or user ID
         if (preg_match($pattern, $input, $matches)) {
             if (strpos($input, 'facebook.com') !== false || strpos($input, 'fb.me') !== false) {
                 $username = preg_match('/^(?:https?:\/\/)?(?:www\.)?(?:facebook|messenger)\.com\/(?!profile\.php).*?([^\/?]+)/', $input, $matches) ? ($matches[1] ?? '') : null;
                 $user_id = preg_match('/id=(\d+)/', $input, $matches) ? ($matches[1] ?? '') : null;
                 return $username ?? $user_id ?? null;
+            } elseif (isset($matches[2])) {
+                // Return the username extracted from the "m.me" URL
+                return $matches[2];
             } else {
                 return isset($matches[1]) ? $matches[1] : null;
             }
