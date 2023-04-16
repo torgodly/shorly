@@ -20,7 +20,10 @@
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
+
+            @if(isset($nav))
             @include('layouts.navigation')
+            @endif
 
             <!-- page page -->
             @if (isset($header))

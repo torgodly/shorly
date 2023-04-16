@@ -4,8 +4,8 @@
             <div class="flex flex-col justify-center items-center mb-5 "
                  x-data="{    qr: false,  }">
 
-                <div class="space-y-4">
-                    <div class="px-6 flex justify-center items-center">
+                <div class="space-y-4 w-full">
+                    <div class="px-6 flex justify-center items-center  w-full relative">
                         @if (file_exists('images/UserAvatar/' . Auth::user()->id . '.png'))
                             <div class="relative">
                                 <img src="{{ 'images/UserAvatar/' . $imgurl }}"
@@ -32,6 +32,13 @@
                                 </svg>
                             </button>
                         @endif
+
+                        <a href="{{route('dashboard')}}" class="left-5 text-white text-sm font-medium bg-black bg-opacity-60 rounded-full px-3 py-0.5 cursor-pointer absolute top-4 z-10 no-underline">
+                            {{__('Insights')}}
+                        </a>
+                        <a href="{{route('profile.edit')}}" class="right-5 text-white text-sm font-medium bg-black bg-opacity-60 rounded-full px-3 py-0.5 cursor-pointer absolute top-4 z-10 no-underline">
+                            {{__('Settings')}}
+                        </a>
                     </div>
 
                     @livewire('headings')
@@ -67,7 +74,7 @@
 
                     <div class="flex flex-col justify-center items-center space-y-5">
                         <h1 class="text-[#f4812a] text-2xl font-bold ">Shor.ly</h1>
-                        <h1 class=" text-lg ">https://{{Auth::user()->link()}}</h1>
+                        <h1 class=" text-lg " id="UserLink">https://{{Auth::user()->link()}}</h1>
                         <div id="canvas"></div>
                         <div class="flex gap-5">
                             <button type="button" id="PNG"
@@ -121,7 +128,7 @@
 
                         </button>
 
-                        <a href="https://{{Auth::user()->link()}}" id="UserLink" target="_blank"
+                        <a href="https://{{Auth::user()->link()}}" target="_blank"
                            class="rounded-full bg-[#f4812a] p-2 text-white shadow-sm hover:bg-[#f4812a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#f4812a]">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                  stroke="currentColor" class="w-5 h-5">
