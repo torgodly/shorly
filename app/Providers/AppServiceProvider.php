@@ -29,6 +29,12 @@ class AppServiceProvider extends ServiceProvider
                 ->get();
         });
 
+        Builder::macro('perWeek', function () {
+            return $this->select(DB::raw("DATE(created_at) as date"), DB::raw('YEAR(created_at) year, WEEK(created_at) week'), DB::raw('count(*) as views'))
+                ->groupby('year', 'week')
+                ->get();
+        });
+
         Builder::macro('perMonth', function () {
             return $this->select(DB::raw("DATE(created_at) as date"), DB::raw('YEAR(created_at) year, MONTH(created_at) month'), DB::raw('count(*)  as views'))
                 ->groupby('year', 'month')

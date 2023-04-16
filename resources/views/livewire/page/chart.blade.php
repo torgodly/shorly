@@ -5,6 +5,7 @@
             class="px-4 py-2 border rounded-md shadow-sm text-sm font-medium text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             wire:model="scope">
             <option value="perDay">Per Day</option>
+            <option value="perWeek">Per Week</option>
             <option value="perMonth">Per Month</option>
             <option value="perYear">Per Year</option>
         </select>
