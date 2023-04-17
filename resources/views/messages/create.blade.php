@@ -85,8 +85,8 @@
 
                                 <div class="px-5  cursor-pointer text-center">
                                     <div class="space-y-4 ">
-                                        <h1 class="font-bold text-3xl font-headings ">{{ $user->page?->title }}</h1>
-                                        <h6 class="font-footer font-medium  text-base ">{{ $user->page?->description }}</h6>
+                                        <h1 class="font-bold text-3xl font-headings ">{{ $user->heading?->title }}</h1>
+                                        <h6 class="font-footer font-medium  text-base ">{{ $user->heading?->description }}</h6>
                                     </div>
 
                                 </div>

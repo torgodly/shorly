@@ -47,7 +47,7 @@ class PageController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Heading $page)
+    public function edit(heading $heading)
     {
         return view('pages.edit');
 

@@ -19,8 +19,8 @@ class Headings extends Component
 
     public function mount()
     {
-        $this->title = Auth::user()->page?->title;
-        $this->description = Auth::user()->page?->description;
+        $this->title = Auth::user()->heading?->title;
+        $this->description = Auth::user()->heading?->description;
     }
 
     public function render()
@@ -32,7 +32,7 @@ class Headings extends Component
     {
         $validatedData = $this->validate($this->rules);
         if ($validatedData) {
-            Auth::user()->page()->updateOrCreate(
+            Auth::user()->heading()->updateOrCreate(
                 ['user_id' => Auth::id()],
                 [
                     'title' => $validatedData['title'] ?? null,
@@ -49,7 +49,7 @@ class Headings extends Component
     {
         $this->title = null;
         $this->description = null;
-        Auth::user()->page()->updateOrCreate(
+        Auth::user()->heading()->updateOrCreate(
             ['user_id' => Auth::id()],
             [
                 'title' => null,

@@ -18,8 +18,8 @@ class Show extends Component
     public function render()
     {
         $this->SecretMessage = $this->model->secret_message;
-        $this->title = $this->model->page?->title;
-        $this->description = $this->model->page?->description;
+        $this->title = $this->model->heading?->title;
+        $this->description = $this->model->heading?->description;
 
         $this->imgurl = $this->model->id . '.png?' . rand(1, 10000);
 
