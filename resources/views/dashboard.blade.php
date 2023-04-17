@@ -50,7 +50,7 @@
                         <div class="flex justify-center items-center">
                             <a href="{{route('page.edit')}}"
                                class="bg-[#f4812a] hover:bg-[#DE8C1B] text-white font-bold py-2 px-4 rounded">
-                                Edit
+                                {{__('Edit')}}
                             </a>
                         </div>
 

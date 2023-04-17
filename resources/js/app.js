@@ -137,7 +137,7 @@ uppy.on("complete", () => {
 });
 
 let UserLink = document.getElementById("UserLink").innerText;
-let Username = document.getElementById("username").innerText;
+let Username = document.getElementById("avatar").alt;
 
 const qrCodeShow = new QRCodeStyling({
     width: 200,

@@ -3,13 +3,13 @@
         <div class="py-6 text-gray-900 flex flex-col justify-center items-center w-[400px]  rounded-xl z-50">
             <div class="flex flex-col justify-center items-center mb-5 "
                  x-data="{    qr: false,  }">
-
                 <div class="space-y-4 w-full">
                     <div class="px-6 flex justify-center items-center  w-full relative">
                         @if (file_exists('images/UserAvatar/' . Auth::user()->id . '.png'))
                             <div class="relative">
                                 <img src="{{ 'images/UserAvatar/' . $imgurl }}"
-                                     class="rounded-full w-[100px] h-[100px] flex justify-center items-center ">
+                                     class="rounded-full w-[100px] h-[100px] flex justify-center items-center" id="avatar" alt="{{Auth::user()->username}}">
+
                                 <button wire:click="delete_image"
                                         class="absolute bottom-0 right-0 bg-gray-800/50 rounded-full p-1 text-white">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"

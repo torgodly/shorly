@@ -5,7 +5,7 @@
         <div class="relative w-[90%] ">
             <button @click="Block = !Block"
                     class="border-2 border-dashed border-[#666666] text-[#666666] rounded-lg text-xl font-bold px-16  w-full  py-2">
-                {{ __('+ Add Block') }}
+                +{{ __('Add Block') }}
             </button>
 
             <div x-show="Block" @click.outside="Block=false" style="display: none"
@@ -23,7 +23,7 @@
                                                                           class=" pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out">
                                                                     </span>
                         </div>
-                        <h1 class="text-lg font-semibold">Secret Messages🤫🔐</h1>
+                        <h1 class="text-lg font-semibold">{{__('Secret Messages')}}🤫🔐</h1>
 
                     </div>
                 </div>
@@ -32,7 +32,7 @@
                         class="block px-4 py-5 text-gray-800 hover:bg-gray-200 border-b w-full">
                     <div class="flex gap-5">
                         <i class="fa-solid fa-cube text-3xl "></i>
-                        <h1 class="text-lg font-semibold">Add Custom Button</h1>
+                        <h1 class="text-lg font-semibold">{{__('Add Custom Button')}}</h1>
                     </div>
 
 
@@ -41,13 +41,13 @@
         </div>
 
         @if(Auth::user()->secret_message or $Buttons->isNotEmpty())
-            <div class="space-y-5 mt-8 w-screen md:w-[400px] h-fit flex flex-col justify-center px-4">
+            <div class="space-y-5 mt-8  w-[400px] h-fit flex flex-col justify-center px-4">
                 @if(Auth::user()->secret_message)
                     <button @click="Block = true, Share=false"
                             class=" grow bg-black min-w-full h-[54px] rounded-xl flex justify-center items-center gap-5">
 
                         <i class="fa-solid fa-message  text-3xl text-white"></i>
-                        <h1 class="text-lg font-bold text-white">Secret Messages🤫🔐</h1>
+                        <h1 class="text-lg font-bold text-white">{{__('Send Secret Message')}}🤫🔐</h1>
 
                     </button>
                 @endif
@@ -114,7 +114,7 @@
                     <div>
                         <input wire:model="customtitle" type="text" name="text"
                                class="block w-full h-12 rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 text-sm placeholder:text-gray-400 md:text-xl"
-                               placeholder="title">
+                               placeholder="{{__('Title')}}">
                         @error('customtitle')
                         <span class="text-red-600">{{ $message }}</span>
                         @enderror

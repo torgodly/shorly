@@ -1,8 +1,8 @@
 <div x-data="{ Headings: @entangle('showHeadings'), }">
-    <div class="px-5 cursor-pointer text-center"
+    <div class="px-5 cursor-pointer text-center flex justify-center items-center"
          @click="Headings=true, Share=false">
         @if (empty($title) and empty($description))
-            <h1 class="border-b-2 border-dashed border-[#666666] text-[#666666] font-bold font-sans text-3xl">
+            <h1 class="border-b-2 border-dashed border-[#666666] text-[#666666] font-bold font-sans text-3xl w-fit px-2 py-2">
                 {{ __('Title Here') }}</h1>
         @else
             <div class="space-y-1 ">
@@ -50,7 +50,7 @@
                     <div>
                         <input wire:model="title" type="text" name="text"
                                class="block w-full h-12 rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 text-sm placeholder:text-gray-400 md:text-xl"
-                               placeholder="Title">
+                               placeholder="{{__('Title')}}">
                         @error('title')
                         <span class="text-red-600">{{ $message }}</span>
                         @enderror
@@ -59,7 +59,7 @@
                     <div>
                                 <textarea wire:model="description"
                                           class=" p-2 block w-full h-16 rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 text-sm placeholder:text-gray-400 md:text-xl"
-                                          placeholder="Description"></textarea>
+                                          placeholder="{{__('Description')}}"></textarea>
                         @error('description')
                         <span class="text-red-600">{{ $message }}</span>
                         @enderror

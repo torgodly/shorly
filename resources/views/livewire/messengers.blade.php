@@ -3,7 +3,7 @@
         @if (empty($messengers->toArray()))
             <button @click="Messengers = true, Share=false"
                     class="border-2 border-dashed border-[#666666] text-[#666666] rounded-lg text-xl font-bold px-16 w-[90%]   py-2">
-                {{ __('+ Add Messengers') }}
+                +{{ __('Add Messengers') }}
             </button>
         @else
             <div class=" w-full flex justify-center flex-wrap-reverse  gap-x-[18px] gap-y-4 ">
@@ -78,7 +78,7 @@
                                     </span>
                             <input type="text" wire:model="messenger"
                                    class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-orange-500 focus:ring-orange-500 text-sm md:text-base placeholder:text-gray-400 font-medium "
-                                   placeholder="{{_('Messenger/Facebook username')}}">
+                                   placeholder="{{__('Messenger/Facebook username')}}">
                         </div>
 
                         @error('messenger')
@@ -134,7 +134,7 @@
                                     </span>
                             <input type="text" wire:model="skype"
                                    class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-orange-500 focus:ring-orange-500 text-sm md:text-base placeholder:text-gray-400 font-medium"
-                                   placeholder="{{__('skype username')}}">
+                                   placeholder="{{__('Skype Username')}}">
                         </div>
 
                         @error('skype')
@@ -154,7 +154,7 @@
 
                         </div>
 
-                        <textarea placeholder="subject:" wire:model="emailSubject"
+                        <textarea placeholder="{{__('Subject:')}}" wire:model="emailSubject"
                                   class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-b-md border-gray-300 px-3 py-2 focus:border-orange-500 focus:ring-orange-500 text-sm md:text-base placeholder:text-gray-400 font-medium"></textarea>
                         @error('email')
                         <span class="text-red-600">{{ $message }}</span>

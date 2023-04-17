@@ -2,8 +2,8 @@
     <div class="w-[400px] h-fit flex justify-center px-2">
         @if (empty($socialLinks->toArray()))
             <button @click="SocialLinks = true, Share=false"
-                    class="border-2 border-dashed border-[#666666] text-[#666666] rounded-lg text-xl font-bold px-16  w-[90%]  py-2">
-                {{ __('+ Add Social Links') }}
+                    class="border-2 border-dashed border-[#666666] text-[#666666] rounded-lg text-lg font-bold px-10  w-[90%]  py-2">
+                +{{ __('Add Social Links') }}
             </button>
         @else
             <div class=" w-full flex justify-center flex-wrap gap-x-5  gap-y-2 ">
@@ -79,7 +79,7 @@
                                     </span>
                             <input type="text" wire:model="instagram"
                                    class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-orange-500 focus:ring-orange-500 text-sm md:text-base placeholder:text-gray-400 font-medium "
-                                   placeholder="{{__('instagram username')}}">
+                                   placeholder="{{__('Instagram username')}}">
                         </div>
 
                         @error('instagram')
@@ -95,7 +95,7 @@
                                     </span>
                             <input type="text" wire:model="twitter"
                                    class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-orange-500 focus:ring-orange-500 text-sm md:text-base placeholder:text-gray-400 font-medium "
-                                   placeholder="{{__('twitter username')}}">
+                                   placeholder="{{__('Twitter username')}}">
                         </div>
                         @error('twitter')
                         <span class="text-red-600">{{ $message }}</span>
@@ -110,7 +110,7 @@
                                     </span>
                             <input type="text" wire:model="linkedin"
                                    class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-orange-500 focus:ring-orange-500 text-sm md:text-base placeholder:text-gray-400 font-medium "
-                                   placeholder="{{__('linkedin profile username or id')}}">
+                                   placeholder="{{__('Linkedin Profile Username or id')}}">
                         </div>
 
                         @error('linkedin')
@@ -126,7 +126,7 @@
                                     </span>
                             <input type="text" wire:model="snapchat"
                                    class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-orange-500 focus:ring-orange-500 text-sm md:text-base placeholder:text-gray-400 font-medium "
-                                   placeholder="{{__('snapchat username')}}">
+                                   placeholder="{{__('Snapchat username')}}">
                         </div>
 
                         @error('snapchat')
@@ -142,7 +142,7 @@
                                     </span>
                             <input type="text" wire:model="github"
                                    class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-orange-500 focus:ring-orange-500 text-sm md:text-base placeholder:text-gray-400 font-medium "
-                                   placeholder="{{__('github username')}}">
+                                   placeholder="{{__('Github username')}}">
                         </div>
 
                         @error('github')
@@ -158,7 +158,7 @@
                                     </span>
                             <input type="text" wire:model="youtube"
                                    class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-orange-500 focus:ring-orange-500 text-sm md:text-base placeholder:text-gray-400 font-medium "
-                                   placeholder="{{__('youtube channel username')}}">
+                                   placeholder="{{__('Youtube channel username')}}">
                         </div>
 
                         @error('youtube')
@@ -174,7 +174,7 @@
                                     </span>
                             <input type="text" wire:model="tiktok"
                                    class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-orange-500 focus:ring-orange-500 text-sm md:text-base placeholder:text-gray-400 font-medium "
-                                   placeholder="{{__('tiktok username')}}">
+                                   placeholder="{{__('Tiktok username')}}">
                         </div>
 
                         @error('tiktok')
@@ -190,7 +190,7 @@
                                     </span>
                             <input type="text" wire:model="pinterest"
                                    class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-orange-500 focus:ring-orange-500 text-sm md:text-base placeholder:text-gray-400 font-medium "
-                                   placeholder="{{__('pinterest username')}}">
+                                   placeholder="{{__('Pinterest username')}}">
                         </div>
 
                         @error('pinterest')
@@ -206,7 +206,7 @@
                                     </span>
                             <input type="text" wire:model="patreon"
                                    class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-orange-500 focus:ring-orange-500 text-sm md:text-base placeholder:text-gray-400 font-medium "
-                                   placeholder="{{__('patreon username')}}">
+                                   placeholder="{{__('Patreon username')}}">
                         </div>
 
                         @error('patreon')
