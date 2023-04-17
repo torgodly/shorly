@@ -147,7 +147,7 @@ const qrCodeShow = new QRCodeStyling({
     qrOptions: {
         typeNumber: "0",
         mode: "Byte",
-        errorCorrectionLevel: "Q",
+        errorCorrectionLevel: "M",
     },
     backgroundOptions: {
         color: "transparent",
@@ -206,7 +206,7 @@ const qrCode = new QRCodeStyling({
     qrOptions: {
         typeNumber: "0",
         mode: "Byte",
-        errorCorrectionLevel: "Q",
+        errorCorrectionLevel: "M",
     },
 
     imageOptions: { hideBackgroundDots: true, imageSize: 0.7, margin: 0 },

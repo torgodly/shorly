@@ -12,11 +12,11 @@
                         <div class="flex">
                             @if (file_exists('images/UserAvatar/' . Auth::user()->id . '.png'))
                                 <img src="{{ 'images/UserAvatar/' . Auth::user()->id . '.png' }}"
-                                     class="w-14 h-14 rounded-full">
+                                     class="w-14 h-14 rounded-full" id="avatar" alt="{{Auth::user()->username}}">
 
                             @else
                                 <img src="https://api.dicebear.com/6.x/notionists/svg?seed={{Auth::user()->username}}"
-                                     alt="Avatar" class="w-14 h-14  rounded-full">
+                                     alt="Avatar" class="w-14 h-14  rounded-full" id="avatar" alt="{{Auth::user()->username}}">
 
                             @endif
 
