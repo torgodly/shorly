@@ -21,7 +21,7 @@
                             @endif
 
                             <div class="flex gap-5 justify-center items-center ml-4">
-                                <p class="md:text-xl text-base font-semibold text-[#f4812a]">{{Auth::user()->link()}}</p>
+                                <p class="md:text-xl text-base font-semibold text-[#f4812a] ">{{ substr(Auth::user()->link(), 0, 20) . '...' }}</p>
                                 <div class="flex gap-3 justify-center items-center">
                                     <button>
 
