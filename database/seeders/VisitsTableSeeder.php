@@ -21,19 +21,19 @@ class VisitsTableSeeder extends Seeder
         $users = User::all();
 
         // Loop through each day for the past 3 years
-        $date = now()->subYears(3)->startOfDay();
+        $date = now()->subYears(1)->startOfDay();
         $endDate = now()->startOfDay();
         while ($date->lte($endDate)) {
 
             // Generate a random number of visits for this day
-            $numVisits = rand(10, 50);
+            $numVisits = rand(10, 500);
 
             // Create visits for each user
             foreach ($users as $user) {
                 // Create the visits for this user
                 for ($i = 0; $i < $numVisits; $i++) {
                     $visit = new Visit();
-                    $visit->method = $faker->randomElement(['GET', 'POST', 'PUT', 'DELETE']);
+                    $visit->method = $faker->randomElement(['GET']);
                     $visit->request = json_encode(['key' => 'value']);
                     $visit->url = $faker->url;
                     $visit->referer = $faker->url;

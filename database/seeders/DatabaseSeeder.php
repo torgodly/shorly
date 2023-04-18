@@ -19,6 +19,8 @@ class DatabaseSeeder extends Seeder
             $this->call(HeadingSeeder::class);
             $this->call(MessengerSeeder::class);
             Message::factory(20)->create();
+            //call VisitsTableSeeder
+            $this->call(VisitsTableSeeder::class);
 //            Button::factory(20)->create();
         //         \App\Models\User::factory(10)->create();
 
