@@ -4,7 +4,7 @@
 
         <div class="relative w-[90%] ">
             <button @click="Block = !Block"
-                    class="border-2 border-dashed border-[#666666] text-[#666666] rounded-lg text-xl font-bold px-16  w-full  py-2">
+                    class="border-2 border-dashed border-[#666666] text-[#666666] rounded-lg text-xl font-semibold px-16  w-full  py-2">
                 +{{ __('Add Block') }}
             </button>
 

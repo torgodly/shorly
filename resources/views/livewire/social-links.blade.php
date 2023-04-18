@@ -2,7 +2,7 @@
     <div class="w-[400px] h-fit flex justify-center px-2">
         @if (empty($socialLinks->toArray()))
             <button @click="SocialLinks = true, Share=false"
-                    class="border-2 border-dashed border-[#666666] text-[#666666] rounded-lg text-lg font-bold px-10  w-[90%]  py-2">
+                    class="border-2 border-dashed border-[#666666] text-[#666666] rounded-lg text-lg font-semibold px-10  w-[90%]  py-2">
                 +{{ __('Add Social Links') }}
             </button>
         @else

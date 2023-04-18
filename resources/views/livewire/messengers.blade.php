@@ -2,7 +2,7 @@
     <div class="w-[400px] h-fit flex justify-center px-2">
         @if (empty($messengers->toArray()))
             <button @click="Messengers = true, Share=false"
-                    class="border-2 border-dashed border-[#666666] text-[#666666] rounded-lg text-xl font-bold px-16 w-[90%]   py-2">
+                    class="border-2 border-dashed border-[#666666] text-[#666666] rounded-lg text-xl font-semibold px-16 w-[90%]   py-2">
                 +{{ __('Add Messengers') }}
             </button>
         @else
