@@ -36,6 +36,8 @@ Route::domain('dash.' . env('APP_URL'))->group(function () {
 
         Route::get('page', [PageController::class, 'edit'])->name('page.edit');
         Route::post('page', [PageController::class, 'update'])->name('page.update');
+//        create index for messages
+        Route::get('messages', [MessageController::class, 'index'])->name('message.index');
 
 
     });
