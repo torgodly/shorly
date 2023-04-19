@@ -34,7 +34,7 @@
 
     </div>
     <div class="flex items-center justify-center h-full">
-        <div class="bg-white p-8 w-full md:w-[45.6%] fixed bottom-0 rounded-t-3xl z-50 "
+        <div class="bg-white p-8 w-full md:w-[45.6%] fixed bottom-0 rounded-t-3xl z-50 overflow-scroll max-h-screen"
              x-show='Messengers' x-swipe:down="Messengers = false, Share=true"
              @click.outside="Messengers = false, Share=true"
              style="display: none"
@@ -113,7 +113,7 @@
                                    class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-tr-md border-gray-300 px-3 py-2 focus:border-orange-500 focus:ring-orange-500 text-sm md:text-base placeholder:text-gray-400 font-medium"
                                    placeholder="{{__('WhatsApp phone number with country code ( +218...)')}}">
                         </div>
-                        <textarea placeholder="{{__('Predefined text: e.g Give me further information about...')}}"
+                        <textarea placeholder="{{__('text: e.g Give me further information about...')}}"
                                   wire:model="whatsappMessage"
                                   class="block h-11 w-full min-w-0 flex-1 rounded-none rounded-b-md border-gray-300 px-3 py-2 focus:border-orange-500 focus:ring-orange-500 text-sm md:text-base placeholder:text-gray-400 font-medium"></textarea>
 
