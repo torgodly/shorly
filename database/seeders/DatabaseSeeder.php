@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         Message::factory(20)->create();
-//            $this->call(UserSeeder::class);
+            $this->call(UserSeeder::class);
 //            $this->call(HeadingSeeder::class);
 //            $this->call(MessengerSeeder::class);
 //            Message::factory(20)->create();

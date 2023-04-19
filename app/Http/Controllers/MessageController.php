@@ -29,6 +29,8 @@ class MessageController extends Controller
         $message = $request->validate([
             'message' => 'required|max:500'
         ]);
+
+        $message['ip'] = $request->ip();
         $user->messages()->create($message);
         return back()->with(['Success'=> __('Message Sent Successfully')]);
     }

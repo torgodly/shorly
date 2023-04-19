@@ -18,6 +18,7 @@ class MessageFactory extends Factory
     {
         return [
             'message' => fake()->realText,
+            'ip' => fake()->ipv4,
             'user_id' => 1
         ];
     }
