@@ -20,8 +20,8 @@
                         <div class="px-5  cursor-pointer text-center">
                             @if (!empty($title) or !empty($description))
                                 <div class="space-y-1 ">
-                                    <h1 class="font-bold text-3xl font-headings ">{{ $title }}</h1>
-                                    <h6 class="font-footer font-medium  text-base ">{{ $description }}</h6>
+                                    <h1 class="font-bold text-3xl font-headings " dir="auto">{{ $title }}</h1>
+                                    <h6 class="font-footer font-medium  text-base " dir="auto">{{ $description }}</h6>
                                 </div>
                             @endif
                         </div>

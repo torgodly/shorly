@@ -112,7 +112,7 @@
                     </div>
 
                     <div>
-                        <input wire:model="customtitle" type="text" name="text"
+                        <input wire:model="customtitle" type="text" name="text" dir="auto"
                                class="block w-full h-12 rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 text-sm placeholder:text-gray-400 md:text-xl"
                                placeholder="{{__('Title')}}">
                         @error('customtitle')
@@ -120,7 +120,7 @@
                         @enderror
                     </div>
                     <div class="flex justify-center items-center">
-                        <button
+                        <button dir="auto"
                             class=" grow bg-black w-[50%] h-[54px] rounded-xl text-white text-3xl font-bold">
                             {{$customtitle}}
                         </button>

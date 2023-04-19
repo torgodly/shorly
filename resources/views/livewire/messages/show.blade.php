@@ -79,9 +79,9 @@
 
                                             </div>
 
-                                            <div class="flex justify-center items-center border-y-2">
+                                            <p class="flex justify-center items-center border-y-2" dir="auto">
                                                 {{$message->message}}
-                                            </div>
+                                            </p>
 
                                             <div class="flex justify-between items-center">
                                                 <div class="flex justify-center items-center space-x-2">
@@ -148,9 +148,9 @@
 
                                                 </div>
 
-                                                <div class="flex justify-center items-center border-y-2">
+                                                <p class="flex justify-center items-center border-y-2" dir="auto">
                                                     {{$favorite->message}}
-                                                </div>
+                                                </p>
 
                                                 <div class="flex justify-start items-center">
                                                     <button

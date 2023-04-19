@@ -73,7 +73,7 @@
                             <form action="{{route('message.store', $user->username)}}" method="post"
                                   class="flex flex-col gap-5 justify-center items-center">
                                 @csrf
-                                <textarea name="message" maxlength="500"
+                                <textarea name="message" maxlength="500" dir="auto"
                                           class="w-full px-3 py-2 text-gray-700 border-2 rounded-lg focus:outline-none focus:border-[#f4812a] min-w-[400px] min-h-[200px]"
                                           placeholder="{{__('Type your message here')}}"
                                           style="border-color: #f4812a;"></textarea>
