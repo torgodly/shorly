@@ -34,9 +34,10 @@
                     </div>
 
 
-                    <div class="space-y-5 mt-8 w-[400px]">
-                        <div class="  md:w-full  h-fit flex flex-col justify-center items-center gap-5 p-4 bg-white rounded-lg shadow"
-                             x-data="{incomingMessage: true, favorites: false}">
+                    <div class="space-y-5 mt-8 w-[400px] md:w-[600px]">
+                        <div
+                            class="  md:w-full  h-fit flex flex-col justify-center items-center gap-5 p-4 bg-white rounded-lg shadow"
+                            x-data="{incomingMessage: true, favorites: false, Delete: @entangle('delete')}">
 
                             <div class="w-full">
                                 <nav class="isolate flex justify-between divide-x divide-gray-200  rounded-lg shadow"
@@ -60,58 +61,73 @@
                             </div>
 
                             <div x-show="incomingMessage" style="display: none" class="w-full space-y-5">
-                                @foreach($messages as $message)
-                                    <div class="w-full flex">
-                                        <div class="bg-gray-100 space-y-3 px-5 py-2 flex flex-col w-full ">
-                                            <div class="flex justify-between items-center ">
-                                                <h1 class="text-sm font-semibold">{{__('Anonymous')}}: <span
-                                                        class="text-[10px] font-semibold">{{$message->created_at->diffForHumans()}}</span>
-                                                </h1>
+                                @if($messages->isEmpty())
+                                    <div class="w-full flex flex-col justify-center items-center border-y-2 py-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                             class="w-20 h-20  fill-amber-500 cursor-pointer">
+                                            <path fill-rule="evenodd"
+                                                  d="M4.848 2.771A49.144 49.144 0 0112 2.25c2.43 0 4.817.178 7.152.52 1.978.292 3.348 2.024 3.348 3.97v6.02c0 1.946-1.37 3.678-3.348 3.97-1.94.284-3.916.455-5.922.505a.39.39 0 00-.266.112L8.78 21.53A.75.75 0 017.5 21v-3.955a48.842 48.842 0 01-2.652-.316c-1.978-.29-3.348-2.024-3.348-3.97V6.741c0-1.946 1.37-3.68 3.348-3.97z"
+                                                  clip-rule="evenodd"/>
+                                        </svg>
 
-                                                <svg wire:click="isFavorite({{$message->id}})"
-                                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                                     fill="currentColor"
-                                                     class="w-6 h-6   {{ $message->is_favorite ? 'fill-amber-500' : 'fill-gray-400' }} cursor-pointer">
-                                                    <path fill-rule="evenodd"
-                                                          d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
-                                                          clip-rule="evenodd"/>
-                                                </svg>
+                                        <h1 class="text-lg font-semibold">{{__('you dont have secret messages yet')}}</h1>
+                                        <h1 class="text-sm font-semibold text-center  ">{{__('share your link to get more messages')}}</h1>
 
-                                            </div>
 
-                                            <p class="flex justify-center items-center border-y-2" dir="auto">
-                                                {{$message->message}}
-                                            </p>
+                                    </div>
+                                @else
+                                    @foreach($messages as $message)
+                                        <div class="w-full flex">
+                                            <div class="bg-gray-100 space-y-3 px-5 py-2 flex flex-col w-full ">
+                                                <div class="flex justify-between items-center ">
+                                                    <h1 class="text-sm font-semibold">{{__('Anonymous')}}: <span
+                                                            class="text-[10px] font-semibold">{{$message->created_at->diffForHumans()}}</span>
+                                                    </h1>
 
-                                            <div class="flex justify-between items-center">
-                                                <div class="flex justify-center items-center space-x-2">
-                                                    <a href="">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                                             fill="currentColor"
-                                                             class="w-6 h-6  fill-amber-500 cursor-pointer">
-                                                            <path
-                                                                d="M12 2a10 10 0 00-9.95 9.27 4.01 4.01 0 00.7 3.3 3.98 3.98 0 00-1.8 3.01 4.01 4.01 0 003.3.7A10 10 0 1022 12a9.99 9.99 0 00-10-10zm0 18a8 8 0 01-7.95-7.27 2.01 2.01 0 00-.3-1.73 2 2 0 00-1.4-1.4 2.01 2.01 0 00-1.73-.3A8 8 0 1112 20zm-4-8a2 2 0 11-2-2 2 2 0 012 2zm8 0a2 2 0 11-2-2 2 2 0 012 2z"/>
-                                                        </svg>
-                                                    </a>
-                                                    <a href="">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                                             fill="currentColor"
-                                                             class="w-6 h-6  fill-amber-500 cursor-pointer">
-                                                            <path
-                                                                d="M12 2a10 10 0 00-9.95 9.27 4.01 4.01 0 00.7 3.3 3.98 3.98 0 00-1.8 3.01 4.01 4.01 0 003.3.7A10 10 0 102
-                                                                12a9.99 9.99 0 00-10-10zm0 18a8 8 0 01-7.95-7.27 2.01 2.01 0 00-.3-1.73 2 2 0 00-1.4-1.4 2.01 2.01 0 00-1.73-.3A8 8 0 1112 20zm-4-8a2 2 0 11-2-2 2 2 0 012 2zm8 0a2 2 0 11-2-2 2 2 0 012 2z"/>
-                                                        </svg>
-                                                    </a>
+                                                    <svg wire:click="isFavorite({{$message->id}})"
+                                                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                                         fill="currentColor"
+                                                         class="w-6 h-6   {{ $message->is_favorite ? 'fill-amber-500' : 'fill-gray-400' }} cursor-pointer">
+                                                        <path fill-rule="evenodd"
+                                                              d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                                                              clip-rule="evenodd"/>
+                                                    </svg>
+
+                                                </div>
+
+                                                <p class="flex justify-center items-center border-y-2" dir="auto">
+                                                    {{$message->message}}
+                                                </p>
+
+                                                <div class="flex justify-self-auto gap-2 items-center">
+
+                                                    <button wire:click="showDelete({{$message->id}})"
+                                                            class="bg-red-500 text-white px-3 py-1 rounded-lg font-semibold text-sm">
+                                                        {{__('Delete')}}
+                                                    </button>
+                                                    {{--                                                TODO: add share message--}}
+                                                    {{--                                                <button--}}
+                                                    {{--                                                    class="bg-blue-500 text-white px-3 py-1 rounded-lg font-semibold text-sm flex gap-2">--}}
+                                                    {{--                                                    {{__('Share')}}--}}
+                                                    {{--                                                    <i class="fa-solid fa-share text-xl"></i>--}}
+
+
+                                                    {{--                                                </button>--}}
+
                                                 </div>
                                             </div>
+                                            <div>
+                                                <img
+                                                    src="https://api.dicebear.com/6.x/adventurer/svg?seed={{ str_replace('.', '', $message->ip) }}"
+                                                    width="50px" height="50px" alt="" srcset="">
+                                            </div>
+
+
                                         </div>
-                                        <div>
-                                            <img
-                                                src="https://api.dicebear.com/6.x/adventurer/svg?seed={{ str_replace('.', '', $message->ip) }}"
-                                                width="50px" height="50px" alt="" srcset="">
-                                        </div>
-                                    </div>
-                                @endforeach
+
+                                    @endforeach
+
+                                @endif
                                 {{ $messages->links()}}
                             </div>
                             <div x-show="favorites" style="display: none" class="w-full space-y-5">
@@ -153,8 +169,8 @@
                                                 </p>
 
                                                 <div class="flex justify-start items-center">
-                                                    <button
-                                                        class="bg-red-500 text-white px-2 py-1 rounded-md font-semibold text-sm">
+                                                    <button wire:click="showDelete({{$favorite->id}})"
+                                                            class="bg-red-500 text-white px-2 py-1 rounded-md font-semibold text-sm">
                                                         {{__('Delete')}}
                                                     </button>
                                                 </div>
@@ -171,6 +187,47 @@
 
 
                             </div>
+                            <div x-show="Delete" style="display: none" class="fixed z-10 inset-0  overflow-y-auto">
+                                <div class="fixed z-10 inset-0 overflow-y-auto flex items-center justify-center">
+
+                                    <!-- Background overlay -->
+                                    <div class="fixed inset-0 transition-opacity" aria-hidden="true">
+                                        <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+                                    </div>
+
+                                    <!-- Popup container -->
+                                    <div
+                                        class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+
+                                        <!-- Popup header -->
+                                        <div class="bg-red-500 px-4 py-3">
+                                            <h2 class="text-lg font-medium text-white">Delete Message</h2>
+                                        </div>
+
+                                        <!-- Popup body -->
+                                        <div class="px-4 py-5 sm:p-6">
+                                            <p class="text-gray-700">
+                                                Are you sure you want to delete this message? This action cannot be undone.
+                                            </p>
+                                        </div>
+
+                                        <!-- Popup buttons -->
+                                        <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                                            <button wire:click="delete({{$messageId}})" type="button"
+                                                    class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-500 text-base font-medium text-white hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm">
+                                                Delete
+                                            </button>
+                                            <button @click="Delete = false" type="button"
+                                                    class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:w-auto sm:text-sm">
+                                                Cancel
+                                            </button>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+
 
                         </div>
 
