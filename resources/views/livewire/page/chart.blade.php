@@ -9,7 +9,7 @@
             <option value="perMonth">{{__('Per Month')}}</option>
             <option value="perYear">{{__('Per Year')}}</option>
         </select>
-
+        
         <div class="text-xl font-semibold flex gap-1">
             {{__('Total Visits Today:')}}
 
