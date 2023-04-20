@@ -43,45 +43,45 @@
                                     @foreach ($messengers as $messenger)
                                         @switch($messenger->name)
                                             @case('messenger')
-                                                <a target="_blank"
+                                                <a target="_blank" rel="nofollow"
                                                    href="https://www.messenger.com/t/{{$messenger->value}}/"
                                                    class="grow bg-black min-w-[29.5%] h-[54px] rounded-xl flex justify-center items-center">
                                                     <i class="fab fa-facebook-messenger text-3xl text-white"></i>
                                                 </a>
                                                 @break
                                             @case('phone')
-                                                <a href="tel:%2B{{$messenger->value}}"
+                                                <a href="tel:%2B{{$messenger->value}}" rel="nofollow"
                                                    class="grow bg-black min-w-[29.5%] h-[54px] rounded-xl flex justify-center items-center">
                                                     <i class="fas fa-phone text-2xl text-white"></i>
                                                 </a>
                                                 @break
                                             @case('email')
-                                                <a href="mailto:{{$messenger->value}}?subject={{$messenger->message}}"
+                                                <a href="mailto:{{$messenger->value}}?subject={{$messenger->message}}" rel="nofollow"
                                                    class="grow bg-black min-w-[29.5%] h-[54px] rounded-xl flex justify-center items-center">
                                                     <i class="far fa-envelope text-2xl text-white"></i>
                                                 </a>
                                                 @break
                                             @case('telegram')
-                                                <a target="_blank" href="https://t.me/{{$messenger->value}}"
+                                                <a target="_blank" href="https://t.me/{{$messenger->value}}" rel="nofollow"
                                                    class="grow bg-black min-w-[29.5%] h-[54px] rounded-xl flex justify-center items-center">
                                                     <i class="fab fa-telegram text-3xl text-white"></i>
                                                 </a>
                                                 @break
                                             @case('whatsapp')
                                                 <a href="https://api.whatsapp.com/send?phone={{$messenger->value}}&text={{urlencode($messenger->message)}}"
-                                                   target="_blank"
+                                                   target="_blank" rel="nofollow"
                                                    class="grow bg-black min-w-[29.5%] h-[54px] rounded-xl flex justify-center items-center">
                                                     <i class="fab fa-whatsapp text-3xl text-white"></i>
                                                 </a>
                                                 @break
                                             @case('viber')
-                                                <a href="viber://chat?number=%2B{{$messenger->value}}"
+                                                <a href="viber://chat?number=%2B{{$messenger->value}}" rel="nofollow"
                                                    class="grow bg-black min-w-[29.5%] h-[54px] rounded-xl flex justify-center items-center">
                                                     <i class="fab fa-viber text-3xl text-white"></i>
                                                 </a>
                                                 @break
                                             @case('skype')
-                                                <a href="skype:{{$messenger->value}}?chat"
+                                                <a href="skype:{{$messenger->value}}?chat" rel="nofollow"
                                                    class="grow bg-black min-w-[29.5%] h-[54px] rounded-xl flex justify-center items-center">
                                                     <i class="fab fa-skype text-3xl text-white"></i>
                                                 </a>
@@ -103,7 +103,7 @@
                             @endif
                             @if(!empty($Buttons->toArray()))
                                 @foreach($Buttons as $Button)
-                                    <a href="{{$Button->url}}" target="_blank"
+                                    <a href="{{$Button->url}}" rel="nofollow" target="_blank"
                                        class=" grow bg-black min-w-full h-[54px] rounded-xl flex justify-center items-center gap-5">
 
                                         <h1 class="text-lg font-bold text-white">{{$Button->title}}</h1>
@@ -120,66 +120,66 @@
                                         @switch($socialLink->name)
                                             @case('facebook')
                                                 <a href="https://www.facebook.com/{{$socialLink->value}}"
-                                                   target="_blank"
+                                                   target="_blank" rel="nofollow"
                                                    class="min-w-[26%] h-[54px] rounded-xl flex justify-center items-center">
                                                     <i class="fab fa-facebook text-3xl cursor-pointer"></i>
                                                 </a>
                                                 @break
                                             @case('snapchat')
                                                 <a href="https://www.snapchat.com/add/{{$socialLink->value}}"
-                                                   target="_blank"
+                                                   target="_blank" rel="nofollow"
                                                    class="min-w-[26%] h-[54px] rounded-xl flex justify-center items-center">
                                                     <i class="fab fa-snapchat text-3xl cursor-pointer"></i>
                                                 </a>
                                                 @break
                                             @case('twitter')
-                                                <a href="https://twitter.com/{{$socialLink->value}}" target="_blank"
+                                                <a href="https://twitter.com/{{$socialLink->value}}" target="_blank" rel="nofollow"
                                                    class="min-w-[26%] h-[54px] rounded-xl flex justify-center items-center">
                                                     <i class="fab fa-twitter text-3xl cursor-pointer"></i>
                                                 </a>
                                                 @break
                                             @case('instagram')
                                                 <a href="https://instagram.com/_u/{{$socialLink->value}}/"
-                                                   target="_blank"
+                                                   target="_blank" rel="nofollow"
                                                    class="min-w-[26%] h-[54px] rounded-xl flex justify-center items-center">
                                                     <i class="fab fa-instagram text-3xl cursor-pointer"></i>
                                                 </a>
                                                 @break
                                             @case('tiktok')
-                                                <a href="https://tiktok.com/{{$socialLink->value}}" target="_blank"
+                                                <a href="https://tiktok.com/{{$socialLink->value}}" target="_blank" rel="nofollow"
                                                    class="min-w-[26%] h-[54px] rounded-xl flex justify-center items-center">
                                                     <i class="fab fa-tiktok text-3xl cursor-pointer"></i>
                                                 </a>
                                                 @break
                                             @case('pinterest')
                                                 <a href="https://www.pinterest.com/{{$socialLink->value}}"
-                                                   target="_blank"
+                                                   target="_blank" rel="nofollow"
                                                    class="min-w-[26%] h-[54px] rounded-xl flex justify-center items-center">
                                                     <i class="fab fa-pinterest text-3xl cursor-pointer"></i>
                                                 </a>
                                                 @break
                                             @case('linkedin')
                                                 <a href="https://www.linkedin.com/in/{{$socialLink->value}}"
-                                                   target="_blank"
+                                                   target="_blank" rel="nofollow"
                                                    class="min-w-[26%] h-[54px] rounded-xl flex justify-center items-center">
                                                     <i class="fab fa-linkedin text-3xl cursor-pointer"></i>
                                                 </a>
                                                 @break
                                             @case('patreon')
-                                                <a href="https://www.patreon.com/{{$socialLink->value}}" target="_blank"
+                                                <a href="https://www.patreon.com/{{$socialLink->value}}" target="_blank" rel="nofollow"
                                                    class="min-w-[26%] h-[54px] rounded-xl flex justify-center items-center">
                                                     <i class="fab fa-patreon text-3xl cursor-pointer"></i>
                                                 </a>
                                                 @break
                                             @case('youtube')
                                                 <a href="https://www.youtube.com/{{'@'.$socialLink->value}}"
-                                                   target="_blank"
+                                                   target="_blank" rel="nofollow"
                                                    class="min-w-[26%] h-[54px] rounded-xl flex justify-center items-center">
                                                     <i class="fab fa-youtube text-3xl cursor-pointer"></i>
                                                 </a>
                                                 @break
                                             @case('github')
-                                                <a href="https://www.github.com/{{$socialLink->value}}" target="_blank"
+                                                <a href="https://www.github.com/{{$socialLink->value}}" target="_blank" rel="nofollow"
                                                    class="min-w-[26%] h-[54px] rounded-xl flex justify-center items-center">
                                                     <i class="fab fa-github text-3xl cursor-pointer"></i>
                                                 </a>
