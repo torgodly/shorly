@@ -10,8 +10,7 @@ class MessageController extends Controller
 {
 
     public function index(){
-        $messages = Auth::user()->messages()->latest()->paginate(10);
-        return view('messages.index', compact( 'messages'));
+        return view('messages.index');
     }
 
     public function create(User $user){
