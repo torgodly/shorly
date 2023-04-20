@@ -33,7 +33,8 @@
         @endif
 
     </div>
-    <div class="flex items-center justify-center h-full">
+    <div class="flex items-center justify-center h-full ">
+
         <div class="bg-white p-8 w-full md:w-[45.6%] fixed bottom-0 rounded-t-3xl z-50 overflow-scroll max-h-screen"
              x-show='Messengers' x-swipe:down="Messengers = false, Share=true"
              @click.outside="Messengers = false, Share=true"
@@ -46,6 +47,20 @@
              x-transition:leave-end="transform translate-y-full opacity-0">
 
             <div class="">
+                <div wire:loading wire:target="clear">
+                    <div class="absolute inset-0 bg-gray-100/50 flex justify-center items-center flex-col">
+                        <x-application-logo class="block h-24 w-auto fill-current text-gray-800 z-10"/>
+                        <h1 class="text-2xl font-bold text-gray-800 z-10">{{ __('Clearing...') }}</h1>
+                    </div>
+                </div>
+
+                <div wire:loading wire:target="save">
+                    <div class="absolute inset-0 bg-gray-100/50 flex justify-center items-center flex-col ">
+                        <x-application-logo class="block h-24 w-auto fill-current text-gray-800 z-10"/>
+                        <h1 class="text-2xl font-bold text-gray-800 z-10">{{ __('Saving...') }}</h1>
+                    </div>
+                </div>
+
                 <div class="flex justify-between items-center ">
                     <button type="button" wire:click="clear"
                             class="inline-flex items-center rounded-full border border-transparent bg-red-600 p-2 text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">
@@ -54,20 +69,18 @@
                             <path stroke-linecap="round" stroke-linejoin="round"
                                   d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"/>
                         </svg>
-
                     </button>
+
                     <h1 class="font-bold">{{ __('MESSENGERS') }}</h1>
+
                     <button type="button" wire:click="save"
                             class="inline-flex items-center rounded-full border border-transparent bg-green-600 p-2 text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                              stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
                         </svg>
-
                     </button>
-
                 </div>
-
                 <div class="mt-10 space-y-[16px]">
                     {{-- messenger --}}
                     <div class="mt-1 rounded-md shadow-sm">
@@ -201,14 +214,14 @@
 
             </div>
 
-{{--            @if($loading)--}}
+            {{--            @if($loading)--}}
 
-{{--                <div class=" absolute inset-0  flex flex-col items-center justify-center bg-gray-100/50">--}}
+            {{--                <div class=" absolute inset-0  flex flex-col items-center justify-center bg-gray-100/50">--}}
 
-{{--                    <x-application-logo class="w-20 h-20 fill-current text-gray-500"/>--}}
-{{--                    <p class="text-gray-500 text-2xl font-bold">Saving...</p>--}}
-{{--                </div>--}}
-{{--            @endif--}}
+            {{--                    <x-application-logo class="w-20 h-20 fill-current text-gray-500"/>--}}
+            {{--                    <p class="text-gray-500 text-2xl font-bold">Saving...</p>--}}
+            {{--                </div>--}}
+            {{--            @endif--}}
         </div>
 
     </div>

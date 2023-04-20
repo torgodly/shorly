@@ -31,6 +31,19 @@
              x-transition:leave-end="transform translate-y-full opacity-0">
 
             <div>
+                <div wire:loading wire:target="clear">
+                    <div class="absolute inset-0 bg-gray-100/50 flex justify-center items-center flex-col">
+                        <x-application-logo class="block h-24 w-auto fill-current text-gray-800 z-10"/>
+                        <h1 class="text-2xl font-bold text-gray-800 z-10">{{ __('Clearing...') }}</h1>
+                    </div>
+                </div>
+
+                <div wire:loading wire:target="save">
+                    <div class="absolute inset-0 bg-gray-100/50 flex justify-center items-center flex-col ">
+                        <x-application-logo class="block h-24 w-auto fill-current text-gray-800 z-10"/>
+                        <h1 class="text-2xl font-bold text-gray-800 z-10">{{ __('Saving...') }}</h1>
+                    </div>
+                </div>
                 <div class="flex justify-between items-center ">
                     <button type="button" wire:click="clear"
                             class="inline-flex items-center rounded-full border border-transparent bg-red-600 p-2 text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">

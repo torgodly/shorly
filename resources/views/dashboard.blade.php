@@ -3,7 +3,7 @@
 
     </x-slot>
 
-    <div class="py-12">
+    <div class="py-5">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8  relative" x-data="{qr: false}">
             <div class="flex justify-center items-center gap-5 flex-col  w-full mb-2">
                 <a href="{{route('page.edit')}}"
