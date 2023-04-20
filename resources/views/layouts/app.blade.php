@@ -5,7 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'shorly') }}</title>
+    <title>Shorly - All Your Links in One Place</title>
+    <meta name="keywords" content="Shorly, links, organization, one place, landing page, social media, website, online presence, digital marketing, personal branding, portfolio, bio, contact information, networking, influencers, creators, bloggers, musicians, artists, entrepreneurs, small business">
+    <link rel="canonical" href="https://shor.ly/">
+    <meta property="og:title" content="Shorly - All Your Important Links in One Place">
+    <meta property="og:description" content="Shorly is a platform that helps you collect and organize all your important links in one place. Create your custom Shorly page today!">
+    <meta property="og:url" content="https://shor.ly/">
+    <meta property="og:image" content="https://shor.ly/images/logo/logo.png">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
     {{--        <script src="https://cdn.tailwindcss.com"></script>--}}

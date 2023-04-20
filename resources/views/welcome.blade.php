@@ -48,7 +48,7 @@
                         ماعنديش ما نقول مافكرتش شن بنحط في الصفحه هيا
                         <br>
 
-                        فا الي عنده تصميم مليح تواصل معاي من <a href="http://shor.ly/torgodly" class="text-[#f4812a]">هنا</a>
+                        فا الي عنده تصميم مليح تواصل معاي من <a href="https://shor.ly/torgodly" class="text-[#f4812a]">هنا</a>
                         <br>
 
                         <br>
