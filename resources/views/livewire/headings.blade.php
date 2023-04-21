@@ -5,9 +5,9 @@
             <h1 class="border-b-2 border-dashed border-[#666666] text-[#666666] font-bold font-sans text-3xl w-fit px-2 py-2">
                 {{ __('Title Here') }}</h1>
         @else
-            <div class="space-y-1 ">
+            <div class="space-y-1 " dir="auto">
                 <h1 class="font-bold text-3xl font-headings ">{{ $title }}</h1>
-                <h6 class="font-footer font-medium  text-base ">{{ $description }}</h6>
+                <h6 class="font-footer font-medium  text-base " >{{ $description }}</h6>
             </div>
         @endif
     </div>

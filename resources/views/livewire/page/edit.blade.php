@@ -102,7 +102,7 @@
                 </div>
 
 
-                <div
+                <div dir="ltr"
                     class="  bg-white p-2 w-[100%] md:w-[45.6%] h-[72px] fixed bottom-0 rounded-t-3xl shadow-2xl "
                     x-transition:enter="transition origin-top ease-out duration-300"
                     x-transition:enter-start="transform translate-y-full opacity-0"
@@ -119,7 +119,7 @@
                         </div>
                         <button @click="qr=true">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                 stroke="currentColor" class="w-7 h-7">
+                                 stroke="currentColor" class="w-7 h-7 ">
                                 <path stroke-linecap="round" stroke-linejoin="round"
                                       d="M3.75 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 013.75 9.375v-4.5zM3.75 14.625c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5a1.125 1.125 0 01-1.125-1.125v-4.5zM13.5 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 0113.5 9.375v-4.5z"/>
                                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -131,7 +131,7 @@
                         <a href="https://{{Auth::user()->link()}}" target="_blank"
                            class="rounded-full bg-[#f4812a] p-2 text-white shadow-sm hover:bg-[#f4812a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#f4812a]">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                 stroke="currentColor" class="w-5 h-5">
+                                 stroke="currentColor" class="w-5 h-5 ">
                                 <path stroke-linecap="round" stroke-linejoin="round"
                                       d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
                             </svg>

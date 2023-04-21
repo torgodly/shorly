@@ -2,7 +2,7 @@
 
     <div class="flex md:flex-row flex-col md:justify-between justify-center items-center md:space-y-2  sm:space-x-2">
         <select
-            class="px-4 py-2 border rounded-md shadow-sm text-sm font-medium text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            class="px-4 py-2 border rounded-md shadow-sm text-sm font-medium text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 rtl:text-left ltr:text-right"
             wire:model="scope">
             <option value="perDay">{{__('Per Day')}}</option>
             <option value="perWeek">{{__('Per Week')}}</option>

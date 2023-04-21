@@ -67,7 +67,7 @@
 
     </div>
     <div class="flex items-center justify-center h-full">
-        <div class=" bg-white p-8 w-[100%] md:w-[45.6%] fixed bottom-0 rounded-t-3xl z-50"
+        <div dir="ltr" class=" bg-white p-8 w-[100%] md:w-[45.6%] fixed bottom-0 rounded-t-3xl z-50"
              x-show='CreateButton' x-swipe:down="CreateButton = false, Share=true"
              @click.outside="CreateButton = false, Share=true"
              style="display: none"

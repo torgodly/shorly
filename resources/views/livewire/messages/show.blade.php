@@ -25,7 +25,7 @@
 
 
                         <div class="px-5  cursor-pointer text-center">
-                            <div class="space-y-4 ">
+                            <div class="space-y-4 " dir="auto">
                                 <h1 class="font-bold text-3xl font-headings ">{{ Auth::user()->heading?->title }}</h1>
                                 <h6 class="font-footer font-medium  text-base ">{{ Auth::user()->heading?->description }}</h6>
                             </div>
@@ -44,7 +44,7 @@
                                      aria-label="Tabs">
                                     <button @click="incomingMessage = true; favorites = false"
                                             :class="{ '!bg-[#f4812a]': incomingMessage, 'text-white': incomingMessage }"
-                                            class="text-gray-500  rounded-l-lg group relative min-w-0 flex-1 overflow-hidden bg-white py-4 px-4 text-center text-sm font-medium  focus:z-10 shadow">
+                                            class="text-gray-500  ltr:rounded-l-lg rtl:rounded-r-lg  group relative min-w-0 flex-1 overflow-hidden bg-white py-4 px-4 text-center text-sm font-medium  focus:z-10 shadow">
                                         <span>{{__("incoming messages")}}</span>
                                         <span aria-hidden="true"
                                               class="bg-transparent absolute inset-x-0 bottom-0 h-0.5"></span>
@@ -52,7 +52,7 @@
 
                                     <button @click="favorites = true; incomingMessage = false"
                                             :class="{ '!bg-[#f4812a]': favorites, 'text-white': favorites, 'shadow-[#f4812a]': favorites }"
-                                            class="text-gray-500  rounded-r-lg group relative min-w-0 flex-1 overflow-hidden bg-white py-4 px-4 text-center text-sm font-medium  focus:z-10 shadow ">
+                                            class="text-gray-500  ltr:rounded-r-lg rtl:rounded-l-lg group relative min-w-0 flex-1 overflow-hidden bg-white py-4 px-4 text-center text-sm font-medium  focus:z-10 shadow ">
                                         <span>{{__('favorite messages')}}</span>
                                         <span aria-hidden="true"
                                               class="bg-transparent absolute inset-x-0 bottom-0 h-0.5"></span>
@@ -166,8 +166,8 @@
                                                 </p>
 
                                                 <div class="flex justify-start items-center">
-                                                    <button wire:click="showDelete({{$favorite->id}})"
-                                                            class="bg-red-500 text-white px-2 py-1 rounded-md font-semibold text-sm">
+                                                    <button wire:click="showDelete({{$message->id}})"
+                                                            class="bg-red-500 text-white px-3 py-1 rounded-lg font-semibold text-sm">
                                                         {{__('Delete')}}
                                                     </button>
                                                 </div>
