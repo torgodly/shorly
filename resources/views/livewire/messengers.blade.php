@@ -35,7 +35,7 @@
     </div>
     <div class="flex items-center justify-center h-full ">
 
-        <div class="bg-white p-8 w-full md:w-[45.6%] fixed bottom-0 rounded-t-3xl z-50 overflow-scroll max-h-screen"
+        <div class="bg-white p-8 w-full md:w-[45.6%] fixed bottom-0 rounded-t-3xl z-50 overflow-y-auto scrollbar-hide max-h-screen"
              x-show='Messengers' x-swipe:down="Messengers = false, Share=true"
              @click.outside="Messengers = false, Share=true"
              style="display: none"
