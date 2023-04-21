@@ -53,7 +53,7 @@
                                     <button @click="favorites = true; incomingMessage = false"
                                             :class="{ '!bg-[#f4812a]': favorites, 'text-white': favorites, 'shadow-[#f4812a]': favorites }"
                                             class="text-gray-500  rounded-r-lg group relative min-w-0 flex-1 overflow-hidden bg-white py-4 px-4 text-center text-sm font-medium  focus:z-10 shadow ">
-                                        <span>{{__('favorite')}}</span>
+                                        <span>{{__('favorite messages')}}</span>
                                         <span aria-hidden="true"
                                               class="bg-transparent absolute inset-x-0 bottom-0 h-0.5"></span>
                                     </button>
