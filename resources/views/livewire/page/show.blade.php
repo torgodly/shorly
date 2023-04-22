@@ -146,7 +146,7 @@
                                                 </a>
                                                 @break
                                             @case('tiktok')
-                                                <a href="https://tiktok.com/{{$socialLink->value}}" target="_blank" rel="nofollow"
+                                                <a href="https://tiktok.com/@{{$socialLink->value}}" target="_blank" rel="nofollow"
                                                    class="min-w-[26%] h-[54px] rounded-xl flex justify-center items-center">
                                                     <i class="fab fa-tiktok text-3xl cursor-pointer"></i>
                                                 </a>

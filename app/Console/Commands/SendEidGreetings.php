@@ -27,11 +27,11 @@ class SendEidGreetings extends Command
      */
     public function handle()
     {
-        $user = \App\Models\User::find(1);
+        $users = \App\Models\User::all();
 
-//        foreach ($users as $user) {
-            Mail::to($user->email)->send(new EidGreetings(['user' => $user]));
-//        }
+        foreach ($users as $user) {
+            Mail::to($users->email)->send(new EidGreetings(['user' => $user]));
+        }
 
         $this->info('Eid greetings email sent successfully!');
     }
