@@ -30,7 +30,7 @@ class SendEidGreetings extends Command
         $users = \App\Models\User::all();
 
         foreach ($users as $user) {
-            Mail::to($users->email)->send(new EidGreetings(['user' => $user]));
+            Mail::to($user->email)->send(new EidGreetings(['user' => $user]));
         }
 
         $this->info('Eid greetings email sent successfully!');
