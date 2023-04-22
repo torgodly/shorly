@@ -32,9 +32,9 @@ class Show extends Component
         if (Auth::user()->id == $message->user_id) {
             //update message record is_favorite column to the opposite of what it is
             $message->update(['is_favorite' => !$message->is_favorite]);
-            dd('worked');
+//            dd('worked');
         }
-        dd('did not work');
+//        dd('did not work');
     }
 
     public function showDelete($message)
@@ -47,7 +47,7 @@ class Show extends Component
     public function delete($message)
     {
         $message = Message::find($message);
-        if (Auth::user()->id === $message->user_id) {
+        if (Auth::user()->id == $message->user_id) {
             $message->delete();
             $this->delete = false;
         }
