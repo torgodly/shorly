@@ -64,18 +64,23 @@
                                    class="md:text-2xl text-xl p-0 m-0 text-black border-none outline-none w-fit  ">
                         </div>
                         <button type="submit"
-                            class="hidden md:block text-xl text-black bg-[#FFDD00] font-bold py-2 px-4 rounded-full   w-full h-full whitespace-nowrap transform hover:scale-95 transition duration-200">
+                                class="hidden md:block text-xl text-black bg-[#FFDD00] font-bold py-2 px-4 rounded-full   w-full h-full whitespace-nowrap transform hover:scale-95 transition duration-200">
                             Get Started
                         </button>
                     </div>
                     <button type="submit"
-                        class="md:hidden block text-xl text-black bg-[#FFDD00] font-bold py-2 px-4 rounded-full   w-full h-full whitespace-nowrap transform hover:scale-95 transition duration-200">
+                            class="md:hidden block text-xl text-black bg-[#FFDD00] font-bold py-2 px-4 rounded-full   w-full h-full whitespace-nowrap transform hover:scale-95 transition duration-200">
                         Get Started
                     </button>
                 </div>
             </form>
             <div class="mt-5 text-[16px] font-medium text-black text-center">It’s free, and takes less than a minute.
             </div>
+            <div class="mt-5 text-[16px] font-medium text-black text-center"><span
+                    class="md:text-3xl text-2xl font-bold text-black pl-6">Number of users: <span class="text-[#f4812a]">{{$users}}</span></span>
+
+            </div>
+
         </div>
 
 
