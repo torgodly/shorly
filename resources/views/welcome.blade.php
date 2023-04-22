@@ -26,50 +26,54 @@
             </div>
             <div class="flex justify-center items-center gap-5">
                 <div>
-                    <a class="hidden md:block" href="https://www.buymeacoffee.com/torgodly">
+                    <a class="hidden md:block" href="https://www.buymeacoffee.com/torgodly" target="_blank">
                         <img
-                            src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=torgodly&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff"
+                            src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=torgodly&button_colour=FFDD00&font_colour=000000&font_family=Poppins&outline_colour=000000&coffee_colour=ffffff"
                             class="h-10"/>
                     </a>
                     <a class="md:hidden block" href="https://www.buymeacoffee.com/torgodly">
                         <img src="{{asset('images/icons/bmc-logo-yellow.png')}}" class="h-10 rounded-xl ">
                     </a>
                 </div>
-                    <div>
-                        <a href="{{route('login')}}" class="text-lg font-bold mr-4 font-comfortaa">Login</a>
-                        <a href="{{route('register')}}" class="bg-[#f9a826] text-white font-bold py-2 px-4 rounded-full font-comfortaa ">Sign Up
-                        </a>
-                    </div>
+                <div>
+                    <a href="{{route('login')}}" class="text-lg font-bold mr-4 font-comfortaa">Login</a>
+                    <a href="{{route('register')}}"
+                       class="bg-[#f9a826] text-white font-bold py-2 px-4 rounded-full font-comfortaa ">Sign Up
+                    </a>
                 </div>
+            </div>
         </nav>
 
         <div class="flex flex-col justify-center items-center w-[80%]">
             <div class="md:w-[60%] mt-10">
-                <h1 class="md:text-5xl text-3xl font-bold  md:font-comfortaa text-center     leading-tight mt-10 ">Get connected with our
+                <h1 class="md:text-5xl text-3xl font-bold  md:font-comfortaa text-center     leading-tight mt-10 ">Get
+                    connected with our
                     shortcut to all
                     your important links.</h1>
                 <p class="text-lg text-center mt-4">Shorly is a simple platform for creating a personalized landing page with all your links in one place, accessible through a single QR code.</p>
 
             </div>
+            <form action="{{route('register')}}" method="get">
 
-            <div class="flex flex-col md:flex-row gap-5 justify-center items-center mt-10 w-fit">
-                <div class="flex justify-between items-center gap-5 p-2 bg-white rounded-full md:w-full w-full  h-[74px] ">
-                    <div class="flex ">
-                        <span class="md:text-3xl text-2xl font-bold text-black pl-6">Shor.ly/</span>
-                        <input placeholder="username"
-                               class="md:text-2xl text-xl p-0 m-0 text-black border-none outline-none w-fit  ">
+                <div class="flex flex-col md:flex-row gap-5 justify-center items-center mt-10 w-fit">
+                    <div
+                        class="flex justify-between items-center gap-5 p-2 bg-white rounded-full md:w-full w-full  h-[74px] ">
+                        <div class="flex ">
+                            <span class="md:text-3xl text-2xl font-bold text-black pl-6">Shor.ly/</span>
+                            <input placeholder="username" name="username"
+                                   class="md:text-2xl text-xl p-0 m-0 text-black border-none outline-none w-fit  ">
+                        </div>
+                        <button type="submit"
+                            class="hidden md:block text-xl text-black bg-[#FFDD00] font-bold py-2 px-4 rounded-full   w-full h-full whitespace-nowrap transform hover:scale-95 transition duration-200">
+                            Get Started
+                        </button>
                     </div>
-                    <button
-                        class="hidden md:block text-xl text-black bg-[#FFDD00] font-bold py-2 px-4 rounded-full   w-full h-full whitespace-nowrap transform hover:scale-95 transition duration-200">
+                    <button type="submit"
+                        class="md:hidden block text-xl text-black bg-[#FFDD00] font-bold py-2 px-4 rounded-full   w-full h-full whitespace-nowrap transform hover:scale-95 transition duration-200">
                         Get Started
                     </button>
                 </div>
-                <button
-                    class="md:hidden block text-xl text-black bg-[#FFDD00] font-bold py-2 px-4 rounded-full   w-full h-full whitespace-nowrap transform hover:scale-95 transition duration-200">
-                    Get Started
-                </button>
-            </div>
-
+            </form>
             <div class="mt-5 text-[16px] font-medium text-black text-center">It’s free, and takes less than a minute.
             </div>
         </div>
