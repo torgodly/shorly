@@ -59,12 +59,22 @@ class Chart extends Component
 
         $this->visitors = Auth::user()->visitLogs()->{$this->scope}()->between($this->startDate, $this->endDate);
         foreach ($this->visitors as $visitor) {
-            if ($this->scope === 'perDay') {
-                $this->dates[] = Carbon::parse($visitor->date)->format('l');
-            } elseif ($this->scope === 'perMonth') {
-                $this->dates[] = Carbon::parse($visitor->date)->format('F Y');
-            } elseif ($this->scope === 'perYear') {
-                $this->dates[] = Carbon::parse($visitor->date)->format('Y');
+            switch($this->scope) {
+                case 'perDay':
+                    $this->dates[] = Carbon::parse($visitor->date)->format('l');
+                    break;
+                case 'perWeek':
+                    $this->dates[] = 'Week ' . Carbon::parse($visitor->date)->format('W') . ', ' . Carbon::parse($visitor->date)->format('Y');
+                    break;
+                case 'perMonth':
+                    $this->dates[] = Carbon::parse($visitor->date)->format('F Y');
+                    break;
+                case 'perYear':
+                    $this->dates[] = Carbon::parse($visitor->date)->format('Y');
+                    break;
+                default:
+                    // Handle unknown scope
+                    break;
             }
             $this->views[] = $visitor->views;
         }

@@ -3,6 +3,8 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -11,9 +13,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Shetabit\Visitor\Traits\Visitable;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable, Visitable;
+    use softDeletes;
+
 
     /**
      * The attributes that are mass assignable.
@@ -58,7 +62,7 @@ class User extends Authenticatable
         return $this->hasMany(SocialLink::class);
     }
 
-    public function page(): HasOne
+    public function heading(): HasOne
     {
         return $this->hasOne(Heading::class);
     }
@@ -91,6 +95,27 @@ class User extends Authenticatable
 
     public function link(){
         return 'shor.ly'.'/'.$this->username;
+    }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function ($user) {
+            $user->heading()->delete();
+            $user->messengers()->delete();
+            $user->socialLinks()->delete();
+            $user->buttons()->delete();
+            $user->messages()->delete();
+        });
+
+        static::restoring(function ($user) {
+            $user->heading()->restore();
+            $user->messengers()->restore();
+            $user->socialLinks()->restore();
+            $user->buttons()->restore();
+            $user->messages()->restore();
+        });
     }
 
 }

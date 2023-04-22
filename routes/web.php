@@ -28,7 +28,7 @@ Route::domain('dash.' . env('APP_URL'))->group(function () {
         return view('dashboard');
     })->middleware(['auth', 'verified'])->name('dashboard');
 
-    Route::middleware('auth')->group(function () {
+    Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
         Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
         Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -36,6 +36,8 @@ Route::domain('dash.' . env('APP_URL'))->group(function () {
 
         Route::get('page', [PageController::class, 'edit'])->name('page.edit');
         Route::post('page', [PageController::class, 'update'])->name('page.update');
+//        create index for messages
+        Route::get('messages', [MessageController::class, 'index'])->name('message.index');
 
 
     });

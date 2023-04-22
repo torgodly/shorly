@@ -46,9 +46,9 @@
                     </a>
                 @endif
 
-                <a class="underline text-base text-blue-600 hover:text-blue-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                <a class="underline text-sm text-blue-600 hover:text-blue-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                    href="{{ route('register') }}">
-                    {{ __('Register new account') }}
+                    {{ __("Don't have an account?") }}
                 </a>
             </div>
 
