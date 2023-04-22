@@ -31,7 +31,7 @@ class EidGreetings extends Mailable
      */
     public function build()
     {
-        return $this->subject('عيد مبارك وكل عام وأنتم بخير 🌙')
+        return $this->subject('عيد مبارك وكل عام وأنتم بخير 🌙 هدية العيد من شورلي')
             ->view('mail.eid-greetings')
             ->with([
                 'user' => $this->user,
