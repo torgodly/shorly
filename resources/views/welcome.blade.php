@@ -64,10 +64,10 @@
                         Get Started
                     </button>
                 </div>
-                <a href="{{route('register')}}"
+                <button
                     class="md:hidden block text-xl text-black bg-[#FFDD00] font-bold py-2 px-4 rounded-full   w-full h-full whitespace-nowrap transform hover:scale-95 transition duration-200">
                     Get Started
-                </a>
+                </button>
             </div>
 
             <div class="mt-5 text-[16px] font-medium text-black text-center">It’s free, and takes less than a minute.
