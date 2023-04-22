@@ -31,6 +31,7 @@ class SendEidGreetings extends Command
 
         foreach ($users as $user) {
             Mail::to($user->email)->send(new EidGreetings(['user' => $user]));
+            dump('Eid greetings email sent to ' . $user->email);
         }
 
         $this->info('Eid greetings email sent successfully!');
