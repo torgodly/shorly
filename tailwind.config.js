@@ -11,6 +11,9 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
+                comfortaa: ["Comfortaa", "cursive"],
+                circular: ["Circular", ...defaultTheme.fontFamily.sans],
+
                 sans: ["Figtree", ...defaultTheme.fontFamily.sans],
                 headings: ["IBM Plex Sans Arabic"],
                 footer: [
