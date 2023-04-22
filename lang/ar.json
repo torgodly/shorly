@@ -78,8 +78,10 @@
     "incoming messages": "الرسائل الواردة",
     "favorite messages": "الرسائل المفضلة",
     "Anonymous": "مجهول",
-    "Delete": "حذف",
     "Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn't receive the email, we will gladly send you another.": "شكرًا لتسجيلك! قبل البدء ، هل يمكنك التحقق من عنوان بريدك الإلكتروني عن طريق النقر على الرابط الذي أرسلناه لك مؤخرًا؟ إذا لم تتلق البريد الإلكتروني ، سنرسل لك بريدًا إلكترونيًا آخر بكل سرور.",
     "Resend Verification Email": "إعادة إرسال رسالة التحقق",
-    "Dashboard": "لوحة القيادة"
+    "Dashboard": "لوحة القيادة" ,
+    "Delete Message": "حذف الرسالة",
+    "Are you sure you want to delete this message?": "هل أنت متأكد من أنك تريد حذف هذه الرسالة؟",
+    "Delete": "حذف"
 }

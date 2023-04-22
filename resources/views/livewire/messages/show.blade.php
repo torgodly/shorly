@@ -60,7 +60,7 @@
                                 </nav>
                             </div>
 
-                            <div x-show="incomingMessage" style="display: none" class="w-full space-y-5">
+                            <div x-show="incomingMessage" style="display: none" class="w-full space-y-5" >
                                 @if($messages->isEmpty())
                                     <div class="w-full flex flex-col justify-center items-center border-y-2 py-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
@@ -184,7 +184,7 @@
 
 
                             </div>
-                            <div x-show="Delete" style="display: none" class="fixed z-10 inset-0  overflow-y-auto">
+                            <div x-show="Delete" style="display: none" class="fixed z-10 inset-0  overflow-y-auto" dir="ltr">
                                 <div class="fixed z-10 inset-0 overflow-y-auto flex items-center justify-center">
 
                                     <!-- Background overlay -->
@@ -198,13 +198,13 @@
 
                                         <!-- Popup header -->
                                         <div class="bg-red-500 px-4 py-3">
-                                            <h2 class="text-lg font-medium text-white">Delete Message</h2>
+                                            <h2 class="text-lg font-medium text-white">{{__('Delete Message')}}</h2>
                                         </div>
 
                                         <!-- Popup body -->
                                         <div class="px-4 py-5 sm:p-6">
                                             <p class="text-gray-700">
-                                                Are you sure you want to delete this message? This action cannot be undone.
+                                                {{__('Are you sure you want to delete this message?')}}
                                             </p>
                                         </div>
 
@@ -212,11 +212,11 @@
                                         <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
                                             <button wire:click="delete({{$messageId}})" type="button"
                                                     class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-500 text-base font-medium text-white hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm">
-                                                Delete
+                                                {{__('Delete')}}
                                             </button>
                                             <button @click="Delete = false" type="button"
                                                     class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:w-auto sm:text-sm">
-                                                Cancel
+                                                {{__('Cancel')}}
                                             </button>
                                         </div>
 
