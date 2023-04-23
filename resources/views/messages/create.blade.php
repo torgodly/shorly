@@ -91,7 +91,7 @@
                     <div class="mt-10 w-full h-fit flex justify-center px-2">
                         <footer class="flex gap-x-1 justify-center items-center">
                                     <span class="font-footer ">made on <a
-                                            href="{{env('APP_URL')}}"><strong>shor.ly</strong></a></span>
+                                            href="https://{{env('APP_URL')}}"><strong>shor.ly</strong></a></span>
                         </footer>
 
                     </div>
