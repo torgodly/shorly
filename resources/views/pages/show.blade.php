@@ -8,7 +8,7 @@
 
     <title>{{$title}} - {{$description}}</title>
     <meta name="keywords" content="{{$title}} - {{$description}}">
-    <link rel="canonical" href="https://shor.ly/">
+    <link rel="canonical" href="https://shor.ly/{{$user->username}}">
     <meta property="og:title" content="{{$title}}">
     <meta property="og:description" content=" {{$description}}">
     <meta property="og:url" content="https://shor.ly/{{$user->username}}">
