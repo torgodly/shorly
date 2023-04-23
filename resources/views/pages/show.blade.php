@@ -10,7 +10,7 @@
     <meta name="keywords" content="{{$title}} - {{$description}}">
     <link rel="canonical" href="https://shor.ly/">
     <meta property="og:title" content="{{$title}}">
-    <meta property="og:description" content=" $description">
+    <meta property="og:description" content=" {{$description}}">
     <meta property="og:url" content="https://shor.ly/{{$user->username}}">
     <meta property="og:image" content="https://shor.ly/images/UserAvatar/{{$user->id}}.png">
 
