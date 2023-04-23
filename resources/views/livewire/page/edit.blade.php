@@ -8,7 +8,7 @@
                         @if (file_exists('images/UserAvatar/' . Auth::user()->id . '.png'))
                             <div class="relative">
                                 <img src="{{ 'images/UserAvatar/' . $imgurl }}"
-                                     class="rounded-full w-[100px] h-[100px] flex justify-center items-center" id="avatar" alt="{{Auth::user()->username}}">
+                                     class="rounded-full w-[100px] h-[100px] flex justify-center items-center" >
 
                                 <button wire:click="delete_image"
                                         class="absolute bottom-0 right-0 bg-gray-800/50 rounded-full p-1 text-white">
@@ -74,7 +74,7 @@
 
                     <div class="flex flex-col justify-center items-center space-y-5">
                         <h1 class="text-[#f4812a] text-2xl font-bold ">Shor.ly</h1>
-                        <h1 class=" text-lg " id="UserLink">https://{{Auth::user()->link()}}</h1>
+                        <h1 class=" text-lg " id="UserLink" title="{{Auth::user()->username}}">https://{{Auth::user()->link()}}</h1>
                         <div id="canvas"></div>
                         <div class="flex gap-5">
                             <button type="button" id="PNG"
