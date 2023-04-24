@@ -8,7 +8,7 @@
                 <div class="space-y-4">
                     <div class=" flex flex-col justify-center items-center space-y-4">
 
-                        <div class="px-6 flex justify-center items-center   w-full relative">
+                        <div class="px-6 flex justify-center items-center   w-full relative py-5">
 
                             @if (file_exists('images/UserAvatar/' . Auth::user()->id . '.png'))
                                 <div class="relative">
