@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2d7f1508bded005e5f47ba62f570e8a1",
+    "content-hash": "423041afba81b1c647eb80693ea83264",
     "packages": [
         {
             "name": "brick/math",
@@ -3450,77 +3450,6 @@
             "time": "2023-01-12T18:13:24+00:00"
         },
         {
-            "name": "shetabit/visitor",
-            "version": "v4.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/shetabit/visitor.git",
-                "reference": "56800438f6facb868e5ccaab0c252f10aec1d505"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/shetabit/visitor/zipball/56800438f6facb868e5ccaab0c252f10aec1d505",
-                "reference": "56800438f6facb868e5ccaab0c252f10aec1d505",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/support": "^5.1|6.*|7.*|8.*|9.*|10.*",
-                "jenssegers/agent": "^2.6",
-                "php": ">=7.2",
-                "ua-parser/uap-php": "^3.9"
-            },
-            "require-dev": {
-                "orchestra/testbench": "^4.0",
-                "phpunit/phpunit": ">=7.5",
-                "squizlabs/php_codesniffer": "^3.4"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Shetabit\\Visitor\\Provider\\VisitorServiceProvider"
-                    ],
-                    "aliases": {
-                        "Visitor": "Shetabit\\Visitor\\Facade\\Visitor"
-                    }
-                }
-            },
-            "autoload": {
-                "files": [
-                    "src/helpers.php"
-                ],
-                "psr-4": {
-                    "Shetabit\\Visitor\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Mahdi Khanzadi",
-                    "email": "khanzadimahdi@gmail.com",
-                    "homepage": "https://github.com/khanzadimahdi",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Laravel visitor",
-            "homepage": "https://github.com/shetabit/visitor",
-            "keywords": [
-                "parse laravel user agents",
-                "shetabit",
-                "trace laravel visitors",
-                "track laravel visitors",
-                "visitor"
-            ],
-            "support": {
-                "issues": "https://github.com/shetabit/visitor/issues",
-                "source": "https://github.com/shetabit/visitor/tree/v4.0.0"
-            },
-            "time": "2023-02-27T08:05:29+00:00"
-        },
-        {
             "name": "stevebauman/location",
             "version": "v6.6.2",
             "source": {
@@ -5835,6 +5764,76 @@
                 "source": "https://github.com/tijsverkoyen/CssToInlineStyles/tree/2.2.6"
             },
             "time": "2023-01-03T09:29:04+00:00"
+        },
+        {
+            "name": "torgodly/visitor",
+            "version": "v1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/torgodly/visitor.git",
+                "reference": "82e6afa3fb75f92141c2f45d36cc58f25ecc11ad"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/torgodly/visitor/zipball/82e6afa3fb75f92141c2f45d36cc58f25ecc11ad",
+                "reference": "82e6afa3fb75f92141c2f45d36cc58f25ecc11ad",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^5.1|6.*|7.*|8.*|9.*|10.*",
+                "jenssegers/agent": "^2.6",
+                "php": ">=7.2",
+                "ua-parser/uap-php": "^3.9"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^4.0",
+                "phpunit/phpunit": ">=7.5",
+                "squizlabs/php_codesniffer": "^3.4"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "torgodly\\Visitor\\Provider\\VisitorServiceProvider"
+                    ],
+                    "aliases": {
+                        "Visitor": "torgodly\\Visitor\\Facade\\Visitor"
+                    }
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ],
+                "psr-4": {
+                    "torgodly\\Visitor\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mahdi Khanzadi",
+                    "email": "khanzadimahdi@gmail.com",
+                    "homepage": "https://github.com/khanzadimahdi",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Laravel visitor",
+            "homepage": "https://github.com/torgodly/visitor",
+            "keywords": [
+                "parse laravel user agents",
+                "torgodly",
+                "trace laravel visitors",
+                "track laravel visitors",
+                "visitor"
+            ],
+            "support": {
+                "source": "https://github.com/torgodly/visitor/tree/v1.0"
+            },
+            "time": "2023-04-24T23:37:36+00:00"
         },
         {
             "name": "ua-parser/uap-php",
