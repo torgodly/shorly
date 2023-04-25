@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Shetabit\Visitor\Traits\Visitable;
+use torgodly\Visitor\Traits\Visitable;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
