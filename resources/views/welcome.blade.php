@@ -24,7 +24,7 @@
     <!-- Styles -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])</head>
 <body>
-<div class="bg-gradient-to-r from-[#e2fef4] to-[#fdf5cf] h-screen">
+<div class="bg-gradient-to-r from-[#e2fef4] to-[#fdf5cf] h-full">
     <div class=" flex flex-col justify-center items-center">
         <nav class="flex justify-between items-center p-4 md:bg-white rounded-full w-full md:w-[75%] mt-6">
             <div class="flex items-center">
