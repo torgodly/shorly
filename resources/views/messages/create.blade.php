@@ -12,7 +12,7 @@
     <title>{{$user->name}} </title>
     <meta property="og:title" content="صارحني برسالة سرية {{$user->name}}">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://shor.ly/{{$user->username}}">
+    <meta property="og:url" content="https://shor.ly/{{$user->username}}/message">
     <meta property="og:image" content="{{asset('images/logo/SecretMessage.jpg')}}">
     <meta property="og:image:width" content="737">
     <meta property="og:image:height" content="384">
