@@ -24,7 +24,7 @@
     <!-- Styles -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])</head>
 <body>
-<div class="bg-gradient-to-r from-[#e2fef4] to-[#fdf5cf] h-full">
+<div class="bg-gradient-to-r from-[#e2fef4] to-[#fdf5cf] h-screen ">
     <div class=" flex flex-col justify-center items-center">
         <nav class="flex justify-between items-center p-4 md:bg-white rounded-full w-full md:w-[75%] mt-6">
             <div class="flex items-center">
@@ -52,8 +52,8 @@
         </nav>
 
         <div class="flex flex-col justify-center items-center w-[80%]">
-            <div class="md:w-[60%] mt-10">
-                <h1 class="md:text-5xl text-3xl font-bold  md:font-comfortaa text-center     leading-tight mt-10 ">Get
+            <div class="md:w-[60%] md:mt-10">
+                <h1 class="md:text-5xl text-3xl font-bold  md:font-comfortaa text-center     leading-tight md:mt-10 mt-5 ">Get
                     connected with our
                     shortcut to all
                     your important links.</h1>
