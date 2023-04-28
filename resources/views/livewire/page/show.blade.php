@@ -97,7 +97,7 @@
                                    class=" grow bg-black min-w-full h-[54px] rounded-xl flex justify-center items-center gap-5">
 
                                     <i class="fa-solid fa-message  text-3xl text-white"></i>
-                                    <h1 class="text-lg font-bold text-white">Secret Messages🤫🔐</h1>
+                                    <h1 class="text-lg font-bold text-white">{{__('Send Secret Message')}}🤫🔐</h1>
 
                                 </a>
                             @endif
