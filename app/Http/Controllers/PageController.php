@@ -43,7 +43,7 @@ class PageController extends Controller
         $title = $user->heading?->title;
         $description = $user->heading?->description;
 
-        visitor()->visit($user, 60);
+        visitor()->visit($user, 300);
 //        dd($user->visitLogs()->perDay()->toArray());
         return view('pages.show',['user'=>$user,'title'=>$title,'description'=>$description]);
     }
