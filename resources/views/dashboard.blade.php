@@ -1,4 +1,4 @@
-<x-app-layout>
+    <x-app-layout>
     <x-slot name="nav">
 
     </x-slot>
@@ -6,20 +6,16 @@
     <div class="py-5">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8  relative" x-data="{qr: false}">
             <div class="flex justify-center items-center gap-5 flex-col  w-full mb-2">
-                <a href="{{route('page.edit')}}"
-                   class="bg-[#f4812a] hover:bg-[#DE8C1B] text-white font-bold py-2 px-4 rounded-2xl w-full text-center flex justify-center items-center gap-2">
+                <x-primary-button onclick="location.href='{{route('page.edit')}}'"
+                    class="!text-xl w-2/3 flex justify-center items-center">
                     {{__('Edit My Page')}}
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
-                        <path d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-12.15 12.15a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32L19.513 8.2z" />
-                    </svg>
-                </a>
-                <a href="{{route('message.index')}}"
-                   class="bg-blue-500  text-white font-bold py-2 px-4 rounded-2xl w-full text-center flex justify-center items-center gap-2">
+
+                </x-primary-button>
+                <x-primary-button onclick="location.href='{{route('message.index')}}'"
+                    class="!text-xl bg-blue-500 hover:bg-blue-400 w-2/3 flex justify-center items-center">
                     {{__('My Messages')}}
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
-                        <path fill-rule="evenodd" d="M4.848 2.771A49.144 49.144 0 0112 2.25c2.43 0 4.817.178 7.152.52 1.978.292 3.348 2.024 3.348 3.97v6.02c0 1.946-1.37 3.678-3.348 3.97-1.94.284-3.916.455-5.922.505a.39.39 0 00-.266.112L8.78 21.53A.75.75 0 017.5 21v-3.955a48.842 48.842 0 01-2.652-.316c-1.978-.29-3.348-2.024-3.348-3.97V6.741c0-1.946 1.37-3.68 3.348-3.97z" clip-rule="evenodd" />
-                    </svg>
-                </a>
+
+                </x-primary-button>
             </div>
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg max-h-screen relative">
                 <div class="p-6 text-gray-900 space-y-5">
@@ -28,19 +24,13 @@
                             @if (file_exists('images/UserAvatar/' . Auth::user()->id . '.png'))
                                 <img src="{{ 'images/UserAvatar/' . Auth::user()->id . '.png' }}"
                                      class="w-14 h-14 rounded-full" id="avatar" alt="{{Auth::user()->username}}">
-
                             @else
                                 <img src="https://api.dicebear.com/6.x/notionists/svg?seed={{Auth::user()->username}}"
                                      alt="Avatar" class="w-14 h-14  rounded-full" id="avatar" alt="{{Auth::user()->username}}">
-
                             @endif
-
                             <div class="flex gap-5 justify-center items-center ml-4">
                                 <p class="text-xl  font-semibold text-[#f4812a] ">{{ substr(Auth::user()->link(), 0, 20) . '...' }}</p>
                                 <div class="">
-
-
-
                                     <button @click="qr=!qr">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                              stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
